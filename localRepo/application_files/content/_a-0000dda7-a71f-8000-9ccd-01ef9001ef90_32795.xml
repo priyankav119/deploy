@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>CRM_RP_AllTasksPerformanceReport</name>
+        <uuid>_a-0000dda7-a71f-8000-9ccd-01ef9001ef90_32795</uuid>
+        <description></description>
+        <parentUuid>_a-0000dda7-a71f-8000-9ccd-01ef9001ef90_32781</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>load(
+  local!status:&quot;Pending&quot;, 
+      local!taskId, 
+      local!fromDate, 
+      local!toDate,
+      local!completeFromDate,
+      local!completeToDate,
+      local!selectedTaskId,
+      local!pagingInfo:#&quot;SYSTEM_SYSRULES_pagingInfo&quot;(startIndex:1,batchSize:5,sort:#&quot;SYSTEM_SYSRULES_sortInfo&quot;(field:&quot;id&quot;,ascending:true)),
+  with(
+    local!taskDetails:#&quot;_a-0000dda7-a71f-8000-9ccd-01ef9001ef90_32785&quot;(
+      status:local!status, 
+      taskId:local!taskId, 
+      fromDate:todate(local!fromDate), 
+      toDate:todate(local!toDate),
+      completeFromDate:local!completeFromDate,
+      completeToDate:local!completeToDate
+    ),
+    local!taskGridDetails:if(#&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(local!selectedTaskId),{},#&quot;_a-0000dda7-a71f-8000-9ccd-01ef9001ef90_32803&quot;(
+      status:local!status, 
+      taskId:local!taskId, 
+      fromDate:local!fromDate, 
+      toDate:local!toDate,
+      completeFromDate:local!completeFromDate,
+      completeToDate:local!completeToDate,
+      selectedTaskId:local!selectedTaskId
+      
+    )),
+#&quot;SYSTEM_SYSRULES_dashboardLayout&quot;(
+  firstColumnContents: {
+    
+    #&quot;_a-0000dda7-a71f-8000-9ccd-01ef9001ef90_32784&quot;(
+      status:local!status, 
+      taskId:local!taskId, 
+      fromDate:local!fromDate, 
+      toDate:local!toDate,
+      completeFromDate:local!completeFromDate,
+      completeToDate:local!completeToDate,
+      pagingInfo:local!pagingInfo,
+      selectedTaskId:local!selectedTaskId
+      ),
+    #&quot;_a-0000dda7-a71f-8000-9ccd-01ef9001ef90_32787&quot;(taskDetails:local!taskDetails,selectedTaskId:local!selectedTaskId,status:local!status,pagingInfo:local!pagingInfo),
+    if(#&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(local!selectedTaskId),{},#&quot;_a-0000dda7-a71f-8000-9ccd-01ef9001ef90_32796&quot;(pagingInfo:local!pagingInfo,taskDetails:local!taskGridDetails,status:local!status))
+  },
+  secondColumnContents: {
+    /* Add components here for a two-column dashboard */
+  }
+)
+)
+)</definition>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+</contentHaul>

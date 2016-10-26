@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="urn:com:appian:types:CRM"
+  xmlns:tns="urn:com:appian:types:CRM" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="CRM_Scheduled_Test">
+    <xsd:annotation>
+      <xsd:appinfo source="appian.jpa">
+	  @Table(name="CRM_Scheduled_Test")
+	  </xsd:appinfo>
+      <xsd:documentation><![CDATA[fields related to the CRM task]]></xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="id" nillable="true" type="xsd:int">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Id @Column(name="id")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="taskId" nillable="true" type="xsd:int">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name="task_id")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="clientId" nillable="true" type="xsd:int">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name="client_id")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="taskName" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name="task_name")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="clientName" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name="client_name")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="taskStatus" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name="status")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="completedDate" nillable="true" type="xsd:dateTime">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name="comleted_date")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="dueDate" nillable="true" type="xsd:dateTime">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name="due_date")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

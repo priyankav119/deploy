@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>CRM_RP_TaskStatusColumnChart</name>
+        <uuid>_a-0000dda7-a71f-8000-9ccd-01ef9001ef90_32787</uuid>
+        <description></description>
+        <parentUuid>_a-0000dda7-a71f-8000-9ccd-01ef9001ef90_32781</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>=#&quot;SYSTEM_SYSRULES_columnChartField&quot;(&#xD;
+  label: &quot;Task Recurrence for &quot;&amp;ri!status,&#xD;
+  labelPosition: &quot;ABOVE&quot;,&#xD;
+  categories: {reject(fn!isNull,union(index(ri!taskDetails,&quot;taskName&quot;,{}),index(ri!taskDetails,&quot;taskName&quot;,{})))},&#xD;
+  series: {&#xD;
+    #&quot;SYSTEM_SYSRULES_chartSeries&quot;(&#xD;
+      label:&quot;Recurrence&quot;,&#xD;
+      data:apply(#&quot;_a-0000dda7-a71f-8000-9ccd-01ef9001ef90_32790&quot;(_,ri!taskDetails),{reject(fn!isNull,union(index(ri!taskDetails,&quot;taskId&quot;,{}),index(ri!taskDetails,&quot;taskId&quot;,{})))}),&#xD;
+      links:#&quot;SYSTEM_SYSRULES_applyComponents&quot;(&#xD;
+        #&quot;SYSTEM_SYSRULES_dynamicLink&quot;(&#xD;
+          value:_,&#xD;
+          saveInto:{&#xD;
+            ri!selectedTaskId,&#xD;
+            if(#&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(ri!pagingInfo),{},a!save(ri!pagingInfo.startIndex,1))&#xD;
+            &#xD;
+            }&#xD;
+          &#xD;
+        ),&#xD;
+        {reject(fn!isNull,union(index(ri!taskDetails,&quot;taskId&quot;,{}),index(ri!taskDetails,&quot;taskId&quot;,{})))}&#xD;
+      )&#xD;
+    )&#xD;
+    /*apply(rule!C360_collateralRequestChartSeries(_,ri!requestDetails,ri!requestYearClient,ri!requestStatusClient),{reject(fn!isnull,union(index(ri!requestDetails,&quot;year&quot;,{}),index(ri!requestDetails,&quot;year&quot;,{})))})*/&#xD;
+  },&#xD;
+  yAxisTitle: &quot;Number of Task Recurrence&quot;,&#xD;
+  stacking: &quot;NORMAL&quot;,&#xD;
+  showLegend: true,&#xD;
+  showDataLabels: true&#xD;
+)</definition>
+        <namedTypedValue>
+            <name>taskDetails</name>
+            <type>
+                <name>Variant</name>
+                <namespace>http://www.appian.com/ae/types/2009</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>selectedTaskId</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>status</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>pagingInfo</name>
+            <type>
+                <name>Variant</name>
+                <namespace>http://www.appian.com/ae/types/2009</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig?list</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <el>
+                <a:name/>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string"/>
+                    <a:nameRef>taskDetails</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="xsd:int"/>
+                    <a:nameRef>selectedTaskId</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string"/>
+                    <a:nameRef>status</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string"/>
+                    <a:nameRef>pagingInfo</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:assertions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+            </el>
+        </value>
+    </typedValue>
+</contentHaul>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dataStoreHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <dataStore>
+        <uuid>_a-0000dda7-a71f-8000-9ccd-01ef9001ef90_32771</uuid>
+        <name>Test_DataStore</name>
+        <description>Contains cdt of BOT</description>
+        <dataSourceKey>jdbc/SqlServerDS</dataSourceKey>
+        <adaptingExplicitSqlNames>false</adaptingExplicitSqlNames>
+        <autoUpdateSchema>false</autoUpdateSchema>
+        <entities>
+            <entity>
+                <uuid>6899a26b-5953-49e3-8b75-b65a58942dbe</uuid>
+                <name>CRM_Scheduled_Test</name>
+                <type>{urn:com:appian:types:CRM}CRM_Scheduled_Test</type>
+            </entity>
+            <entity>
+                <uuid>4910d0f6-b0cf-448f-84cc-e344d7638621</uuid>
+                <name>CRM_ClientDetailsUpdatedView</name>
+                <type>{urn:com:appian:types:CRM}CRM_ClientDetailsUpdatedView</type>
+            </entity>
+            <entity>
+                <uuid>5665f7de-f3ff-4217-ba2f-a550c5c6268a</uuid>
+                <name>CRM_AdditionalFlagAudit</name>
+                <type>{urn:com:appian:types:CRM}CRM_AdditionalFlagAudit</type>
+            </entity>
+            <entity>
+                <uuid>ac4039a8-f06b-4b08-9271-fddc5e593012</uuid>
+                <name>CRM_BOT_AssignedEmployee</name>
+                <type>{urn:com:appian:types:CRM}CRM_BOT_AssignedEmployee</type>
+            </entity>
+            <entity>
+                <uuid>de99a3de-0ad3-48e0-aaaf-2e5c210f7b60</uuid>
+                <name>CRM__BOT_AdditionalFlagAuditView</name>
+                <type>{urn:com:appian:types:CRM}CRM__BOT_AdditionalFlagAuditView</type>
+            </entity>
+        </entities>
+    </dataStore>
+    <isPublished>true</isPublished>
+    <roleMap>
+        <role allowForAll="false" inherit="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+</dataStoreHaul>

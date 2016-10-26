@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>CRM_RP_ScheduledTaskStatusFilterSection</name>
+        <uuid>_a-0000dda7-a71f-8000-9ccd-01ef9001ef90_32784</uuid>
+        <description>Provides Filter Section for Scheduled Task Report</description>
+        <parentUuid>_a-0000dda7-a71f-8000-9ccd-01ef9001ef90_32783</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>{#&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+  label: &quot;&quot;,
+  firstColumnContents: {
+    #&quot;SYSTEM_SYSRULES_dropdownField&quot;(
+      label:&quot;Status&quot;,
+      labelPosition:&quot;ADJACENT&quot;,
+      choiceLabels:{&quot;Pending&quot;,&quot;Assigned&quot;,&quot;Complete&quot;,&quot;Timeout&quot;,&quot;Postponed&quot;},
+      choiceValues:{&quot;Pending&quot;,&quot;Assigned&quot;,&quot;Complete&quot;,&quot;Timeout&quot;,&quot;Postponed&quot;},
+      value:if(#&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(ri!status),&quot;Pending&quot;,ri!status),
+      saveInto:{
+        
+        a!save(ri!status,if(#&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(save!value),&quot;Pending&quot;,save!value)),
+        a!save(ri!fromDate,null),
+        a!save(ri!toDate,null),
+        a!save(ri!completeFromDate,null),
+        a!save(ri!completeToDate,null),
+        a!save(ri!selectedTaskId,null),
+        if(#&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(ri!pagingInfo),{},a!save(ri!pagingInfo.startIndex,1))
+      }
+    ),
+    
+  },
+  secondColumnContents: {
+    #&quot;SYSTEM_SYSRULES_multipleDropdownField&quot;(
+      label:&quot;Task Name&quot;,
+      labelPosition:&quot;ADJACENT&quot;,
+      choiceLabels:{&quot;Atlan 1&quot;,&quot;Call Customer&quot;,&quot;CRM REVIEW AD-HOC TASK 1&quot;,&quot;ADhocTT&quot;,&quot;Call customer&quot;},
+      choiceValues:{&quot;336&quot;,&quot;106&quot;,&quot;219&quot;,&quot;207&quot;,&quot;105&quot;},
+      value:ri!taskId,
+      saveInto:{a!save(ri!taskId,save!value),
+        if(#&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(ri!pagingInfo),{},a!save(ri!pagingInfo.startIndex,1))
+      }
+    
+    )
+  },
+  validations: {}
+),
+
+if(ri!status=&quot;Complete&quot;,
+#&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+  label: &quot;Task Completion Date&quot;,
+  firstColumnContents: {
+    #&quot;SYSTEM_SYSRULES_dateField&quot;(
+      label:&quot;Start Date&quot;,
+      labelPosition:&quot;ADJACENT&quot;,
+      instructions:&quot;Please choose a Start Date for range.&quot;,
+      value:ri!completeFromDate,
+      saveInto:{a!save(ri!completeFromDate,save!value),
+        if(#&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(ri!pagingInfo),{},a!save(ri!pagingInfo.startIndex,1))}/*,
+      validations:if(or(isnull(ri!completeToDate),isnull(ri!completeFromDate)),&quot;&quot;,if(ri!completeToDate&lt;ri!completeFromDate,&quot;Start Date cannot be less than End Date&quot;,&quot;&quot;))*/
+    ),
+    
+  },
+  secondColumnContents: {
+    #&quot;SYSTEM_SYSRULES_dateField&quot;(
+      label:&quot;End Date&quot;,
+      labelPosition:&quot;ADJACENT&quot;,
+      instructions:&quot;Please choose a End Date for range.&quot;,
+      value:ri!completeToDate,
+      saveInto:{
+        a!save(ri!completeToDate,save!value),
+        if(#&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(ri!pagingInfo),{},a!save(ri!pagingInfo.startIndex,1))
+      },
+      validations: {
+              if(
+                ri!completeToDate &lt; ri!completeFromDate,
+                &quot;End Date cannt be less than Start Date&quot;,
+                {}
+              )
+            }
+    )
+  },
+  validations: {}
+),
+#&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+  label: &quot;Task Due date&quot;,
+  firstColumnContents: {
+    #&quot;SYSTEM_SYSRULES_dateField&quot;(
+      label:&quot;Start Date&quot;,
+      labelPosition:&quot;ADJACENT&quot;,
+      instructions:&quot;Please choose a Start Date for range.&quot;,
+      value:ri!fromDate,
+      saveInto:{a!save(ri!fromDate,save!value),
+        if(#&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(ri!pagingInfo),{},a!save(ri!pagingInfo.startIndex,1))}/*,
+      validations:if(or(isnull(ri!toDate),isnull(ri!fromDate)),&quot;&quot;,if(ri!toDate&lt;ri!fromDate,&quot;Start Date cannot be less than End Date&quot;,&quot;&quot;))*/
+    ),
+    
+  },
+  secondColumnContents: {
+    #&quot;SYSTEM_SYSRULES_dateField&quot;(
+      label:&quot;End Date&quot;,
+      labelPosition:&quot;ADJACENT&quot;,
+      instructions:&quot;Please choose a End Date for range.&quot;,
+      value:ri!toDate,
+      saveInto:a!save(ri!toDate,save!value),
+     validations: {
+              if(
+                ri!toDate &lt; ri!fromDate,
+                &quot;End Date cannt be less than Start Date&quot;,
+                {}
+              )
+            }
+    )
+  },
+  validations: {}
+)
+)
+}</definition>
+        <namedTypedValue>
+            <name>status</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>taskId</name>
+            <type>
+                <name>Variant</name>
+                <namespace>http://www.appian.com/ae/types/2009</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>fromDate</name>
+            <type>
+                <name>date</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>toDate</name>
+            <type>
+                <name>date</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>completeFromDate</name>
+            <type>
+                <name>dateTime</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>completeToDate</name>
+            <type>
+                <name>dateTime</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>pagingInfo</name>
+            <type>
+                <name>Variant</name>
+                <namespace>http://www.appian.com/ae/types/2009</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>selectedTaskId</name>
+            <type>
+                <name>Variant</name>
+                <namespace>http://www.appian.com/ae/types/2009</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig?list</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <el>
+                <a:name/>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string"/>
+                    <a:nameRef>status</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string"/>
+                    <a:nameRef>taskId</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="xsd:date"/>
+                    <a:nameRef>fromDate</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="xsd:date"/>
+                    <a:nameRef>toDate</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="xsd:dateTime"/>
+                    <a:nameRef>completeFromDate</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="xsd:dateTime"/>
+                    <a:nameRef>completeToDate</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string"/>
+                    <a:nameRef>pagingInfo</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string"/>
+                    <a:nameRef>selectedTaskId</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:assertions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+            </el>
+        </value>
+    </typedValue>
+</contentHaul>
