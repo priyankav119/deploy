@@ -35,6 +35,7 @@
             <value/>
         </namedTypedValue>
         <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -46,9 +47,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>malcolm.ross@appian.com</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

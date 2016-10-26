@@ -67,6 +67,7 @@
             </type>
         </namedTypedValue>
         <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">

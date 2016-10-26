@@ -180,6 +180,7 @@ Refer to the cons!CASE_APP_CountrieswithStates for a list of countries that requ
             </type>
         </namedTypedValue>
         <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -192,7 +193,6 @@ Refer to the cons!CASE_APP_CountrieswithStates for a list of countries that requ
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
             <users>
-                <userUuid>malcolm.ross@appian.com</userUuid>
                 <userUuid>Administrator</userUuid>
             </users>
             <groups/>

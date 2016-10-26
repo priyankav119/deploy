@@ -3,7 +3,7 @@
     <constant>
         <name>CASE_APP_Designers</name>
         <uuid>_a-0000da5f-caaa-8000-9ba2-011c48011c48_2678</uuid>
-        <description></description>
+        <description>Pointer to the CASE_APP Designers group</description>
         <parentUuid>_a-0000d9c4-bcac-8000-9ba2-011c48011c48_5795</parentUuid>
         <visibility>
             <advertise>false</advertise>
@@ -32,9 +32,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

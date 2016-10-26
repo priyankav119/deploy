@@ -5,18 +5,14 @@
         <securityMap>SECURITYMAP_PUBLIC</securityMap>
         <uuid>_e-0000da89-b5e6-8000-9aee-01075c01075c_19</uuid>
         <groupTypeUuid>_f-0000d9ab-7cdd-8000-9e04-010000010000_3</groupTypeUuid>
-        <description></description>
+        <description>Group for all Case Workers for CSR</description>
         <delegatedCreation>false</delegatedCreation>
         <memberPolicy>MEMBERPOLICY_CLOSED</memberPolicy>
         <viewingPolicy>VIEWINGPOLICY_LOW</viewingPolicy>
         <attributes/>
     </group>
     <members>
-        <users>
-            <userUuid>malcolm.ross@appian.com</userUuid>
-            <userUuid>jorge.sanchez</userUuid>
-            <userUuid>zach.messler</userUuid>
-        </users>
+        <users/>
         <groups/>
     </members>
     <admins>

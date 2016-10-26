@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>CASE_APP_GridRecordPicker</name>
+        <uuid>_a-0000dc2d-0392-8000-7e42-01ef9001ef90_4201</uuid>
+        <description></description>
+        <parentUuid>_a-0000d9f1-8353-8000-9ba2-011c48011c48_10351</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>load(
+  local!gridRowTokens,
+  #&quot;SYSTEM_SYSRULES_gridLayout&quot;(
+    label: ri!gridLabel,
+    headerCells: {
+      #&quot;SYSTEM_SYSRULES_gridLayoutHeaderCell&quot;(
+        label: &quot;Record Type&quot;,
+        helptooltip: &quot;Allows you to select the type of picker you'd like to use&quot;),
+      #&quot;SYSTEM_SYSRULES_gridLayoutHeaderCell&quot;(
+        label: &quot;Record Picker&quot;,
+        helptooltip: &quot;This will only be enabled once you select the record type&quot;
+      ),
+      #&quot;SYSTEM_SYSRULES_gridLayoutHeaderCell&quot;(label: &quot;&quot;)
+    },
+    columnConfigs: {
+      #&quot;SYSTEM_SYSRULES_gridLayoutColumnConfig&quot;(width: &quot;DISTRIBUTE&quot;, weight: 5),
+      #&quot;SYSTEM_SYSRULES_gridLayoutColumnConfig&quot;(width: &quot;DISTRIBUTE&quot;, weight: 5),
+      #&quot;SYSTEM_SYSRULES_gridLayoutColumnConfig&quot;(width: &quot;ICON&quot;)
+    },
+    rows: #&quot;SYSTEM_SYSRULES_applyComponents&quot;(
+      function: #&quot;_a-0000dc2d-0392-8000-7e42-01ef9001ef90_4203&quot;(ri!recordPickerData, _, local!gridRowTokens),
+      array: if(or(isnull(ri!recordPickerData), count(ri!recordPickerData) &lt; 1), {}, 1+enumerate(count(ri!recordPickerData))),
+      arrayVariable: local!gridRowTokens
+    ),
+    addRowLink: #&quot;SYSTEM_SYSRULES_dynamicLink&quot;(
+      label: &quot;Add new Record Picker&quot;,
+      value: 'type!{urn:com:appian:types:CASE_APP}CASE_APP_RecordPickerData'(),
+      saveInto: {
+        a!save(ri!recordPickerData, append(ri!recordPickerData, save!value)),
+        a!save(local!gridRowTokens, append(local!gridRowTokens, save!value))
+      }
+    ),
+    validations: {}
+  )
+)</definition>
+        <namedTypedValue>
+            <name>gridLabel</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>recordPickerData</name>
+            <type>
+                <name>CASE_APP_RecordPickerData?list</name>
+                <namespace>urn:com:appian:types:CASE_APP</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig?list</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <el>
+                <a:name/>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string"/>
+                    <a:nameRef>gridLabel</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+                    <a:nameRef>recordPickerData</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:assertions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+            </el>
+        </value>
+    </typedValue>
+</contentHaul>

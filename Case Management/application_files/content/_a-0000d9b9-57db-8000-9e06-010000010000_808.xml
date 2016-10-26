@@ -24,6 +24,7 @@
             <value/>
         </namedTypedValue>
         <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">

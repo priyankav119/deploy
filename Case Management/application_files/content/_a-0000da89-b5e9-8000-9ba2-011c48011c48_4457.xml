@@ -3,7 +3,7 @@
     <rule>
         <name>CASE_APP_longDateTime</name>
         <uuid>_a-0000da89-b5e9-8000-9ba2-011c48011c48_4457</uuid>
-        <description>Formats the Date Time Object</description>
+        <description>Formats the Date Time Object using format Mar 05, 2015 3:45 PM</description>
         <parentUuid>_a-0000d9b9-6309-8000-9ba2-011c48011c48_1981</parentUuid>
         <visibility>
             <advertise>false</advertise>
@@ -23,6 +23,7 @@
             </type>
         </namedTypedValue>
         <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -34,9 +35,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

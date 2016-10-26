@@ -150,8 +150,19 @@
             <a:visibilityExpr>=true()</a:visibilityExpr>
             <a:urlStub>summary</a:urlStub>
             <a:headerExpr></a:headerExpr>
-            <a:relatedActionCfg>30e78021-8275-41b0-835b-d1136612ead5</a:relatedActionCfg>
-            <a:relatedActionCfg>747ff944-c1f3-4f3c-ae7a-929bd437323a</a:relatedActionCfg>
+            <a:relatedActionCfg>e642c117-318f-4993-83b1-390c6e282e1d</a:relatedActionCfg>
+            <a:relatedActionCfg>e578bb6f-dcdc-4e83-a76a-800c98b9e01e</a:relatedActionCfg>
+        </a:detailViewCfg>
+        <a:detailViewCfg>
+            <a:nameExpr>&quot;Case History&quot;</a:nameExpr>
+            <a:uiExpr>#&quot;_a-0000db86-d3ef-8000-0315-010000010000_3491&quot;(
+  recordType: #&quot;_a-0000d9c4-bcac-8000-9ba2-011c48011c48_6210&quot;,
+  recordId: rp!id
+)</a:uiExpr>
+            <a:visibilityExpr>=true()</a:visibilityExpr>
+            <a:urlStub>_rCdh0g</a:urlStub>
+            <a:headerExpr></a:headerExpr>
+            <a:relatedActionCfg>120e8791-bf7f-47eb-ad7a-400524df2c09</a:relatedActionCfg>
         </a:detailViewCfg>
         <a:defaultSortInfo>
             <field>OrderDateTime</field>
@@ -163,12 +174,12 @@
 Order: #&quot;_a-0000d9c4-bcac-8000-9ba2-011c48011c48_6306&quot;(rp!id)&#xD;
 }</a:contextExpr>
             <a:visibilityExpr>=true()</a:visibilityExpr>
-            <a:refId>30e78021-8275-41b0-835b-d1136612ead5</a:refId>
+            <a:refId>e642c117-318f-4993-83b1-390c6e282e1d</a:refId>
         </a:relatedActionCfg>
         <a:relatedActionCfg>
             <a:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="a:ProcessModel" a:uuid="0002daa1-de16-8000-f92f-7f0000014e7a"/>
             <a:contextExpr>{
-  serviceReqData:type!CASE_APP_ServiceRequest(
+  serviceReqData:'type!{urn:com:appian:types:CASE_APP}CASE_APP_ServiceRequest'(
     type:&quot;I need help with an Order&quot;,
     relatedCustomer:#&quot;_a-0000d9b9-6309-8000-9ba2-011c48011c48_2115&quot;(rf!Customer.id),
     relatedOrder:#&quot;_a-0000d9c4-bcac-8000-9ba2-011c48011c48_6306&quot;(rf!id)
@@ -177,12 +188,22 @@ Order: #&quot;_a-0000d9c4-bcac-8000-9ba2-011c48011c48_6306&quot;(rp!id)&#xD;
   forLabel:&quot; for Order &quot;&amp;rf!OrderNum
 }</a:contextExpr>
             <a:visibilityExpr>=true()</a:visibilityExpr>
-            <a:refId>747ff944-c1f3-4f3c-ae7a-929bd437323a</a:refId>
+            <a:refId>e578bb6f-dcdc-4e83-a76a-800c98b9e01e</a:refId>
+        </a:relatedActionCfg>
+        <a:relatedActionCfg>
+            <a:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="a:ProcessModel" a:uuid="0010dab3-000f-8000-6ee0-010000010000"/>
+            <a:contextExpr>={
+  recordType: #&quot;SYSTEM_SYSRULES_toJson&quot;(#&quot;_a-0000d9c4-bcac-8000-9ba2-011c48011c48_6210&quot;),
+  recordId: rf!id
+}</a:contextExpr>
+            <a:visibilityExpr>=true()</a:visibilityExpr>
+            <a:refId>120e8791-bf7f-47eb-ad7a-400524df2c09</a:refId>
         </a:relatedActionCfg>
         <a:isSystem>false</a:isSystem>
         <a:dataSrcExpr></a:dataSrcExpr>
         <a:facetsListExpr></a:facetsListExpr>
         <a:defaultFiltersExpr></a:defaultFiltersExpr>
+        <a:layoutType>FEED</a:layoutType>
         <a:security>32767</a:security>
     </recordType>
     <roleMap>

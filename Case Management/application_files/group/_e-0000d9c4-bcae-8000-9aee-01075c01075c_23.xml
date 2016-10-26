@@ -12,53 +12,7 @@
         <attributes/>
     </group>
     <members>
-        <users>
-            <userUuid>marie.turner</userUuid>
-            <userUuid>kevin.reed</userUuid>
-            <userUuid>debra.harrison</userUuid>
-            <userUuid>valerie.boyce</userUuid>
-            <userUuid>kenneth.lewis</userUuid>
-            <userUuid>christopher.harris</userUuid>
-            <userUuid>edward.phillips</userUuid>
-            <userUuid>charles.parker</userUuid>
-            <userUuid>john.rogers</userUuid>
-            <userUuid>john.ross</userUuid>
-            <userUuid>chris.watkins</userUuid>
-            <userUuid>paul.rao</userUuid>
-            <userUuid>christine.chenal</userUuid>
-            <userUuid>joseph.clark</userUuid>
-            <userUuid>sarah.robinson</userUuid>
-            <userUuid>amy.lee</userUuid>
-            <userUuid>michael.cooper</userUuid>
-            <userUuid>jessica.williams</userUuid>
-            <userUuid>robert.ward</userUuid>
-            <userUuid>gary.howard</userUuid>
-            <userUuid>susan.williams</userUuid>
-            <userUuid>phillip.sanchez</userUuid>
-            <userUuid>stephen.singh</userUuid>
-            <userUuid>david.evans</userUuid>
-            <userUuid>maria.lopez</userUuid>
-            <userUuid>laura.davis</userUuid>
-            <userUuid>karen.anderson</userUuid>
-            <userUuid>peter.harris</userUuid>
-            <userUuid>angela.lewis</userUuid>
-            <userUuid>linda.jones</userUuid>
-            <userUuid>brigid.kessler</userUuid>
-            <userUuid>brian.chen</userUuid>
-            <userUuid>martin.morgan</userUuid>
-            <userUuid>donna.miller</userUuid>
-            <userUuid>sharon.white</userUuid>
-            <userUuid>james.baker</userUuid>
-            <userUuid>deborah.geary</userUuid>
-            <userUuid>virginia.lane</userUuid>
-            <userUuid>carol.wilson</userUuid>
-            <userUuid>ruth.jackson</userUuid>
-            <userUuid>mary.lawson</userUuid>
-            <userUuid>daniel.nelson</userUuid>
-            <userUuid>anthony.hill</userUuid>
-            <userUuid>mary.king</userUuid>
-            <userUuid>carl.peters</userUuid>
-        </users>
+        <users/>
         <groups/>
     </members>
     <admins>

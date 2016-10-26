@@ -3,7 +3,7 @@
     <rule>
         <name>CASE_APP_generateGridRowsForRecordAssoc</name>
         <uuid>_a-0000d9c4-bcac-8000-9ba2-011c48011c48_8139</uuid>
-        <description></description>
+        <description>Generates grid rows for a record association object.</description>
         <parentUuid>_a-0000da20-55d5-8000-9ba2-011c48011c48_11112</parentUuid>
         <visibility>
             <advertise>false</advertise>
@@ -35,6 +35,7 @@
             </type>
         </namedTypedValue>
         <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -46,9 +47,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

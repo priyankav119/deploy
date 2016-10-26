@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<webApiHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <webApi name="CASE_APP_productDetails" a:uuid="0a39de40-5941-4148-beb7-d50f9b4e819f">
+        <a:description>Displays a list of all available products. Resultset can be returned in XML or JSON format and filtered by name, category, or price range.
+Parameters:
+startIndex (Integer): Indicates initial index to retrieve. If greater than amount of data available, the max index will be used instead.
+format (text): Indicates resultset format. Available options are json or xml. Default is json.
+nameFilter (text): Filters by the specified name. Partial match supported.
+categoryFilter (text): Filters by specified product type. Partial match supported.
+priceFilterLow (decimal): Indicates lower bound of price range.
+priceFilterHigh (decimal): Indicates higher bound of price range.</a:description>
+        <a:expression>with(
+  /*
+  * Retrieve totalCount on dataset
+  */
+  local!maxIndex: #&quot;SYSTEM_SYSRULES_queryEntity&quot;(
+    #&quot;_a-0000d9c4-bcac-8000-9ba2-011c48011c48_4329&quot;,
+    #&quot;SYSTEM_SYSRULES_query&quot;(
+      selection: #&quot;SYSTEM_SYSRULES_querySelection&quot;({#&quot;SYSTEM_SYSRULES_queryColumn&quot;(field: &quot;id&quot;)}),
+      pagingInfo: #&quot;SYSTEM_SYSRULES_pagingInfo&quot;(1,1,null)
+    )
+  ).totalCount,
+  /*
+  * Validate start index. Reset to 1 or max if outside of bound. 1 if invalid parameter found
+  */
+  local!startIndex: if(
+    or(
+      isnull(http!request.queryParameters.startIndex),
+      tointeger(http!request.queryParameters.startIndex) &lt; 1
+    ),
+    1,
+    if(tointeger(http!request.queryParameters.startIndex) &gt; local!maxIndex,
+      local!maxIndex,
+      tointeger(http!request.queryParameters.startIndex)
+    )
+  ),
+  /*
+  * Retrieve up to 50 records from local!startIndex and store in local!records
+  */
+  local!records: #&quot;SYSTEM_SYSRULES_queryEntity&quot;(
+    #&quot;_a-0000d9c4-bcac-8000-9ba2-011c48011c48_4329&quot;,
+    #&quot;SYSTEM_SYSRULES_query&quot;(
+      logicalExpression: if(
+        and(
+          isnull(http!request.queryParameters.categoryFilter),
+          isnull(http!request.queryParameters.nameFilter),
+          isnull(http!request.queryParameters.priceFilterLow),
+          isnull(http!request.queryParameters.priceFilterHigh)
+        ),
+        null,
+        #&quot;SYSTEM_SYSRULES_queryLogicalExpression&quot;(
+          operator: &quot;AND&quot;,
+          filters: {
+            if(
+              isnull(http!request.queryParameters.categoryFilter),
+              {},
+              #&quot;SYSTEM_SYSRULES_queryFilter&quot;(field: &quot;productCategory&quot;, operator: &quot;includes&quot;, value: http!request.queryParameters.categoryFilter)
+            ),
+            if(
+              isnull(http!request.queryParameters.nameFilter),
+              {},
+              #&quot;SYSTEM_SYSRULES_queryFilter&quot;(field: &quot;name&quot;, operator: &quot;includes&quot;, value: http!request.queryParameters.nameFilter)
+            ),
+            if(
+              isnull(http!request.queryParameters.priceFilterLow),
+              {},
+              if(
+                isnull(http!request.queryParameters.priceFilterHigh),
+                #&quot;SYSTEM_SYSRULES_queryFilter&quot;(field: &quot;price&quot;, operator: &quot;&gt;=&quot;, value: todecimal(http!request.queryParameters.priceFilterLow)),
+                #&quot;SYSTEM_SYSRULES_queryFilter&quot;(
+                  field: &quot;price&quot;,
+                  operator: &quot;between&quot;,
+                  value: {
+                    todecimal(http!request.queryParameters.priceFilterLow),
+                    todecimal(http!request.queryParameters.priceFilterHigh)
+                  }
+                )  
+              )
+            ),
+            if(
+              isnull(http!request.queryParameters.priceFilterHigh),
+              {},
+              if(
+                isnull(http!request.queryParameters.priceFilterLow),
+                #&quot;SYSTEM_SYSRULES_queryFilter&quot;(field: &quot;price&quot;, operator: &quot;&lt;=&quot;, value: todecimal(http!request.queryParameters.priceFilterHigh)),
+                {}
+              )
+            )
+          }
+        )
+      ),
+      pagingInfo: #&quot;SYSTEM_SYSRULES_pagingInfo&quot;(
+        startIndex: local!startIndex,
+        batchSize: 50,
+        sort: #&quot;SYSTEM_SYSRULES_sortInfo&quot;(&quot;id&quot;, true)
+      )
+    )
+  ),
+
+  /*
+  * Construct an HTTP response that contains the information that we just stored
+  * in &quot;local!records&quot;.
+  */
+  #&quot;SYSTEM_SYSRULES_httpResponse&quot;(
+    /*
+    * Set an HTTP header that tells the client that the body of the response
+    * will be JSON-encoded.
+    */
+    headers: {
+      #&quot;SYSTEM_SYSRULES_httpHeader&quot;(name: &quot;content-type&quot;, value: &quot;application/json&quot;)
+    },
+    /*
+    * JSON-encode the value of &quot;local!records&quot; and place it in the response body.
+    */
+    body: if(
+      http!request.queryParameters.format=&quot;xml&quot;,
+      fn!toxml(local!records, true, &quot;productDetails&quot;),
+      #&quot;SYSTEM_SYSRULES_toJson&quot;(value: local!records)
+    )
+  )
+)</a:expression>
+        <a:urlAlias>case_app_productDetails</a:urlAlias>
+        <a:httpMethod>GET</a:httpMethod>
+        <a:system>false</a:system>
+    </webApi>
+    <roleMap>
+        <role name="web_api_editor">
+            <users/>
+            <groups>
+                <groupUuid>_e-0000da5f-caa8-8000-9aee-01075c01075c_16</groupUuid>
+            </groups>
+        </role>
+        <role name="web_api_administrator">
+            <users/>
+            <groups>
+                <groupUuid>_e-0000d9c4-bcae-8000-9aee-01075c01075c_17</groupUuid>
+            </groups>
+        </role>
+    </roleMap>
+</webApiHaul>

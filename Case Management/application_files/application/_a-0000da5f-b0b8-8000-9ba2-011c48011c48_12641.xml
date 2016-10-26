@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<applicationHaul xmlns:a="http://www.appian.com/ae/types/2009">
+<?xml version="1.0" encoding="UTF-8"?><applicationHaul xmlns:a="http://www.appian.com/ae/types/2009">
     <application>
-        <name>Case Management Core</name>
+        <name>CMF Core</name>
         <uuid>_a-0000da5f-b0b8-8000-9ba2-011c48011c48_12641</uuid>
         <description>Contains all core components of the Case Management App</description>
         <parentUuid>SYSTEM_APPLICATIONS_ROOT</parentUuid>
@@ -36,6 +35,8 @@
                         <uuid>{https://caseappstaging.appiancloud.com/suite/types/}CASE_APP_VW_OrderDetailsByCustomer</uuid>
                         <uuid>{urn:com:appian:types:CASE_APP}CASE_APP_AdHocTasking</uuid>
                         <uuid>{urn:com:appian:types:CASE_APP}CASE_APP_Assignee</uuid>
+                        <uuid>{urn:com:appian:types:audit}AH_AuditHistory</uuid>
+                        <uuid>{urn:com:appian:types:CASE_APP}CASE_APP_RecordPickerData</uuid>
                     </uuids>
                 </item>
                 <item>
@@ -43,6 +44,7 @@
                     <uuids>
                         <uuid>_a-0000da5f-b0b8-8000-9ba2-011c48011c48_12642</uuid>
                         <uuid>_a-0000da89-b5e9-8000-9ba2-011c48011c48_3206</uuid>
+                        <uuid>_a-0000daa1-9d78-8000-6ee0-010000010000_1019</uuid>
                     </uuids>
                 </item>
                 <item>
@@ -67,6 +69,8 @@
                         <uuid>_e-0000d9c4-bcae-8000-9aee-01075c01075c_23</uuid>
                         <uuid>_e-0000da5f-caa8-8000-9aee-01075c01075c_16</uuid>
                         <uuid>_e-0000da89-b5e6-8000-9aee-01075c01075c_19</uuid>
+                        <uuid>_e-0000daa1-9d68-8000-6edf-010000010000_15</uuid>
+                        <uuid>_e-0000daa1-9d68-8000-6edf-010000010000_14</uuid>
                     </uuids>
                 </item>
                 <item>
@@ -251,7 +255,6 @@
                         <uuid>_a-0000d9c4-bcac-8000-9ba2-011c48011c48_5797</uuid>
                         <uuid>_a-0000da5f-caaa-8000-9ba2-011c48011c48_2604</uuid>
                         <uuid>_a-0000da5f-caaa-8000-9ba2-011c48011c48_2687</uuid>
-                        <uuid>_a-0000da5f-caaa-8000-9ba2-011c48011c48_2772</uuid>
                         <uuid>_a-0000da5f-caaa-8000-9ba2-011c48011c48_2888</uuid>
                         <uuid>c00a8d5e-6ce1-46de-8d05-cd92c4b23d31</uuid>
                         <uuid>a8e27521-0f4d-468a-bcf9-ecf3686881bd</uuid>
@@ -399,15 +402,38 @@
                         <uuid>_a-0000dac9-8638-8000-9ba2-011c48011c48_5753</uuid>
                         <uuid>4594a8aa-6b04-4f3f-a0e3-10450ee43cd2</uuid>
                         <uuid>_a-0000da89-b5e9-8000-9ba2-011c48011c48_3978</uuid>
-                        <uuid>_a-0000dac9-8638-8000-9ba2-011c48011c48_5762</uuid>
-                        <uuid>_a-0000dac9-8638-8000-9ba2-011c48011c48_5763</uuid>
-                        <uuid>_a-0000dac9-8638-8000-9ba2-011c48011c48_5761</uuid>
-                        <uuid>_a-0000dac9-8638-8000-9ba2-011c48011c48_5765</uuid>
                         <uuid>_a-0000d9c4-bcac-8000-9ba2-011c48011c48_6389</uuid>
                         <uuid>_a-0000d9c4-bcac-8000-9ba2-011c48011c48_6390</uuid>
                         <uuid>_a-0000d9c4-bcac-8000-9ba2-011c48011c48_6391</uuid>
                         <uuid>_a-0000da89-b5e9-8000-9ba2-011c48011c48_4457</uuid>
                         <uuid>_a-0000dac9-8638-8000-9ba2-011c48011c48_6116</uuid>
+                        <uuid>_a-0000db86-d3ef-8000-0315-010000010000_3341</uuid>
+                        <uuid>_a-0000db86-d3ef-8000-0315-010000010000_3399</uuid>
+                        <uuid>_a-0000daa1-9d78-8000-6ee0-010000010000_1004</uuid>
+                        <uuid>_a-0000daa1-9d78-8000-6ee0-010000010000_1030</uuid>
+                        <uuid>_a-0000daa1-9d78-8000-6ee0-010000010000_1136</uuid>
+                        <uuid>_a-0000daa1-9d78-8000-6ee0-010000010000_1251</uuid>
+                        <uuid>b5bb2eba-74c3-4b84-975e-da91a89743ad</uuid>
+                        <uuid>_a-0000daa1-9d78-8000-6ee0-010000010000_1099</uuid>
+                        <uuid>58fa0caf-bf58-4080-97d3-09f50cdd92fa</uuid>
+                        <uuid>_a-0000daa1-9d78-8000-6ee0-010000010000_1235</uuid>
+                        <uuid>_a-0000daa1-9d78-8000-6ee0-010000010000_1053</uuid>
+                        <uuid>3125583a-3639-4d2f-afd3-c600a5e07ca6</uuid>
+                        <uuid>_a-0000daa1-9d78-8000-6ee0-010000010000_1005</uuid>
+                        <uuid>_a-0000daa1-9d78-8000-6ee0-010000010000_1098</uuid>
+                        <uuid>_a-0000daa1-9d78-8000-6ee0-010000010000_1006</uuid>
+                        <uuid>_a-0000daa1-9d78-8000-6ee0-010000010000_1088</uuid>
+                        <uuid>d2ce8a3e-d189-4162-9347-58052d6789f5</uuid>
+                        <uuid>_a-0000daa1-9d78-8000-6ee0-010000010000_1389</uuid>
+                        <uuid>_a-0000db86-d3ef-8000-0315-010000010000_3491</uuid>
+                        <uuid>_a-0000db86-d3ef-8000-0315-010000010000_3605</uuid>
+                        <uuid>_a-0000db86-d3ef-8000-0315-010000010000_3606</uuid>
+                        <uuid>_a-0000db86-d3ef-8000-0315-010000010000_3994</uuid>
+                        <uuid>_a-0000db86-d3ef-8000-0315-010000010000_3996</uuid>
+                        <uuid>_a-0000dbc5-1feb-8000-0315-010000010000_3351</uuid>
+                        <uuid>_a-0000dbdd-ff10-8000-7918-010000010000_3458</uuid>
+                        <uuid>_a-0000dc2d-0392-8000-7e42-01ef9001ef90_4201</uuid>
+                        <uuid>_a-0000dc2d-0392-8000-7e42-01ef9001ef90_4203</uuid>
                     </uuids>
                 </item>
                 <item>
@@ -423,6 +449,7 @@
                         <uuid>_g-0000d9aa-f4f9-8000-9e06-010000010000_6</uuid>
                         <uuid>_g-0000da5f-caab-8000-f92f-7f0000014e7a_11</uuid>
                         <uuid>_g-0000da89-b5e9-8000-f92f-7f0000014e7a_14</uuid>
+                        <uuid>_g-0000daa1-9d7b-8000-6ee0-010000010000_5</uuid>
                     </uuids>
                 </item>
                 <item>
@@ -442,6 +469,9 @@
                         <uuid>000ada67-7d6e-8000-f92f-7f0000014e7a</uuid>
                         <uuid>0002da74-c035-8000-f92f-7f0000014e7a</uuid>
                         <uuid>0010dacf-cedf-8000-f92f-7f0000014e7a</uuid>
+                        <uuid>0004db87-2ec7-8000-0316-010000010000</uuid>
+                        <uuid>0008daa9-7422-8000-6ee0-010000010000</uuid>
+                        <uuid>0010dab3-000f-8000-6ee0-010000010000</uuid>
                     </uuids>
                 </item>
                 <item>
@@ -470,6 +500,7 @@
                         <uuid>0189510c-848d-4ee3-8455-b302bfe33a17</uuid>
                         <uuid>a394611c-16ae-4bf0-b032-f66cb6b09b6a</uuid>
                         <uuid>a6c09161-35ff-4760-af02-9a7f47ac4f21</uuid>
+                        <uuid>c21b66bc-6b30-4768-94cd-2c6d4493c98c</uuid>
                     </uuids>
                 </item>
                 <item>
@@ -479,6 +510,7 @@
                         <uuid>7db9a56b-b303-46e1-81c9-c11dfffab8d8</uuid>
                         <uuid>d1ea2edd-4da3-4f0f-a2db-236913478100</uuid>
                         <uuid>9938078a-b8f8-485c-a942-9c96192db48f</uuid>
+                        <uuid>SYSTEM_RECORD_TYPE_USER</uuid>
                     </uuids>
                 </item>
                 <item>
@@ -497,10 +529,40 @@
                         <uuid>9a84b4df-a0b6-48f7-bd6a-d9a4989ab0f6</uuid>
                     </uuids>
                 </item>
+                <item>
+                    <type>webApi</type>
+                    <uuids>
+                        <uuid>0a39de40-5941-4148-beb7-d50f9b4e819f</uuid>
+                    </uuids>
+                </item>
+                <item>
+                    <type>site</type>
+                    <uuids>
+                        <uuid>f8c90ddf-c310-42f3-81dc-e9410d4fd9e7</uuid>
+                    </uuids>
+                </item>
+                <item>
+                    <type>adminSetting</type>
+                    <uuids/>
+                </item>
+                <item>
+                    <type>thirdPartyCredentials</type>
+                    <uuids/>
+                </item>
+                <item>
+                    <type>dataSource</type>
+                    <uuids/>
+                </item>
             </globalIdMap>
         </associatedObjects>
         <applicationNavigation/>
         <applicationActions>
+            <action>
+                <displayLabel>Create Basic Service Request</displayLabel>
+                <description>An offline-enabled basic service request</description>
+                <processModelUuid>0004db87-2ec7-8000-0316-010000010000</processModelUuid>
+                <actionUuid>bb237abf-63fe-47ab-8153-fde25a240272</actionUuid>
+            </action>
             <action>
                 <displayLabel>Create New Customer</displayLabel>
                 <description>Register a new customer</description>
@@ -592,6 +654,26 @@
                     <type>taskReport</type>
                     <uuids/>
                 </item>
+                <item>
+                    <type>webApi</type>
+                    <uuids/>
+                </item>
+                <item>
+                    <type>site</type>
+                    <uuids/>
+                </item>
+                <item>
+                    <type>adminSetting</type>
+                    <uuids/>
+                </item>
+                <item>
+                    <type>thirdPartyCredentials</type>
+                    <uuids/>
+                </item>
+                <item>
+                    <type>dataSource</type>
+                    <uuids/>
+                </item>
             </globalIdMap>
         </associatedApplications>
     </application>
@@ -610,7 +692,10 @@
                 </groups>
             </role>
             <role allowForAll="false" inherit="false" name="administrators">
-                <users/>
+                <users>
+                    <userUuid>Administrator</userUuid>
+                    <userUuid>priyanka.verma</userUuid>
+                </users>
                 <groups>
                     <groupUuid>_e-0000d9c4-bcae-8000-9aee-01075c01075c_17</groupUuid>
                 </groups>
@@ -629,4 +714,4 @@
             </role>
         </contentRoleMap>
     </roleMap>
-</applicationHaul>
+</applicationHaul><!--updated on 2016-10-26T19:13:37.021-->

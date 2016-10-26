@@ -17,7 +17,7 @@
         <definition>load(
   local!pagingInfo: #&quot;SYSTEM_SYSRULES_pagingInfo&quot;(
     startIndex: 1,
-    batchSize: 20,
+    batchSize: 8,
     sort: #&quot;SYSTEM_SYSRULES_sortInfo&quot;(
       field: &quot;Total&quot;,
       ascending: false
@@ -65,6 +65,7 @@
             <value/>
         </namedTypedValue>
         <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -76,9 +77,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>malcolm.ross@appian.com</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

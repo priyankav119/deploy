@@ -22,9 +22,7 @@ primaryKeyValue: the integer primary key value to select.</description>
         </visibility>
         <definition>= with(
   local!primaryKeyField: if(
-    isnull(
-      ri!primaryKeyField
-    ),
+    isnull(ri!primaryKeyField),
     &quot;id&quot;,
     ri!primaryKeyField
   ),
@@ -46,15 +44,9 @@ primaryKeyValue: the integer primary key value to select.</description>
           field: local!primaryKeyField,
           operator: &quot;=&quot;,
           value: if(
-            isnull(
-              tointeger(
-                ri!primaryKeyValue
-              )
-            ),
+            isnull(tointeger(ri!primaryKeyValue)),
             ri!primaryKeyValue,
-            tointeger(
-              ri!primaryKeyValue
-            )
+            tointeger(ri!primaryKeyValue)
           )
         ),
         pagingInfo: #&quot;SYSTEM_SYSRULES_pagingInfo&quot;(
@@ -94,6 +86,7 @@ primaryKeyValue: the integer primary key value to select.</description>
             <value/>
         </namedTypedValue>
         <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -105,9 +98,7 @@ primaryKeyValue: the integer primary key value to select.</description>
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>malcolm.ross@appian.com</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

@@ -90,8 +90,8 @@
     {},
     #&quot;SYSTEM_SYSRULES_dropdownField&quot;(
       label:&quot;2. What do you need help with?&quot;,
-      choiceLabels:#&quot;_a-0000da5f-caaa-8000-9ba2-011c48011c48_2620&quot;,
       placeholderLabel:&quot;--Select Case Type---&quot;,
+      choiceLabels:#&quot;_a-0000da5f-caaa-8000-9ba2-011c48011c48_2620&quot;,
       choiceValues:#&quot;_a-0000da5f-caaa-8000-9ba2-011c48011c48_2620&quot;,
       value:ri!serviceReq.type,
       saveInto:{
@@ -132,8 +132,8 @@
         <namedTypedValue>
             <name>serviceReq</name>
             <type>
-                <name>Variant</name>
-                <namespace>http://www.appian.com/ae/types/2009</namespace>
+                <name>CASE_APP_ServiceRequest</name>
+                <namespace>urn:com:appian:types:CASE_APP</namespace>
             </type>
         </namedTypedValue>
         <namedTypedValue>
@@ -142,9 +142,9 @@
                 <name>User</name>
                 <namespace>http://www.appian.com/ae/types/2009</namespace>
             </type>
-            <value/>
         </namedTypedValue>
         <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -156,9 +156,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">
@@ -174,4 +172,41 @@
             <groups/>
         </role>
     </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig?list</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <el>
+                <a:name/>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string"/>
+                    <a:nameRef>customer</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="xsd:boolean"/>
+                    <a:nameRef>q1</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="xsd:boolean"/>
+                    <a:nameRef>hideOkButton</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:n1="urn:com:appian:types:CASE_APP" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="n1:CASE_APP_ServiceRequest"/>
+                    <a:nameRef>serviceReq</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="a:User"/>
+                    <a:nameRef>requestUsr</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:assertions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+            </el>
+        </value>
+    </typedValue>
 </contentHaul>

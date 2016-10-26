@@ -14,20 +14,13 @@
             <system>false</system>
             <unlogged>false</unlogged>
         </visibility>
-        <definition>=
-'type!{urn:com:appian:types:CASE_APP}CASE_APP_RecordAssociation'(
+        <definition>'type!{urn:com:appian:types:CASE_APP}CASE_APP_RecordAssociation'(
   recordName: ri!recordName,
   recordUUID: ri!recordUUID,
   identifiers: ri!identifiers
 )
 
-
-/*{
-   recordType: ri!recordType,
-   recordName: ri!recordName,
-   recordUUID: ri!recordUUID,
-   identifiers: apply(rule!CASE_APP_IdentifiersArray(_), ri!identifiers)
-}*/</definition>
+</definition>
         <namedTypedValue>
             <name>recordName</name>
             <type>
@@ -47,11 +40,12 @@
         <namedTypedValue>
             <name>identifiers</name>
             <type>
-                <name>Text?list</name>
+                <name>Variant</name>
                 <namespace>http://www.appian.com/ae/types/2009</namespace>
             </type>
         </namedTypedValue>
         <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -63,9 +57,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>malcolm.ross@appian.com</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

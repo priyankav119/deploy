@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>CASE_APP_uiUserDashboardViewOrgChart</name>
+        <uuid>_a-0000db86-d3ef-8000-0315-010000010000_3994</uuid>
+        <description>Shows basic details about the user and the org chart</description>
+        <parentUuid>_a-0000d9b9-6309-8000-9ba2-011c48011c48_1981</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>load(&#xD;
+  local!username: rf!username,&#xD;
+  #&quot;SYSTEM_SYSRULES_dashboardLayout&quot;(&#xD;
+    firstColumnContents: {&#xD;
+      #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(&#xD;
+        /*label:user(rf!username, &quot;firstName&quot;)&amp; &quot; &quot;&amp;user(rf!username, &quot;lastName&quot;) ,*/&#xD;
+        firstColumnContents:{&#xD;
+          #&quot;SYSTEM_SYSRULES_linkField&quot;(&#xD;
+            label:&quot;Email&quot;,&#xD;
+            labelPosition:&quot;ADJACENT&quot;,&#xD;
+            links: #&quot;SYSTEM_SYSRULES_safeLink&quot;(label:#&quot;_a-0000db86-d3ef-8000-0315-010000010000_3996&quot;(user(rf!username, &quot;email&quot;), &quot;Not Specified&quot;), uri:&quot;mailto:&quot;&amp;user(rf!username, &quot;email&quot;))&#xD;
+          ),&#xD;
+          #&quot;SYSTEM_SYSRULES_textField&quot;(&#xD;
+            label:&quot;Office Phone&quot;,&#xD;
+            labelPosition:&quot;ADJACENT&quot;,&#xD;
+            value: #&quot;_a-0000db86-d3ef-8000-0315-010000010000_3996&quot;(user(rf!username, &quot;phoneOffice&quot;), &quot;Not Specified&quot;),&#xD;
+            readOnly: true&#xD;
+          ),&#xD;
+          #&quot;SYSTEM_SYSRULES_textField&quot;(&#xD;
+            label:&quot;Mobile Phone&quot;,&#xD;
+            labelPosition:&quot;ADJACENT&quot;,&#xD;
+            value: #&quot;_a-0000db86-d3ef-8000-0315-010000010000_3996&quot;(user(rf!username, &quot;phoneMobile&quot;), &quot;Not Specified&quot;),&#xD;
+            readOnly: true&#xD;
+          )&#xD;
+        },&#xD;
+        secondColumnContents:{&#xD;
+          #&quot;SYSTEM_SYSRULES_textField&quot;(&#xD;
+            label:&quot;Department&quot;,&#xD;
+            labelPosition:&quot;ADJACENT&quot;,&#xD;
+            value: #&quot;_a-0000db86-d3ef-8000-0315-010000010000_3996&quot;(user(rf!username, &quot;customField3&quot;), &quot;Not Specified&quot;),&#xD;
+            readOnly: true&#xD;
+          )&#xD;
+        }&#xD;
+      ),&#xD;
+      /*the below section is here to add extra space*/&#xD;
+      #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(&#xD;
+        label: &quot;&quot;,&#xD;
+        firstColumnContents:{}&#xD;
+      ),&#xD;
+      #&quot;SYSTEM_SYSRULES_orgChartField&quot;(&#xD;
+        value: local!username,&#xD;
+        saveInto: local!username,&#xD;
+        showAllAncestors: false&#xD;
+      )&#xD;
+    }&#xD;
+  )&#xD;
+)</definition>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+</contentHaul>

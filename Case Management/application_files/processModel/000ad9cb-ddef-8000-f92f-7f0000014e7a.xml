@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <processModelHaul>
   <folderUuid>_g-0000d9c4-bcaf-8000-f92f-7f0000014e7a_16</folderUuid>
   <roleMap>
@@ -33,10 +33,7 @@
       <groups/>
     </role>
   </roleMap>
-  <process_model_port schemaVersion="007.000.001"
-    xmlns="http://www.appian.com/ae/types/2009"
-    xmlns:a="http://www.appian.com/ae/types/2009"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <process_model_port xmlns="http://www.appian.com/ae/types/2009" xmlns:a="http://www.appian.com/ae/types/2009" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="007.000.001">
     <pm>
       <meta>
         <uuid><![CDATA[000ad9cb-ddef-8000-f92f-7f0000014e7a]]></uuid>
@@ -56,10 +53,7 @@
             </pair>
           </string-map>
         </desc>
-        <version><![CDATA[8.0]]></version>
         <versionStatus>2</versionStatus>
-        <latestVersion><![CDATA[8.0]]></latestVersion>
-        <state id="14"/>
         <process-name>
           <string-map>
             <pair>
@@ -102,15 +96,13 @@
           <hidden>false</hidden>
         </pv>
         <pv name="preUpdateProductData">
-          <a:value xmlns:n1="urn:com:appian:types:CASE_APP"
-            xsi:nil="true" xsi:type="n1:CASE_APP_Product"/>
+          <a:value xmlns:n1="urn:com:appian:types:CASE_APP" xsi:nil="true" xsi:type="n1:CASE_APP_Product"/>
           <parameter>true</parameter>
           <required>false</required>
           <hidden>false</hidden>
         </pv>
         <pv name="product">
-          <a:value xmlns:n1="urn:com:appian:types:CASE_APP"
-            xsi:nil="true" xsi:type="n1:CASE_APP_Product"/>
+          <a:value xmlns:n1="urn:com:appian:types:CASE_APP" xsi:nil="true" xsi:type="n1:CASE_APP_Product"/>
           <parameter>true</parameter>
           <required>false</required>
           <hidden>false</hidden>
@@ -247,7 +239,7 @@
               </pair>
             </string-map>
           </fname>
-          <x>980</x>
+          <x>728</x>
           <y>140</y>
           <display>
             <string-map>
@@ -834,258 +826,6 @@ If button = "cancel" then end process]]></value>
           <refreshDefaultValues>false</refreshDefaultValues>
           <on-complete-keep-form-data>false</on-complete-keep-form-data>
         </node>
-        <node uuid="0004d9cb-ddef-8000-f92f-7f0000014e7a">
-          <guiId>8</guiId>
-          <owner/>
-          <icon id="998"/>
-          <picon id="98"/>
-          <fname>
-            <string-map>
-              <pair>
-                <locale country="US" lang="en" variant=""/>
-                <value><![CDATA[Post Update to Feed]]></value>
-              </pair>
-            </string-map>
-          </fname>
-          <x>756</x>
-          <y>140</y>
-          <display>
-            <string-map>
-              <pair>
-                <locale country="US" lang="en" variant=""/>
-                <value><![CDATA[Post Update to Feed]]></value>
-              </pair>
-            </string-map>
-          </display>
-          <desc>
-            <string-map>
-              <pair>
-                <locale country="US" lang="en" variant=""/>
-                <value/>
-              </pair>
-            </string-map>
-          </desc>
-          <notify>false</notify>
-          <confirmation-url/>
-          <lane/>
-          <overrideLaneAssignment>false</overrideLaneAssignment>
-          <ac>
-            <local-id>appian.system.smart-services.publish-to-feed-5</local-id>
-            <name><![CDATA[Post Event to Feed]]></name>
-            <acps>
-              <acp name="FeedId">
-                <a:value a:id="a6b38c85-9955-467e-9d27-6bb2db6d5afd"
-                  xmlns="" xsi:type="a:TempoFeed"/>
-                <a:local-id>input-FeedId</a:local-id>
-                <a:expr/>
-                <a:required>1</a:required>
-                <a:editable>1</a:editable>
-                <a:assign-to-pv/>
-                <a:input-to-activity-class>true</a:input-to-activity-class>
-                <a:hidden-from-designer>false</a:hidden-from-designer>
-                <a:generated>false</a:generated>
-                <a:enumeration/>
-                <a:customDisplayReference/>
-              </acp>
-              <acp name="Message">
-                <a:value xsi:nil="true" xsi:type="xsd:string"/>
-                <a:local-id>input-Message</a:local-id>
-                <a:expr><![CDATA[="has updated "&pv!product.name]]></a:expr>
-                <a:required>1</a:required>
-                <a:editable>1</a:editable>
-                <a:assign-to-pv/>
-                <a:input-to-activity-class>true</a:input-to-activity-class>
-                <a:hidden-from-designer>false</a:hidden-from-designer>
-                <a:generated>false</a:generated>
-                <a:enumeration/>
-                <a:customDisplayReference/>
-              </acp>
-              <acp name="Attachments">
-                <a:value xsi:nil="true" xsi:type="a:CollaborationDocument?list"/>
-                <a:local-id>input-Attachments</a:local-id>
-                <a:expr/>
-                <a:required>0</a:required>
-                <a:editable>1</a:editable>
-                <a:assign-to-pv/>
-                <a:input-to-activity-class>true</a:input-to-activity-class>
-                <a:hidden-from-designer>false</a:hidden-from-designer>
-                <a:generated>false</a:generated>
-                <a:enumeration/>
-                <a:customDisplayReference/>
-              </acp>
-              <acp name="RecordTags">
-                <a:value xsi:nil="true" xsi:type="a:RecordReference?list"/>
-                <a:local-id>input-RecordTags</a:local-id>
-                <a:expr><![CDATA[=#"SYSTEM_SYSRULES_toRecordIdentifier"( #"_a-0000d9c4-bcac-8000-9ba2-011c48011c48_3830", pv!product.id)]]></a:expr>
-                <a:required>0</a:required>
-                <a:editable>1</a:editable>
-                <a:assign-to-pv/>
-                <a:input-to-activity-class>true</a:input-to-activity-class>
-                <a:hidden-from-designer>false</a:hidden-from-designer>
-                <a:generated>false</a:generated>
-                <a:enumeration/>
-                <a:customDisplayReference/>
-              </acp>
-              <acp name="User">
-                <a:value xsi:nil="true" xsi:type="a:User"/>
-                <a:local-id>input-User</a:local-id>
-                <a:expr><![CDATA[=pp!initiator]]></a:expr>
-                <a:required>0</a:required>
-                <a:editable>1</a:editable>
-                <a:assign-to-pv/>
-                <a:input-to-activity-class>true</a:input-to-activity-class>
-                <a:hidden-from-designer>false</a:hidden-from-designer>
-                <a:generated>false</a:generated>
-                <a:enumeration/>
-                <a:customDisplayReference/>
-              </acp>
-              <acp name="Viewers">
-                <a:value xsi:nil="true" xsi:type="a:UserOrGroup?list"/>
-                <a:local-id>input-Viewers</a:local-id>
-                <a:expr><![CDATA[=#"_a-0000d9c4-bcac-8000-9ba2-011c48011c48_3831"]]></a:expr>
-                <a:required>0</a:required>
-                <a:editable>1</a:editable>
-                <a:assign-to-pv/>
-                <a:input-to-activity-class>true</a:input-to-activity-class>
-                <a:hidden-from-designer>false</a:hidden-from-designer>
-                <a:generated>false</a:generated>
-                <a:enumeration/>
-                <a:customDisplayReference/>
-              </acp>
-              <acp name="PersonalizationGroup">
-                <a:value xsi:nil="true" xsi:type="a:Group"/>
-                <a:local-id>input-PersonalizationGroup</a:local-id>
-                <a:expr/>
-                <a:required>0</a:required>
-                <a:editable>1</a:editable>
-                <a:assign-to-pv/>
-                <a:input-to-activity-class>true</a:input-to-activity-class>
-                <a:hidden-from-designer>false</a:hidden-from-designer>
-                <a:generated>false</a:generated>
-                <a:enumeration/>
-                <a:customDisplayReference/>
-              </acp>
-              <acp name="ActionProcess">
-                <a:value xsi:nil="true" xsi:type="a:ProcessModel"/>
-                <a:local-id>input-ActionProcess</a:local-id>
-                <a:expr/>
-                <a:required>0</a:required>
-                <a:editable>1</a:editable>
-                <a:assign-to-pv/>
-                <a:input-to-activity-class>true</a:input-to-activity-class>
-                <a:hidden-from-designer>false</a:hidden-from-designer>
-                <a:generated>false</a:generated>
-                <a:enumeration/>
-                <a:customDisplayReference/>
-              </acp>
-              <acp name="ActionInstructions">
-                <a:value xsi:nil="true" xsi:type="xsd:string"/>
-                <a:local-id>input-ActionInstructions</a:local-id>
-                <a:expr/>
-                <a:required>0</a:required>
-                <a:editable>1</a:editable>
-                <a:assign-to-pv/>
-                <a:input-to-activity-class>true</a:input-to-activity-class>
-                <a:hidden-from-designer>false</a:hidden-from-designer>
-                <a:generated>false</a:generated>
-                <a:enumeration/>
-                <a:customDisplayReference/>
-              </acp>
-              <acp name="EventData">
-                <a:value xsi:nil="true" xsi:type="a:LabelValue?list"/>
-                <a:local-id>input-EventData</a:local-id>
-                <a:expr><![CDATA[=pv!productChanges]]></a:expr>
-                <a:required>0</a:required>
-                <a:editable>1</a:editable>
-                <a:assign-to-pv/>
-                <a:input-to-activity-class>true</a:input-to-activity-class>
-                <a:hidden-from-designer>false</a:hidden-from-designer>
-                <a:generated>false</a:generated>
-                <a:enumeration/>
-                <a:customDisplayReference/>
-              </acp>
-              <acp name="EntryId">
-                <a:value xsi:nil="true" xsi:type="xsd:string"/>
-                <a:local-id>output-EntryId</a:local-id>
-                <a:expr/>
-                <a:required>0</a:required>
-                <a:editable>1</a:editable>
-                <a:assign-to-pv/>
-                <a:input-to-activity-class>false</a:input-to-activity-class>
-                <a:hidden-from-designer>false</a:hidden-from-designer>
-                <a:generated>false</a:generated>
-                <a:enumeration/>
-                <a:customDisplayReference/>
-              </acp>
-            </acps>
-            <custom-params/>
-            <output-exprs>
-              <el typeFlag="1"><![CDATA[EntryId:AC!EntryId]]></el>
-            </output-exprs>
-            <requires-user-interaction>true</requires-user-interaction>
-            <run-as>
-              <performer id="1"/>
-            </run-as>
-            <form-map/>
-            <helper-class/>
-          </ac>
-          <multiple-instance/>
-          <escalations/>
-          <connections>
-            <connection>
-              <guiId>10</guiId>
-              <to>1</to>
-              <toObjectType>ap.gui.Node</toObjectType>
-              <fromAnchor>1</fromAnchor>
-              <toAnchor>3</toAnchor>
-              <showArrowhead>true</showArrowhead>
-              <flowLabel/>
-              <label>
-                <fontColor>#000000</fontColor>
-                <fontFamily>Arial, Helvetica, Sans-Serif</fontFamily>
-                <fontSize>12</fontSize>
-                <bold>false</bold>
-                <italics>false</italics>
-                <underline>false</underline>
-              </label>
-              <associations/>
-              <chained>false</chained>
-              <overridesAssignment>true</overridesAssignment>
-              <synchronizeData>false</synchronizeData>
-            </connection>
-          </connections>
-          <associations/>
-          <target-completion>5.0</target-completion>
-          <target-lag>1.0</target-lag>
-          <attachments/>
-          <notes/>
-          <lingering>false</lingering>
-          <on-create-ignore-if-active>false</on-create-ignore-if-active>
-          <on-create-delete-previous-active>false</on-create-delete-previous-active>
-          <on-complete-delete-previous-completed>false</on-complete-delete-previous-completed>
-          <pre-triggers/>
-          <post-triggers/>
-          <event-producers/>
-          <exception-flow/>
-          <label>
-            <fontColor>#000000</fontColor>
-            <fontFamily>Arial, Helvetica, Sans-Serif</fontFamily>
-            <fontSize>12</fontSize>
-            <bold>false</bold>
-            <italics>false</italics>
-            <underline>false</underline>
-          </label>
-          <deadline>
-            <enabled>false</enabled>
-            <type>0</type>
-            <units>0</units>
-            <rex/>
-            <aex/>
-          </deadline>
-          <allowsBack>false</allowsBack>
-          <refreshDefaultValues>false</refreshDefaultValues>
-          <on-complete-keep-form-data>false</on-complete-keep-form-data>
-        </node>
         <node uuid="0005d9cb-ddef-8000-f92f-7f0000014e7a">
           <guiId>14</guiId>
           <owner/>
@@ -1154,8 +894,7 @@ If button = "cancel" then end process]]></value>
             </acps>
             <custom-params>
               <acp name="product">
-                <a:value xmlns:n1="urn:com:appian:types:CASE_APP"
-                  xsi:nil="true" xsi:type="n1:CASE_APP_Product"/>
+                <a:value xmlns:n1="urn:com:appian:types:CASE_APP" xsi:nil="true" xsi:type="n1:CASE_APP_Product"/>
                 <a:local-id/>
                 <a:expr><![CDATA[=pv!product]]></a:expr>
                 <a:required>0</a:required>
@@ -1196,8 +935,8 @@ If button = "cancel" then end process]]></value>
           <escalations/>
           <connections>
             <connection>
-              <guiId>9</guiId>
-              <to>8</to>
+              <guiId>4</guiId>
+              <to>1</to>
               <toObjectType>ap.gui.Node</toObjectType>
               <fromAnchor>1</fromAnchor>
               <toAnchor>3</toAnchor>
@@ -1418,4 +1157,4 @@ If button = "cancel" then end process]]></value>
     </pm>
   </process_model_port>
   <isPublished>true</isPublished>
-</processModelHaul>
+</processModelHaul><!--updated on 2016-10-26T19:13:33.001-->

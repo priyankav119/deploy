@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="urn:com:appian:types:CASE_APP"
+  xmlns:tns="urn:com:appian:types:CASE_APP" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:include schemaLocation="%7Burn%3Acom%3Aappian%3Atypes%3ACASE_APP%7DCASE_APP_RecordAssociation.xsd"/>
+  <xsd:complexType name="CASE_APP_RecordPickerData">
+    <xsd:annotation>
+      <xsd:documentation><![CDATA[Contains the recordPickerData]]></xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="id" type="xsd:int">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(nullable=false) @Id @GeneratedValue</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="selectedRecordName" nillable="true" type="xsd:string"/>
+      <xsd:element name="recordType" nillable="true" type="xsd:string"/>
+      <xsd:element name="primaryKeyField" nillable="true" type="xsd:string"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0"
+        name="searchFields" nillable="true" type="xsd:string"/>
+      <xsd:element name="recordAssociations" type="tns:CASE_APP_RecordAssociation"/>
+      <xsd:element name="recordIndex" nillable="true" type="xsd:int"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

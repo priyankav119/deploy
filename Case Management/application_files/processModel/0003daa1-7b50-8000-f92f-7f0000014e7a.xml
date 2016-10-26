@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <processModelHaul>
   <folderUuid>_g-0000d9b9-630d-8000-f92f-7f0000014e7a_9</folderUuid>
   <roleMap>
@@ -33,10 +33,7 @@
       <groups/>
     </role>
   </roleMap>
-  <process_model_port schemaVersion="007.000.001"
-    xmlns="http://www.appian.com/ae/types/2009"
-    xmlns:a="http://www.appian.com/ae/types/2009"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <process_model_port xmlns="http://www.appian.com/ae/types/2009" xmlns:a="http://www.appian.com/ae/types/2009" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="007.000.001">
     <pm>
       <meta>
         <uuid><![CDATA[0003daa1-7b50-8000-f92f-7f0000014e7a]]></uuid>
@@ -56,10 +53,7 @@
             </pair>
           </string-map>
         </desc>
-        <version><![CDATA[6.0]]></version>
         <versionStatus>2</versionStatus>
-        <latestVersion><![CDATA[6.0]]></latestVersion>
-        <state id="14"/>
         <process-name>
           <string-map>
             <pair>
@@ -90,8 +84,7 @@
       </meta>
       <pvs>
         <pv name="Order">
-          <a:value xmlns:n1="urn:com:appian:types:CASE_APP"
-            xsi:nil="true" xsi:type="n1:CASE_APP_Order"/>
+          <a:value xmlns:n1="urn:com:appian:types:CASE_APP" xsi:nil="true" xsi:type="n1:CASE_APP_Order"/>
           <parameter>true</parameter>
           <required>true</required>
           <hidden>false</hidden>
@@ -103,8 +96,7 @@
           <hidden>false</hidden>
         </pv>
         <pv name="customer">
-          <a:value xmlns:n1="urn:com:appian:types:CASE_APP"
-            xsi:nil="true" xsi:type="n1:CASE_APP_Customer?list"/>
+          <a:value xmlns:n1="urn:com:appian:types:CASE_APP" xsi:nil="true" xsi:type="n1:CASE_APP_Customer?list"/>
           <parameter>true</parameter>
           <required>true</required>
           <hidden>false</hidden>
@@ -444,8 +436,7 @@
                 <a:customDisplayReference/>
               </acp>
               <acp name="pmID">
-                <a:value a:id="0002d9d6-a691-8000-f92f-7f0000014e7a"
-                  xmlns="" xsi:type="a:ProcessModel"/>
+                <a:value xmlns="" a:id="0002d9d6-a691-8000-f92f-7f0000014e7a" xsi:type="a:ProcessModel"/>
                 <a:local-id>1</a:local-id>
                 <a:expr/>
                 <a:required>1</a:required>
@@ -519,9 +510,7 @@
                             <a:customDisplayReference/>
                           </a:acp>
                           <a:acp name="sppv">
-                            <a:value
-                              xmlns:n1="urn:com:appian:types:CASE_APP"
-                              xsi:nil="true" xsi:type="n1:CASE_APP_Customer?list"/>
+                            <a:value xmlns:n1="urn:com:appian:types:CASE_APP" xsi:nil="true" xsi:type="n1:CASE_APP_Customer?list"/>
                             <a:local-id>5</a:local-id>
                             <a:expr><![CDATA[=customer]]></a:expr>
                             <a:required>0</a:required>
@@ -563,9 +552,7 @@
                             <a:customDisplayReference/>
                           </a:acp>
                           <a:acp name="sppv">
-                            <a:value
-                              xmlns:n1="urn:com:appian:types:CASE_APP"
-                              xsi:nil="true" xsi:type="n1:CASE_APP_Order"/>
+                            <a:value xmlns:n1="urn:com:appian:types:CASE_APP" xsi:nil="true" xsi:type="n1:CASE_APP_Order"/>
                             <a:local-id>5</a:local-id>
                             <a:expr><![CDATA[=Order]]></a:expr>
                             <a:required>1</a:required>
@@ -1027,4 +1014,4 @@
     </pm>
   </process_model_port>
   <isPublished>true</isPublished>
-</processModelHaul>
+</processModelHaul><!--updated on 2016-10-26T19:13:32.314-->

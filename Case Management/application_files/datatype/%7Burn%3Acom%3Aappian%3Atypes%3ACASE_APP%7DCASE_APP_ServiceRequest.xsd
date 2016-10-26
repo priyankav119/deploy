@@ -7,14 +7,13 @@
   <xsd:include schemaLocation="%7Burn%3Acom%3Aappian%3Atypes%3ACASE_APP%7DCASE_APP_Customer.xsd"/>
   <xsd:include schemaLocation="%7Burn%3Acom%3Aappian%3Atypes%3ACASE_APP%7DCASE_APP_Order.xsd"/>
   <xsd:complexType name="CASE_APP_ServiceRequest">
+    <xsd:annotation>
+      <xsd:documentation><![CDATA[Business Object definition for the ServiceRequest]]></xsd:documentation>
+    </xsd:annotation>
     <xsd:sequence>
       <xsd:element name="id" nillable="true" type="xsd:int">
         <xsd:annotation>
-          <xsd:appinfo source="appian.jpa">
-            @Column(nullable=false)
-            @Id
-            @GeneratedValue
-          </xsd:appinfo>
+          <xsd:appinfo source="appian.jpa">@Column(nullable=false) @Id @GeneratedValue</xsd:appinfo>
         </xsd:annotation>
       </xsd:element>
       <xsd:element name="requestNum" nillable="true" type="xsd:string"/>
@@ -41,6 +40,7 @@
         name="caseHistory" type="tns:CASE_APP_CaseHistory"/>
       <xsd:element maxOccurs="unbounded" minOccurs="0"
         name="caseDocuments" type="tns:CASE_APP_CaseDocument"/>
+      <xsd:element name="priority" nillable="true" type="xsd:string"/>
     </xsd:sequence>
   </xsd:complexType>
 </xsd:schema>

@@ -25,7 +25,7 @@
     alignment: &quot;LEFT&quot;,
     links:
      if(ri!LinktoDoc, 
-        apply(#&quot;SYSTEM_SYSRULES_documentDownloadLink&quot;(document: _), ri!datasubset.data.document),
+        apply(#&quot;SYSTEM_SYSRULES_documentDownloadLink&quot;(document: _), index(ri!datasubset.data, &quot;document&quot;, {})),
         {})
   ),
   /*DESCRIPTION*/
@@ -36,7 +36,7 @@
     alignment: &quot;LEFT&quot;,
     links:
      if(ri!LinktoDoc, 
-        apply(#&quot;SYSTEM_SYSRULES_documentDownloadLink&quot;(document: _), ri!datasubset.data.document),
+        apply(#&quot;SYSTEM_SYSRULES_documentDownloadLink&quot;(document: _), index(ri!datasubset.data, &quot;document&quot;, {})),
         {})
   ),
   /*EXTENSION*/
@@ -47,7 +47,7 @@
     alignment: &quot;LEFT&quot;,
     links:
      if(ri!LinktoDoc, 
-        apply(#&quot;SYSTEM_SYSRULES_documentDownloadLink&quot;(document: _), ri!datasubset.data.document),
+        apply(#&quot;SYSTEM_SYSRULES_documentDownloadLink&quot;(document: _), index(ri!datasubset.data, &quot;document&quot;, {})),
         {})
   ),
   /*DATECREATED*/
@@ -58,7 +58,7 @@
     alignment: &quot;LEFT&quot;,
     links:
      if(ri!LinktoDoc, 
-        apply(#&quot;SYSTEM_SYSRULES_documentDownloadLink&quot;(document: _), ri!datasubset.data.document),
+        apply(#&quot;SYSTEM_SYSRULES_documentDownloadLink&quot;(document: _), index(ri!datasubset.data, &quot;document&quot;, {})),
         {})
   ),
   /*LASTUSERTOMODIFY*/
@@ -68,8 +68,9 @@
     data: index(ri!datasubset.data, &quot;lastUserToModify&quot;, null),
     alignment: &quot;LEFT&quot;,
     links: apply(
-       #&quot;_a-0000d9b9-6309-8000-9ba2-011c48011c48_1876&quot;(user: _), 
-       ri!datasubset.data.lastUserToModify)
+      #&quot;_a-0000d9b9-6309-8000-9ba2-011c48011c48_1876&quot;(user: _),
+      index(ri!datasubset.data, &quot;lastUserToModify&quot;, {})
+    )
   ),
   /*TOTALNUMBEROFVERSIONS*/
   #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
@@ -79,7 +80,7 @@
     alignment: &quot;LEFT&quot;,
     links:
      if(ri!LinktoDoc, 
-        apply(#&quot;SYSTEM_SYSRULES_documentDownloadLink&quot;(document: _), ri!datasubset.data.document),
+        apply(#&quot;SYSTEM_SYSRULES_documentDownloadLink&quot;(document: _), index(ri!datasubset.data, &quot;document&quot;, {})),
         {})
   ),
   /*SIZE*/
@@ -90,14 +91,14 @@
     alignment: &quot;LEFT&quot;,
     links:
      if(ri!LinktoDoc, 
-        apply(#&quot;SYSTEM_SYSRULES_documentDownloadLink&quot;(document: _), ri!datasubset.data.document),
+        apply(#&quot;SYSTEM_SYSRULES_documentDownloadLink&quot;(document: _), index(ri!datasubset.data, &quot;document&quot;, {})),
         {})
   ),
   /*IMAGE*/
   #&quot;SYSTEM_SYSRULES_gridImageColumn&quot;(
     label: &quot;Images&quot;,
     field: &quot;Images&quot;,
-    data: apply(#&quot;_a-0000da89-b5e9-8000-9ba2-011c48011c48_3514&quot;(doc: _), ri!documents),
+    data: apply(#&quot;_a-0000da89-b5e9-8000-9ba2-011c48011c48_3514&quot;(doc: _), if(#&quot;SYSTEM_SYSRULES_isNullOrEmpty&quot;(ri!documents), {}, ri!documents)),
     size: upper(ri!showDocImageType)
   )
 )</definition>
@@ -139,6 +140,7 @@
             </type>
         </namedTypedValue>
         <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -150,9 +152,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>malcolm.ross@appian.com</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

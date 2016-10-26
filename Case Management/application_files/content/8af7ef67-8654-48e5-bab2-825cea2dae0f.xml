@@ -28,28 +28,29 @@
         label: &quot;Description&quot;,&#xD;
         value: ri!product.description,&#xD;
         saveInto: ri!product.description,&#xD;
-        required: false(),&#xD;
+        required: true,&#xD;
         validations: if(len(ri!product.description)&gt;255,&quot;Please limit the character count: &quot;&amp;len(ri!product.description)&amp;&quot;/255&quot;,null)&#xD;
       ),		  &#xD;
       #&quot;SYSTEM_SYSRULES_textField&quot;(&#xD;
         label: &quot;SKU&quot;,&#xD;
         value: ri!product.sku,&#xD;
         saveInto: ri!product.sku,&#xD;
-        required: false()&#xD;
+        required: true&#xD;
       ),		  &#xD;
       #&quot;SYSTEM_SYSRULES_dropdownField&quot;(&#xD;
         label: &quot;Category&quot;,&#xD;
-        choiceLabels:#&quot;_a-0000d9c4-bcac-8000-9ba2-011c48011c48_3808&quot;,&#xD;
         placeholderLabel: &quot;--Please select an category.--&quot;,&#xD;
+        choiceLabels:#&quot;_a-0000d9c4-bcac-8000-9ba2-011c48011c48_3808&quot;,&#xD;
         choiceValues: #&quot;_a-0000d9c4-bcac-8000-9ba2-011c48011c48_3808&quot;,&#xD;
         value: ri!product.productCategory,&#xD;
-        saveInto: ri!product.productCategory&#xD;
+        saveInto: ri!product.productCategory,
+        required: true&#xD;
       ),&#xD;
       #&quot;SYSTEM_SYSRULES_textField&quot;(&#xD;
         label: &quot;Manufacturer&quot;,&#xD;
         value: ri!product.manufacturer,&#xD;
         saveInto: ri!product.manufacturer,&#xD;
-        required: false&#xD;
+        required: true&#xD;
       )		  &#xD;
     },  &#xD;
     secondColumnContents: {&#xD;
@@ -83,13 +84,13 @@
         label: &quot;Price&quot;,&#xD;
         value: ri!product.price,&#xD;
         saveInto: ri!product.price,&#xD;
-        required: false&#xD;
+        required: true&#xD;
       ),		&#xD;
       #&quot;SYSTEM_SYSRULES_integerField&quot;(&#xD;
         label: &quot;Quantity&quot;,&#xD;
         value: ri!product.quantity,&#xD;
         saveInto: ri!product.quantity,&#xD;
-        required: false&#xD;
+        required: true&#xD;
       )		  &#xD;
     },&#xD;
     iscollapsible: true&#xD;
@@ -151,6 +152,7 @@
             </type>
         </namedTypedValue>
         <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">

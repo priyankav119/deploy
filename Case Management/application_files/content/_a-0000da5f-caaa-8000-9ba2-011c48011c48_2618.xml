@@ -3,7 +3,7 @@
     <rulesFolder>
         <name>Service Request SAIL</name>
         <uuid>_a-0000da5f-caaa-8000-9ba2-011c48011c48_2618</uuid>
-        <description></description>
+        <description>Contains all SAIL interfaces related to Service Requests</description>
         <parentUuid>_a-0000da5f-caaa-8000-9ba2-011c48011c48_2615</parentUuid>
         <visibility>
             <advertise>false</advertise>
@@ -25,9 +25,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

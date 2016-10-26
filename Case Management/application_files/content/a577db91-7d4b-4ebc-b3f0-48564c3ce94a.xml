@@ -130,15 +130,15 @@
         <namedTypedValue>
             <name>serviceReq</name>
             <type>
-                <name>Variant</name>
-                <namespace>http://www.appian.com/ae/types/2009</namespace>
+                <name>CASE_APP_ServiceRequest</name>
+                <namespace>urn:com:appian:types:CASE_APP</namespace>
             </type>
         </namedTypedValue>
         <namedTypedValue>
             <name>caseDocs</name>
             <type>
-                <name>Variant</name>
-                <namespace>http://www.appian.com/ae/types/2009</namespace>
+                <name>CASE_APP_CaseDocument?list</name>
+                <namespace>urn:com:appian:types:CASE_APP</namespace>
             </type>
         </namedTypedValue>
         <namedTypedValue>
@@ -171,6 +171,7 @@
             <value/>
         </namedTypedValue>
         <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -182,9 +183,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

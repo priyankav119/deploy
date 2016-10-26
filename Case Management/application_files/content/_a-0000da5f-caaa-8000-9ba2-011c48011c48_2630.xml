@@ -41,9 +41,7 @@ New;Pending Assignment;Researching;Pending Requester;Solution;Closed;Re-Opened</
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

@@ -20,16 +20,8 @@
                 <namespace>http://www.appian.com/ae/types/2009</namespace>
             </type>
             <value a:id="-1" a:uuid="b3b9659c-890b-45b1-89e9-97158d2482dd" name="">
-                <a:pluralName/>
-                <a:description/>
-                <a:urlStub/>
-                <a:listViewTemplateExpr/>
                 <a:isSystem>false</a:isSystem>
-                <a:dataSrcExpr/>
-                <a:facetsListExpr/>
-                <a:defaultFiltersExpr/>
                 <a:security>16383</a:security>
-                <a:opaqueId/>
             </value>
         </typedValue>
     </constant>
@@ -43,9 +35,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>malcolm.ross@appian.com</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

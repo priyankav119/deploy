@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>CASE_APP_SR_uiFormNewBasicServiceRequest</name>
+        <uuid>_a-0000db86-d3ef-8000-0315-010000010000_3341</uuid>
+        <description>Captures the required data to kick off a basic service request. (Offline-enabled)</description>
+        <parentUuid>_a-0000da5f-caaa-8000-9ba2-011c48011c48_2618</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>=#&quot;SYSTEM_SYSRULES_formLayout&quot;(
+  label: &quot;Start Basic Service Request&quot;,
+  instructions: &quot;Complete this form to create a new service request for a customer&quot;,
+  firstColumnContents: {
+    #&quot;SYSTEM_SYSRULES_dropdownField&quot;(
+      label: &quot;Select a customer&quot;,
+      placeholderLabel: &quot;---Select a customer---&quot;,
+      choiceLabels: ri!customerList.Name,
+      choiceValues: ri!customerList.id,
+      value: ri!serviceReq.relatedCustomer.id,
+      saveInto: {
+        a!save(
+          target: ri!serviceReq.relatedCustomer,
+          value: ri!customerList[wherecontains(save!value, ri!customerList.id)]
+        ),
+        a!save(
+          target: ri!serviceReq.requesterName,
+          value: ri!serviceReq.relatedCustomer.ContactName
+        ),
+        a!save(
+          target: ri!serviceReq.requesterEmail,
+          value: ri!serviceReq.relatedCustomer.Email
+        )
+      },
+      required: true
+    ),
+    #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+      label: &quot;How may we help you?&quot;,
+      firstColumnContents:{
+        #&quot;SYSTEM_SYSRULES_paragraphField&quot;(
+          label:&quot;Please describe your request&quot;,
+          instructions:&quot;Describe your request and how we can help you.&quot;,
+          value:ri!serviceReq.comment,
+          saveInto:ri!serviceReq.comment,
+          required:true
+        ),
+        #&quot;SYSTEM_SYSRULES_fileUploadField&quot;(
+          label: &quot;Upload Supporting Document&quot;,
+          required: true,
+          target: #&quot;_a-0000da5f-caaa-8000-9ba2-011c48011c48_2780&quot;,
+          value: ri!uploadedDocs,
+          saveInto: {
+            ri!uploadedDocs
+          }
+        )
+      },
+      secondColumnContents: {
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;Requester's Name&quot;,
+          labelPosition: &quot;ABOVE&quot;,
+          instructions: &quot;Name of the person any follow up should be addressed to.&quot;,
+          value: ri!serviceReq.requesterName,
+          saveInto: ri!serviceReq.requesterName,
+          refreshAfter: &quot;UNFOCUS&quot;,
+          validations: {},
+          align: &quot;LEFT&quot;
+        ),
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;Requester's Email&quot;,
+          labelPosition: &quot;ABOVE&quot;,
+          instructions: &quot;The email where notifications and updates on this case should go to.&quot;,
+          value: ri!serviceReq.requesterEmail,
+          saveInto: ri!serviceReq.requesterEmail,
+          refreshAfter: &quot;UNFOCUS&quot;,
+          validations: {},
+          align: &quot;LEFT&quot;
+        )
+      },
+      iscollapsible: true
+    )
+  },
+  buttons: #&quot;SYSTEM_SYSRULES_ButtonLayout&quot;(
+    primaryButtons: {
+      #&quot;SYSTEM_SYSRULES_ButtonWidgetSubmit&quot;(
+        label: &quot;Submit Request&quot;,
+        style: &quot;PRIMARY&quot;,
+        saveInto: {
+          a!save(target:ri!serviceReq.status, value: #&quot;_a-0000da5f-caaa-8000-9ba2-011c48011c48_2630&quot;[1])
+        }
+      )
+    },
+    secondaryButtons: {
+      #&quot;SYSTEM_SYSRULES_ButtonWidgetSubmit&quot;(
+        label: &quot;Cancel&quot;,
+        style: &quot;NORMAL&quot;,
+        value: true,
+        saveInto: ri!cancel,
+        skipValidation: true
+      )
+    }
+  ),
+  validations: {}
+)</definition>
+        <namedTypedValue>
+            <name>cancel</name>
+            <type>
+                <name>boolean</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>serviceReq</name>
+            <type>
+                <name>CASE_APP_ServiceRequest</name>
+                <namespace>urn:com:appian:types:CASE_APP</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>uploadedDocs</name>
+            <type>
+                <name>CollaborationDocument?list</name>
+                <namespace>http://www.appian.com/ae/types/2009</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>customerList</name>
+            <type>
+                <name>CASE_APP_Customer?list</name>
+                <namespace>urn:com:appian:types:CASE_APP</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>true</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+</contentHaul>

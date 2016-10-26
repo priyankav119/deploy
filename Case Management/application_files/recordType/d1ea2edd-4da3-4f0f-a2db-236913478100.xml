@@ -142,9 +142,9 @@
             <a:visibilityExpr>=true()</a:visibilityExpr>
             <a:urlStub>summary</a:urlStub>
             <a:headerExpr></a:headerExpr>
-            <a:relatedActionCfg>af0ad8f4-f267-400e-8062-bfd12236f7e5</a:relatedActionCfg>
-            <a:relatedActionCfg>47aad02b-4c77-453e-8199-c2e9d9ac61ad</a:relatedActionCfg>
-            <a:relatedActionCfg>b1060593-a9f4-416c-8057-930121323da2</a:relatedActionCfg>
+            <a:relatedActionCfg>6bf01b66-6b4a-4176-9eb1-8ac6eb6315f5</a:relatedActionCfg>
+            <a:relatedActionCfg>97290c93-24b1-47e1-91ad-24a07a257060</a:relatedActionCfg>
+            <a:relatedActionCfg>0ceccda0-6ae5-417f-83b0-ea082d2d10ab</a:relatedActionCfg>
         </a:detailViewCfg>
         <a:defaultFilter>
             <a:field>isActive</a:field>
@@ -164,7 +164,7 @@
     preUpdateProductData: local!productData  }
 )</a:contextExpr>
             <a:visibilityExpr>=true()</a:visibilityExpr>
-            <a:refId>af0ad8f4-f267-400e-8062-bfd12236f7e5</a:refId>
+            <a:refId>6bf01b66-6b4a-4176-9eb1-8ac6eb6315f5</a:refId>
         </a:relatedActionCfg>
         <a:relatedActionCfg>
             <a:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="a:ProcessModel" a:uuid="0009d9e6-2dc4-8000-f92f-7f0000014e7a"/>
@@ -174,7 +174,7 @@ RestockCount: null,
 button: null
 }</a:contextExpr>
             <a:visibilityExpr>=true()</a:visibilityExpr>
-            <a:refId>47aad02b-4c77-453e-8199-c2e9d9ac61ad</a:refId>
+            <a:refId>97290c93-24b1-47e1-91ad-24a07a257060</a:refId>
         </a:relatedActionCfg>
         <a:relatedActionCfg>
             <a:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="a:ProcessModel" a:uuid="0009d9cb-f251-8000-f92f-7f0000014e7a"/>
@@ -182,12 +182,13 @@ button: null
  product : #&quot;_a-0000d9c4-bcac-8000-9ba2-011c48011c48_4326&quot;(rp!id)&#xD;
 }</a:contextExpr>
             <a:visibilityExpr>=true()</a:visibilityExpr>
-            <a:refId>b1060593-a9f4-416c-8057-930121323da2</a:refId>
+            <a:refId>0ceccda0-6ae5-417f-83b0-ea082d2d10ab</a:refId>
         </a:relatedActionCfg>
         <a:isSystem>false</a:isSystem>
         <a:dataSrcExpr></a:dataSrcExpr>
         <a:facetsListExpr></a:facetsListExpr>
         <a:defaultFiltersExpr></a:defaultFiltersExpr>
+        <a:layoutType>FEED</a:layoutType>
         <a:security>32767</a:security>
     </recordType>
     <roleMap>

@@ -3,7 +3,7 @@
     <constant>
         <name>CASE_APP_SR_HANDLE_MODEL</name>
         <uuid>_a-0000dac9-8638-8000-9ba2-011c48011c48_5757</uuid>
-        <description></description>
+        <description>Pointer to the Handle Order Service Request process model.</description>
         <parentUuid>_a-0000da5f-caaa-8000-9ba2-011c48011c48_2616</parentUuid>
         <visibility>
             <advertise>false</advertise>
@@ -32,9 +32,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

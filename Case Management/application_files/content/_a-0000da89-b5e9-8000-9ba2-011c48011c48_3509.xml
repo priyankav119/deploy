@@ -3,7 +3,7 @@
     <document>
         <name>xls_blue</name>
         <uuid>_a-0000da89-b5e9-8000-9ba2-011c48011c48_3509</uuid>
-        <description></description>
+        <description>Excel .xls icon</description>
         <parentUuid>_a-0000d9c4-bcac-8000-9ba2-011c48011c48_3839</parentUuid>
         <visibility>
             <advertise>false</advertise>
@@ -26,9 +26,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

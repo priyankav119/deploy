@@ -17,7 +17,7 @@
         <definition>load(
   local!pagingInfo: #&quot;SYSTEM_SYSRULES_pagingInfo&quot;(
     startIndex: 1,
-    batchSize: 20,
+    batchSize: 10,
     sort: #&quot;SYSTEM_SYSRULES_sortInfo&quot;(
       field: &quot;Total&quot;,
       ascending: false
@@ -35,7 +35,7 @@
       )
     ),
     #&quot;SYSTEM_SYSRULES_barChartField&quot;(
-      label: &quot;Average Order Amount by Industry&quot;,
+      label: &quot;Top Order Amount Avg by Industry&quot;,
       categories: index(local!datasubset.data, &quot;Industry&quot;, {}),
       series: #&quot;SYSTEM_SYSRULES_chartSeries&quot;(
         label: &quot;Total Order $&quot;,
@@ -63,6 +63,7 @@
             <value/>
         </namedTypedValue>
         <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -74,9 +75,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>malcolm.ross@appian.com</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

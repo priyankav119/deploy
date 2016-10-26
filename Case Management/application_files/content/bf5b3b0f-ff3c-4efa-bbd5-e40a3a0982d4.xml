@@ -3,7 +3,7 @@
     <rule>
         <name>CASE_APP_SR_uiFormAssignToCaseWorker</name>
         <uuid>bf5b3b0f-ff3c-4efa-bbd5-e40a3a0982d4</uuid>
-        <description></description>
+        <description>Form that allows assigning a Case Worker to a CSR case. The form automatically selects the CW with the most availability, but selection can be overridden.</description>
         <parentUuid>_a-0000da5f-caaa-8000-9ba2-011c48011c48_2618</parentUuid>
         <visibility>
             <advertise>false</advertise>
@@ -46,7 +46,7 @@ load(
         ),
         #&quot;051657d6-8b7d-4398-b529-edffef50deae&quot;(ri!serviceReq, ri!currentMilestone),
         #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
-          label: &quot;Select Case Worker&quot;,
+          label: &quot;Assign Case Worker &amp; Priority&quot;,
           firstColumnContents: {
             #&quot;SYSTEM_SYSRULES_dropdownField&quot;(
               label:&quot;Available Case Workers&quot;,
@@ -57,6 +57,16 @@ load(
               value:local!suggestedUser,
               saveInto:local!suggestedUser,
               required:true
+            ),
+            #&quot;SYSTEM_SYSRULES_dropdownField&quot;(
+              label: &quot;Assign Case Priority&quot;,
+              instructions: &quot;CRITICAL: Revenue-impacting enterprise issues that affect the entire company. HIGH: issues that may potentially become revenue impacting but do not affect the entire company. MEDIUM: issues affecting a single user or for enhancement requests that need to be completed to avoid impending revenue loss. LOW: issues that have known workarounds, issues that do not affect revenue, or enhancement suggestions.&quot;,
+              choiceLabels: #&quot;_a-0000db86-d3ef-8000-0315-010000010000_3399&quot;,
+              placeholderLabel: &quot;---Select a Priority---&quot;,
+              choiceValues: #&quot;_a-0000db86-d3ef-8000-0315-010000010000_3399&quot;,
+              value: ri!serviceReq.priority,
+              saveInto: ri!serviceReq.priority,
+              required: true
             )
           },
           secondColumnContents:{
@@ -89,7 +99,8 @@ load(
             style: &quot;PRIMARY&quot;,
             saveInto: {
               a!save(ri!caseWorker,local!suggestedUser),
-              a!save(ri!serviceReq.serviceRep, local!suggestedUser)
+              a!save(ri!serviceReq.serviceRep, local!suggestedUser),
+              a!save(ri!serviceReq.status, #&quot;_a-0000da5f-caaa-8000-9ba2-011c48011c48_2630&quot;[3])
             }
           )
         },
@@ -102,8 +113,8 @@ load(
         <namedTypedValue>
             <name>serviceReq</name>
             <type>
-                <name>Variant</name>
-                <namespace>http://www.appian.com/ae/types/2009</namespace>
+                <name>CASE_APP_ServiceRequest</name>
+                <namespace>urn:com:appian:types:CASE_APP</namespace>
             </type>
         </namedTypedValue>
         <namedTypedValue>
@@ -112,7 +123,6 @@ load(
                 <name>User</name>
                 <namespace>http://www.appian.com/ae/types/2009</namespace>
             </type>
-            <value/>
         </namedTypedValue>
         <namedTypedValue>
             <name>currentMilestone</name>
@@ -122,6 +132,7 @@ load(
             </type>
         </namedTypedValue>
         <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -133,9 +144,7 @@ load(
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

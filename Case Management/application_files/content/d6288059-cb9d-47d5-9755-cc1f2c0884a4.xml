@@ -24,19 +24,22 @@
       serviceReq:ri!serviceReqData,
       currentMilestone:ri!currentMilestone
     ),
-    #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
-      label:&quot;Case Documents&quot;,
-      firstColumnContents:{
-        #&quot;db22a1b1-edcb-4c87-a893-14880b22e957&quot;(
-          documents:ri!uploadedDocs,
-          gridSelectable:false,
-          showDocImageType:&quot;THUMBNAIL&quot;,
-          showColumns:{&quot;IMAGE&quot;,&quot;NAME&quot;,&quot;DESCRIPTION&quot;,&quot;EXTENSION&quot;,&quot;DATECREATED&quot;},
-          itemsPerPage:5,
-          linkToDoc:true
-        )
-      },
-      isCollapsible:true
+    if(#&quot;_a-0000d9b9-6309-8000-9ba2-011c48011c48_1982&quot;(ri!uploadedDocs),
+      {},
+      #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+        label:&quot;Case Documents&quot;,
+        firstColumnContents:{
+          #&quot;db22a1b1-edcb-4c87-a893-14880b22e957&quot;(
+            documents:ri!uploadedDocs,
+            gridSelectable:false,
+            showDocImageType:&quot;ICON&quot;,
+            showColumns:{&quot;IMAGE&quot;,&quot;NAME&quot;,&quot;DESCRIPTION&quot;,&quot;EXTENSION&quot;,&quot;DATECREATED&quot;},
+            itemsPerPage:5,
+            linkToDoc:true
+          )
+        },
+        isCollapsible:true
+      )
     ),
     #&quot;4b363796-1752-4c70-ad51-3bc22d5a27f2&quot;(ri!pId)
   }
@@ -70,6 +73,7 @@
             </type>
         </namedTypedValue>
         <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -81,9 +85,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

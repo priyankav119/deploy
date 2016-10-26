@@ -20,11 +20,7 @@
                 <namespace>http://www.appian.com/ae/types/2009</namespace>
             </type>
             <value>
-                <el>Customers</el>
                 <el>Users</el>
-                <el>Products</el>
-                <el>Orders</el>
-                <el>Service Requests</el>
             </value>
         </typedValue>
     </constant>
@@ -38,9 +34,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>malcolm.ross@appian.com</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

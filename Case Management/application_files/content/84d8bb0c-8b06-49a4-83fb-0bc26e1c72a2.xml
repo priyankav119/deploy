@@ -26,11 +26,11 @@
   status:&quot;Solution&quot;,
   id:53051235
 )
-4. Set caseHistory to : type!CASE_APP_CaseHistory()
 */
 load(
   local!updateCase:wherecontains(ri!serviceReq.status,#&quot;_a-0000da5f-caaa-8000-9ba2-011c48011c48_2630&quot;),
   local!currentMilestone:#&quot;_a-0000da5f-caaa-8000-9ba2-011c48011c48_2852&quot;(ri!serviceReq.status),
+  local!originalStatus: ri!serviceReq.status,
   #&quot;SYSTEM_SYSRULES_formLayout&quot;(
     label: &quot;Review Customer Service Request #&quot;&amp;ri!serviceReq.requestNum,
     instructions: &quot;Please complete the form below&quot;,
@@ -40,7 +40,24 @@ load(
         active:3
       ),
       #&quot;051657d6-8b7d-4398-b529-edffef50deae&quot;(ri!serviceReq,local!currentMilestone),
-      #&quot;9505777e-cfb8-4b3d-890d-1da3b1a65220&quot;(ri!serviceReq.caseHistory,5),
+      #&quot;3125583a-3639-4d2f-afd3-c600a5e07ca6&quot;(recordType: #&quot;_a-0000da5f-caaa-8000-9ba2-011c48011c48_2950&quot;, recordId: ri!serviceReq.id, hideFilters: true),
+      if(#&quot;_a-0000d9b9-6309-8000-9ba2-011c48011c48_1982&quot;(ri!serviceReq.caseDocuments),
+        {},
+        #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+          label:&quot;Case Documents&quot;,
+          firstColumnContents:{
+            #&quot;db22a1b1-edcb-4c87-a893-14880b22e957&quot;(
+              documents:ri!serviceReq.caseDocuments.currentDocId,
+              gridSelectable:false,
+              showDocImageType:&quot;ICON&quot;,
+              showColumns:{&quot;IMAGE&quot;,&quot;NAME&quot;,&quot;DESCRIPTION&quot;,&quot;EXTENSION&quot;,&quot;DATECREATED&quot;},
+              itemsPerPage:5,
+              linkToDoc:true
+            )
+          },
+          isCollapsible:true
+        )
+      ),
       #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
         label:&quot;Case Worker Action&quot;,
         firstColumnContents:{
@@ -65,8 +82,8 @@ load(
             #&quot;SYSTEM_SYSRULES_paragraphField&quot;(
               label:&quot;Add Comments&quot;,
               instructions:&quot;Comments will be added to case history and requester will be notified of update.&quot;,
-              value:ri!caseHistory.notes,
-              saveInto:ri!caseHistory.notes,
+              value:ri!notes,
+              saveInto:ri!notes,
               required:true
             ),
             /*Case 2: Pending Assignment
@@ -77,8 +94,8 @@ load(
             #&quot;SYSTEM_SYSRULES_paragraphField&quot;(
               label:&quot;Add Comments&quot;,
               instructions:&quot;Comments will be added to case history and requester will be notified of update.&quot;,
-              value:ri!caseHistory.notes,
-              saveInto:ri!caseHistory.notes,
+              value:ri!notes,
+              saveInto:ri!notes,
               required:true
             ),
             /* Case 4: Pending User: Case Worker has requested details from requester.
@@ -86,8 +103,8 @@ load(
             #&quot;SYSTEM_SYSRULES_paragraphField&quot;(
               label:&quot;Request Additional Details&quot;,
               instructions:&quot;Please capture detailed instructions of the information you require from the requester. A notification will be sent including links to the case and its history.&quot;,
-              value:ri!caseHistory.notes,
-              saveInto:ri!caseHistory.notes,
+              value:ri!notes,
+              saveInto:ri!notes,
               required:true
             ),
             /*Case 5: Solution
@@ -95,8 +112,8 @@ load(
             #&quot;SYSTEM_SYSRULES_paragraphField&quot;(
               label:&quot;Capture Case Solution Notes&quot;,
               instructions:&quot;Indicate what steps you have taken to resolve this case.&quot;,
-              value:ri!caseHistory.notes,
-              saveInto:ri!caseHistory.notes,
+              value:ri!notes,
+              saveInto:ri!notes,
               required:true
             ),
             /*Case 6: Closed
@@ -104,8 +121,8 @@ load(
             #&quot;SYSTEM_SYSRULES_paragraphField&quot;(
               label:&quot;Comments&quot;,
               instructions:&quot;Please indicate your reasons for closing the case.&quot;,
-              value:ri!caseHistory.notes,
-              saveInto:ri!caseHistory.notes,
+              value:ri!notes,
+              saveInto:ri!notes,
               required:true
             ),
             /*Case 7: Re-Opened
@@ -121,12 +138,13 @@ load(
           label: &quot;Submit&quot;,
           style: &quot;PRIMARY&quot;,
           saveInto: {
-            a!save(target:ri!caseHistory.timestamp, value:now()),
-            a!save(target:ri!caseHistory.user, value:#&quot;_a-0000d9b9-6309-8000-9ba2-011c48011c48_1983&quot;(loggedInUser())),
-            a!save(target:ri!caseHistory.userTitle, value:&quot;Case Worker&quot;),
-            a!save(target:ri!caseHistory.action, value:&quot;Update Status to: [&quot;&amp;ri!serviceReq.status&amp;&quot;]&quot;),
-            a!save(target:ri!caseHistory.parentCaseType, value:#&quot;_a-0000da5f-caaa-8000-9ba2-011c48011c48_2773&quot;),
-            a!save(target:ri!caseHistory.parentCaseId, value:ri!serviceReq.id)
+            a!save(
+              ri!notes,
+              if(ri!serviceReq.status &lt;&gt; local!originalStatus,
+                &quot;Updated CSR Case Status to [&quot; &amp; ri!serviceReq.status &amp; &quot;]&quot;,
+                &quot;&quot;
+              ) &amp; &quot;. Added comments: &quot; &amp; ri!notes
+            )
           }
         )
       }
@@ -142,13 +160,15 @@ load(
             </type>
         </namedTypedValue>
         <namedTypedValue>
-            <name>caseHistory</name>
+            <name>notes</name>
             <type>
-                <name>Variant</name>
-                <namespace>http://www.appian.com/ae/types/2009</namespace>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
             </type>
+            <value/>
         </namedTypedValue>
         <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -160,9 +180,7 @@ load(
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

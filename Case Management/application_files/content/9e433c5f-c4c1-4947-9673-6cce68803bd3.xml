@@ -3,7 +3,7 @@
     <rule>
         <name>CASE_APP_uiChartMostPurchasedProductsByCustomer</name>
         <uuid>9e433c5f-c4c1-4947-9673-6cce68803bd3</uuid>
-        <description></description>
+        <description>SHows a chart displaying the most purchased products by customer</description>
         <parentUuid>_a-0000d9c4-bcac-8000-9ba2-011c48011c48_5839</parentUuid>
         <visibility>
             <advertise>false</advertise>
@@ -78,6 +78,7 @@
             </type>
         </namedTypedValue>
         <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -89,9 +90,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

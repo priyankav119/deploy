@@ -12,39 +12,7 @@
         <attributes/>
     </group>
     <members>
-        <users>
-            <userUuid>kevin.reed</userUuid>
-            <userUuid>debra.harrison</userUuid>
-            <userUuid>christopher.harris</userUuid>
-            <userUuid>patricia.johnson</userUuid>
-            <userUuid>chris.watkins</userUuid>
-            <userUuid>christine.chenal</userUuid>
-            <userUuid>joseph.clark</userUuid>
-            <userUuid>michael.cooper</userUuid>
-            <userUuid>jessica.williams</userUuid>
-            <userUuid>robert.ward</userUuid>
-            <userUuid>gary.howard</userUuid>
-            <userUuid>lisa.walker</userUuid>
-            <userUuid>zach.messler</userUuid>
-            <userUuid>susan.williams</userUuid>
-            <userUuid>phillip.sanchez</userUuid>
-            <userUuid>stephen.singh</userUuid>
-            <userUuid>maria.lopez</userUuid>
-            <userUuid>karen.anderson</userUuid>
-            <userUuid>jorge.sanchez</userUuid>
-            <userUuid>george.garcia</userUuid>
-            <userUuid>brian.chen</userUuid>
-            <userUuid>martin.morgan</userUuid>
-            <userUuid>donna.miller</userUuid>
-            <userUuid>sharon.white</userUuid>
-            <userUuid>malcolm.ross@appian.com</userUuid>
-            <userUuid>sandra.taylor</userUuid>
-            <userUuid>carol.wilson</userUuid>
-            <userUuid>mary.lawson</userUuid>
-            <userUuid>mary.king</userUuid>
-            <userUuid>carl.peters</userUuid>
-            <userUuid>timothy.kim</userUuid>
-        </users>
+        <users/>
         <groups/>
     </members>
     <admins>

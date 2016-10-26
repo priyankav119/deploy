@@ -3,7 +3,7 @@
     <rule>
         <name>CASE_APP_getPortalReportColumn</name>
         <uuid>_a-0000da5f-caaa-8000-9ba2-011c48011c48_2897</uuid>
-        <description></description>
+        <description>Utility expression used to retrieve a column of information to be displayed in a Gird Layout field.</description>
         <parentUuid>_a-0000da5f-caaa-8000-9ba2-011c48011c48_2880</parentUuid>
         <visibility>
             <advertise>false</advertise>
@@ -83,6 +83,7 @@
             </type>
         </namedTypedValue>
         <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -94,9 +95,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

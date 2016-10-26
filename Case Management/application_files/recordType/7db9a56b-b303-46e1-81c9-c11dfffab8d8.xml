@@ -141,69 +141,6 @@
                 <a:upperLimitExpr></a:upperLimitExpr>
                 <a:values>=#&quot;_a-0000d9a9-eb56-8000-9e06-010000010000_759&quot;[18]</a:values>
             </a:facetOption>
-            <a:facetOption>
-                <a:labelExpr>=#&quot;_a-0000d9a9-eb56-8000-9e06-010000010000_759&quot;[19]</a:labelExpr>
-                <a:facetOperator>IN</a:facetOperator>
-                <a:lowerLimitExpr></a:lowerLimitExpr>
-                <a:upperLimitExpr></a:upperLimitExpr>
-                <a:values>=#&quot;_a-0000d9a9-eb56-8000-9e06-010000010000_759&quot;[19]</a:values>
-            </a:facetOption>
-            <a:facetOption>
-                <a:labelExpr>=#&quot;_a-0000d9a9-eb56-8000-9e06-010000010000_759&quot;[20]</a:labelExpr>
-                <a:facetOperator>IN</a:facetOperator>
-                <a:lowerLimitExpr></a:lowerLimitExpr>
-                <a:upperLimitExpr></a:upperLimitExpr>
-                <a:values>=#&quot;_a-0000d9a9-eb56-8000-9e06-010000010000_759&quot;[20]</a:values>
-            </a:facetOption>
-            <a:facetOption>
-                <a:labelExpr>=#&quot;_a-0000d9a9-eb56-8000-9e06-010000010000_759&quot;[21]</a:labelExpr>
-                <a:facetOperator>IN</a:facetOperator>
-                <a:lowerLimitExpr></a:lowerLimitExpr>
-                <a:upperLimitExpr></a:upperLimitExpr>
-                <a:values>=#&quot;_a-0000d9a9-eb56-8000-9e06-010000010000_759&quot;[21]</a:values>
-            </a:facetOption>
-            <a:facetOption>
-                <a:labelExpr>=#&quot;_a-0000d9a9-eb56-8000-9e06-010000010000_759&quot;[22]</a:labelExpr>
-                <a:facetOperator>IN</a:facetOperator>
-                <a:lowerLimitExpr></a:lowerLimitExpr>
-                <a:upperLimitExpr></a:upperLimitExpr>
-                <a:values>=#&quot;_a-0000d9a9-eb56-8000-9e06-010000010000_759&quot;[22]</a:values>
-            </a:facetOption>
-            <a:facetOption>
-                <a:labelExpr>=#&quot;_a-0000d9a9-eb56-8000-9e06-010000010000_759&quot;[23]</a:labelExpr>
-                <a:facetOperator>IN</a:facetOperator>
-                <a:lowerLimitExpr></a:lowerLimitExpr>
-                <a:upperLimitExpr></a:upperLimitExpr>
-                <a:values>=#&quot;_a-0000d9a9-eb56-8000-9e06-010000010000_759&quot;[23]</a:values>
-            </a:facetOption>
-            <a:facetOption>
-                <a:labelExpr>=#&quot;_a-0000d9a9-eb56-8000-9e06-010000010000_759&quot;[24]</a:labelExpr>
-                <a:facetOperator>IN</a:facetOperator>
-                <a:lowerLimitExpr></a:lowerLimitExpr>
-                <a:upperLimitExpr></a:upperLimitExpr>
-                <a:values>=#&quot;_a-0000d9a9-eb56-8000-9e06-010000010000_759&quot;[24]</a:values>
-            </a:facetOption>
-            <a:facetOption>
-                <a:labelExpr>=#&quot;_a-0000d9a9-eb56-8000-9e06-010000010000_759&quot;[25]</a:labelExpr>
-                <a:facetOperator>IN</a:facetOperator>
-                <a:lowerLimitExpr></a:lowerLimitExpr>
-                <a:upperLimitExpr></a:upperLimitExpr>
-                <a:values>=#&quot;_a-0000d9a9-eb56-8000-9e06-010000010000_759&quot;[25]</a:values>
-            </a:facetOption>
-            <a:facetOption>
-                <a:labelExpr>=#&quot;_a-0000d9a9-eb56-8000-9e06-010000010000_759&quot;[26]</a:labelExpr>
-                <a:facetOperator>IN</a:facetOperator>
-                <a:lowerLimitExpr></a:lowerLimitExpr>
-                <a:upperLimitExpr></a:upperLimitExpr>
-                <a:values>=#&quot;_a-0000d9a9-eb56-8000-9e06-010000010000_759&quot;[26]</a:values>
-            </a:facetOption>
-            <a:facetOption>
-                <a:labelExpr>=#&quot;_a-0000d9a9-eb56-8000-9e06-010000010000_759&quot;[27]</a:labelExpr>
-                <a:facetOperator>IN</a:facetOperator>
-                <a:lowerLimitExpr></a:lowerLimitExpr>
-                <a:upperLimitExpr></a:upperLimitExpr>
-                <a:values>=#&quot;_a-0000d9a9-eb56-8000-9e06-010000010000_759&quot;[27]</a:values>
-            </a:facetOption>
             <a:sortOrderIndex>0</a:sortOrderIndex>
             <a:facetOrderIndex>0</a:facetOrderIndex>
         </a:fieldCfg>
@@ -213,10 +150,10 @@
             <a:visibilityExpr>=true()</a:visibilityExpr>
             <a:urlStub>summary</a:urlStub>
             <a:headerExpr></a:headerExpr>
-            <a:relatedActionCfg>1c9230cb-5231-4816-954a-03375f335651</a:relatedActionCfg>
-            <a:relatedActionCfg>6537c4cb-0744-40c5-99ec-28cfb2d996fe</a:relatedActionCfg>
-            <a:relatedActionCfg>04a18498-bd69-4404-bc65-0a1a18d372eb</a:relatedActionCfg>
-            <a:relatedActionCfg>8096d28f-db2c-4a57-a0d0-23fa8f430644</a:relatedActionCfg>
+            <a:relatedActionCfg>9e7592cc-0249-41ee-85ff-94c6f05ef747</a:relatedActionCfg>
+            <a:relatedActionCfg>82b6c176-4fa0-4568-8a39-aa60e6a1f759</a:relatedActionCfg>
+            <a:relatedActionCfg>f56bac92-7edd-491d-a27d-62b3f0d32852</a:relatedActionCfg>
+            <a:relatedActionCfg>84931343-122b-4f73-8f56-6182e87f30f4</a:relatedActionCfg>
         </a:detailViewCfg>
         <a:detailViewCfg>
             <a:nameExpr>&quot;Financials&quot;</a:nameExpr>
@@ -248,7 +185,7 @@ customerData: #&quot;_a-0000d9b9-6309-8000-9ba2-011c48011c48_2115&quot;(rp!id),&
 preUpdateCustomerData:#&quot;_a-0000d9b9-6309-8000-9ba2-011c48011c48_2115&quot;(rp!id)&#xD;
 }</a:contextExpr>
             <a:visibilityExpr>=true()</a:visibilityExpr>
-            <a:refId>1c9230cb-5231-4816-954a-03375f335651</a:refId>
+            <a:refId>9e7592cc-0249-41ee-85ff-94c6f05ef747</a:refId>
         </a:relatedActionCfg>
         <a:relatedActionCfg>
             <a:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="a:ProcessModel" a:uuid="0003daa1-7b50-8000-f92f-7f0000014e7a"/>
@@ -258,18 +195,18 @@ Order: 'type!{urn:com:appian:types:CASE_APP}CASE_APP_Order'(ShippingCost: #&quot
 Customer: {#&quot;_a-0000d9b9-6309-8000-9ba2-011c48011c48_2115&quot;(rp!id)}
 }</a:contextExpr>
             <a:visibilityExpr>=rf!InactiveFlag=false()</a:visibilityExpr>
-            <a:refId>6537c4cb-0744-40c5-99ec-28cfb2d996fe</a:refId>
+            <a:refId>82b6c176-4fa0-4568-8a39-aa60e6a1f759</a:refId>
         </a:relatedActionCfg>
         <a:relatedActionCfg>
             <a:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="a:ProcessModel" a:uuid="0002daa1-de16-8000-f92f-7f0000014e7a"/>
             <a:contextExpr>={
-  serviceReqData:type!CASE_APP_ServiceRequest(relatedCustomer:rule!CASE_APP_getAllCustomerFieldsById(rf!id)),
+  serviceReqData:'type!{urn:com:appian:types:CASE_APP}CASE_APP_ServiceRequest'(relatedCustomer:#&quot;_a-0000d9b9-6309-8000-9ba2-011c48011c48_2115&quot;(rf!id)),
 caseDocs:={'type!{urn:com:appian:types:CASE_APP}CASE_APP_CaseDocument'()},
 uploadedDocs:todocument(null),
 forLabel:&quot; for Customer &quot;&amp;rf!Name
 }</a:contextExpr>
             <a:visibilityExpr>=true()</a:visibilityExpr>
-            <a:refId>04a18498-bd69-4404-bc65-0a1a18d372eb</a:refId>
+            <a:refId>f56bac92-7edd-491d-a27d-62b3f0d32852</a:refId>
         </a:relatedActionCfg>
         <a:relatedActionCfg>
             <a:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="a:ProcessModel" a:uuid="000ad9b9-22eb-8000-9e06-010000010000"/>
@@ -277,12 +214,13 @@ forLabel:&quot; for Customer &quot;&amp;rf!Name
 customerData: #&quot;_a-0000d9b9-6309-8000-9ba2-011c48011c48_2115&quot;(rp!id)&#xD;
 }</a:contextExpr>
             <a:visibilityExpr>=true()</a:visibilityExpr>
-            <a:refId>8096d28f-db2c-4a57-a0d0-23fa8f430644</a:refId>
+            <a:refId>84931343-122b-4f73-8f56-6182e87f30f4</a:refId>
         </a:relatedActionCfg>
         <a:isSystem>false</a:isSystem>
         <a:dataSrcExpr></a:dataSrcExpr>
         <a:facetsListExpr></a:facetsListExpr>
         <a:defaultFiltersExpr></a:defaultFiltersExpr>
+        <a:layoutType>FEED</a:layoutType>
         <a:security>32767</a:security>
     </recordType>
     <roleMap>

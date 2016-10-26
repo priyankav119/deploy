@@ -3,7 +3,7 @@
     <rule>
         <name>CASE_APP_SR_getMilestoneForStatus</name>
         <uuid>_a-0000da5f-caaa-8000-9ba2-011c48011c48_2852</uuid>
-        <description></description>
+        <description>Retrieves the proper Milestone step for the CSR process based on its status</description>
         <parentUuid>_a-0000da5f-caaa-8000-9ba2-011c48011c48_2617</parentUuid>
         <visibility>
             <advertise>false</advertise>
@@ -39,6 +39,7 @@
             <value/>
         </namedTypedValue>
         <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -50,9 +51,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

@@ -12,18 +12,11 @@
         <attributes/>
     </group>
     <members>
-        <users>
-            <userUuid>malcolm.ross@appian.com</userUuid>
-            <userUuid>jorge.sanchez</userUuid>
-            <userUuid>zach.messler</userUuid>
-        </users>
+        <users/>
         <groups/>
     </members>
     <admins>
-        <users>
-            <userUuid>malcolm.ross@appian.com</userUuid>
-            <userUuid>jorge.sanchez</userUuid>
-        </users>
+        <users/>
         <groups/>
     </admins>
     <ruleSet/>

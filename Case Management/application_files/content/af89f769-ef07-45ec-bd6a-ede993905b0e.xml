@@ -3,7 +3,7 @@
     <rule>
         <name>CASE_APP_SR_uiFormReOpenCase</name>
         <uuid>af89f769-ef07-45ec-bd6a-ede993905b0e</uuid>
-        <description></description>
+        <description>Form used in a CSR related action to re-open the case.</description>
         <parentUuid>_a-0000da5f-caaa-8000-9ba2-011c48011c48_2618</parentUuid>
         <visibility>
             <advertise>false</advertise>
@@ -40,7 +40,7 @@ load(
         active:local!currentMilestone
       ),
       #&quot;051657d6-8b7d-4398-b529-edffef50deae&quot;(ri!serviceReq,local!currentMilestone),
-      #&quot;9505777e-cfb8-4b3d-890d-1da3b1a65220&quot;(ri!serviceReq.caseHistory,4),
+      #&quot;3125583a-3639-4d2f-afd3-c600a5e07ca6&quot;(recordType: #&quot;_a-0000da5f-caaa-8000-9ba2-011c48011c48_2950&quot;, recordId: ri!serviceReq.id, hideFilters: true),
       #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
         label:&quot;Re-Open Case Notes&quot;,
         firstColumnContents:{
@@ -89,6 +89,7 @@ load(
             </type>
         </namedTypedValue>
         <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -100,9 +101,7 @@ load(
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

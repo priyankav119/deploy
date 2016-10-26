@@ -175,11 +175,16 @@
                 saveInto: ri!customer[1].OfficePhone,
                 refreshAfter: &quot;KEYPRESS&quot;,
                 validations: {
-                              if(
-                                cleanwith(ri!customer[1].OfficePhone, &quot;1234567890()+- &quot;)=ri!customer[1].OfficePhone, 
-                                null, &quot;Invalid characters in phone number&quot;
-                              )
-                            }          
+                  if(
+                    #&quot;_a-0000d9a9-eb56-8000-9e06-010000010000_751&quot;(ri!customer[1].OfficePhone),
+                    null,
+                    if(
+                      cleanwith(ri!customer[1].OfficePhone, &quot;1234567890()+- &quot;)=ri!customer[1].OfficePhone, 
+                      null,
+                      &quot;Invalid characters in phone number&quot;
+                    )
+                  )
+                }          
               )
             },
             isCollapsible: true()
@@ -279,8 +284,8 @@
         <namedTypedValue>
             <name>Order</name>
             <type>
-                <name>Variant</name>
-                <namespace>http://www.appian.com/ae/types/2009</namespace>
+                <name>CASE_APP_Order</name>
+                <namespace>urn:com:appian:types:CASE_APP</namespace>
             </type>
         </namedTypedValue>
         <namedTypedValue>
@@ -291,6 +296,7 @@
             </type>
         </namedTypedValue>
         <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -302,10 +308,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>malcolm.ross@appian.com</userUuid>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

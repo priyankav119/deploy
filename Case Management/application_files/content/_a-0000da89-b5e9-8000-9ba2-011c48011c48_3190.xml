@@ -3,7 +3,7 @@
     <constant>
         <name>CASE_APP_VW_ORDER_DETAILS_DATA_STORE_ENTITY</name>
         <uuid>_a-0000da89-b5e9-8000-9ba2-011c48011c48_3190</uuid>
-        <description></description>
+        <description>A pointer to the Order Details view in the CASE_APP_VW with the same name.</description>
         <parentUuid>_a-0000d9b9-6309-8000-9ba2-011c48011c48_1981</parentUuid>
         <visibility>
             <advertise>false</advertise>
@@ -32,9 +32,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

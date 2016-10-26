@@ -18,25 +18,25 @@ Customers;Users;Products;Orders;Investigations;Service Requests</description>
         <definition>choose(
   ri!indexposition,
   {
-    /*  Index position 1 - Corresponds to Customer Record*/
-    &quot;Name&quot;,&quot;GlobalID&quot;
-  },
-  {
-    /* Index position 2 - Corresponds to the User record */
+    /* Index position 1 - Corresponds to the User record */
     &quot;username&quot;
-  },
-  {
+  }
+  /*{*/
+    /*  Index position 2 - Corresponds to Customer Record*/
+  /*  &quot;Name&quot;,&quot;GlobalID&quot;*/
+  /*},*/
+  /*{*/
     /* Index position 3 - Corresponds to the Product record */
-    &quot;name&quot;,&quot;description&quot;
-  },
-  {
+  /*  &quot;name&quot;,&quot;description&quot;*/
+  /*},*/
+  /*{*/
     /* Index position 4 - Corresponds to the Orders record */
-    &quot;OrderNum&quot;,&quot;PurchaserName&quot;,&quot;Customer.Name&quot;
-  },
-  {
+  /*  &quot;OrderNum&quot;,&quot;PurchaserName&quot;,&quot;Customer.Name&quot;*/
+  /*},*/
+  /*{*/
     /* Index position 5 - Corresponds to the Service Request record */
-    &quot;srName&quot;
-  }/*,
+  /*  &quot;srName&quot;*/
+  /*}*//*,
   {
     /* Index position 6 - Corresponds to the Investigation record *
     &quot;icmName&quot;
@@ -50,6 +50,7 @@ Customers;Users;Products;Orders;Investigations;Service Requests</description>
             </type>
         </namedTypedValue>
         <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -61,9 +62,7 @@ Customers;Users;Products;Orders;Investigations;Service Requests</description>
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>malcolm.ross@appian.com</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

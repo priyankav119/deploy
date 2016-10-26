@@ -3,7 +3,7 @@
     <rule>
         <name>CASE_APP_uiChartMortPurchaseProductByCustomer</name>
         <uuid>565d9914-d2af-4204-8954-b178f60c228e</uuid>
-        <description></description>
+        <description>Shows a column bar chart with the most purchased products by customer</description>
         <parentUuid>_a-0000d9c4-bcac-8000-9ba2-011c48011c48_5839</parentUuid>
         <visibility>
             <advertise>false</advertise>
@@ -77,6 +77,7 @@
             </type>
         </namedTypedValue>
         <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -88,9 +89,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

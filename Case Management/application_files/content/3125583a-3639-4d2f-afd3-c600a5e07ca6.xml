@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>AH_auditHistoryGrid</name>
+        <uuid>3125583a-3639-4d2f-afd3-c600a5e07ca6</uuid>
+        <description>Grid shown in related record view that displays all the audit trails for that particular record. NOTE: do not nest in a sectionLayout. - this SAIL form contains two sectionLayouts</description>
+        <parentUuid>_a-0000daa1-9d78-8000-6ee0-010000010000_1005</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>load(
+  local!gridSelection: #&quot;SYSTEM_SYSRULES_gridSelection&quot;(
+    pagingInfo: #&quot;SYSTEM_SYSRULES_pagingInfo&quot;(
+      startIndex: 1,
+      batchSize: if(ri!hideFilters, 5, 10),
+      sort: #&quot;SYSTEM_SYSRULES_sortInfo&quot;(
+        field: &quot;eventTimestamp&quot;,
+        ascending: true
+      )
+    )
+  ),
+  local!userFilter,
+  local!actionTypeFilter,
+  local!startFilter,
+  local!endFilter,
+  with(
+    local!datasubset: #&quot;SYSTEM_SYSRULES_queryEntity&quot;(
+      entity: #&quot;_a-0000daa1-9d78-8000-6ee0-010000010000_1088&quot;,
+      query: #&quot;SYSTEM_SYSRULES_query&quot;(
+        selection: #&quot;SYSTEM_SYSRULES_querySelection&quot;(columns: {
+          #&quot;SYSTEM_SYSRULES_queryColumn&quot;(field: &quot;id&quot;),
+          #&quot;SYSTEM_SYSRULES_queryColumn&quot;(field: &quot;recordId&quot;),
+          #&quot;SYSTEM_SYSRULES_queryColumn&quot;(field: &quot;eventTimestamp&quot;),
+          #&quot;SYSTEM_SYSRULES_queryColumn&quot;(field: &quot;initiatorName&quot;),
+          #&quot;SYSTEM_SYSRULES_queryColumn&quot;(field: &quot;actionType&quot;),
+          #&quot;SYSTEM_SYSRULES_queryColumn&quot;(field: &quot;actionDescription&quot;),
+          #&quot;SYSTEM_SYSRULES_queryColumn&quot;(field: &quot;notes&quot;),
+        }),
+        logicalExpression: if(and(isnull(ri!recordType), isnull(ri!recordId), or(isnull(local!userFilter), len(local!userFilter) &lt; 1),
+        or(isnull(local!actionTypeFilter), len(local!actionTypeFilter) &lt; 1), isnull(local!startFilter), isnull(local!endFilter)), 
+          &quot;&quot;,        
+          #&quot;SYSTEM_SYSRULES_queryLogicalExpression&quot;(
+            operator: &quot;AND&quot;,
+            filters:{
+              if(isnull(ri!recordType), {},
+                #&quot;SYSTEM_SYSRULES_queryFilter&quot;(
+                  field: &quot;recordType&quot;,
+                  operator: &quot;=&quot;,
+                  value: #&quot;SYSTEM_SYSRULES_toJson&quot;(ri!recordType)
+                )
+              ),
+              if(isnull(ri!recordId), {}, 
+                #&quot;SYSTEM_SYSRULES_queryFilter&quot;(
+                  field: &quot;recordId&quot;,
+                  operator: &quot;=&quot;,
+                  value: ri!recordId
+                )
+              ),
+              if(or(isnull(local!userFilter), len(local!userFilter) &lt; 1), {},
+                #&quot;SYSTEM_SYSRULES_queryFilter&quot;(
+                  field: &quot;initiatorName&quot;,
+                  operator: &quot;=&quot;,
+                  value: tostring(local!userFilter)
+                )
+              ),
+              if(or(isnull(local!actionTypeFilter), len(local!actionTypeFilter) &lt; 1), {},
+                #&quot;SYSTEM_SYSRULES_queryFilter&quot;(
+                  field: &quot;actionType&quot;,
+                  operator: &quot;includes&quot;,
+                  value: tostring(local!actionTypeFilter)
+                )
+              ),
+              if(isnull(local!startFilter), {},
+                #&quot;SYSTEM_SYSRULES_queryFilter&quot;(
+                  field: &quot;eventTimestamp&quot;,
+                  operator: &quot;&gt;=&quot;,
+                  value: local!startFilter
+                )
+              ),    
+              if(isnull(local!endFilter), {},
+                #&quot;SYSTEM_SYSRULES_queryFilter&quot;(
+                  field: &quot;eventTimestamp&quot;,
+                  operator: &quot;&lt;=&quot;,
+                  value: local!endFilter
+                )
+              ),
+            }
+          )
+        ),  
+        pagingInfo: local!gridSelection.pagingInfo
+      )
+    ),
+    local!recorddatasubset: if(
+      and(isnull(ri!recordId), not(isnull(ri!recordType)), not(isnull(ri!idField)), not(isnull(ri!recordNameField))),
+      queryrecord(
+        recordType: ri!recordType,
+        query: #&quot;SYSTEM_SYSRULES_query&quot;(
+          selection: #&quot;SYSTEM_SYSRULES_querySelection&quot;(columns: {
+            #&quot;SYSTEM_SYSRULES_queryColumn&quot;(field: ri!idField),
+            #&quot;SYSTEM_SYSRULES_queryColumn&quot;(field: ri!recordNameField)
+            }
+          ),
+        pagingInfo: #&quot;SYSTEM_SYSRULES_pagingInfo&quot;(
+        startIndex: 1,
+        batchSize: -1,
+        sort: #&quot;SYSTEM_SYSRULES_sortInfo&quot;(
+          field: ri!recordNameField,
+          ascending: true
+          )    
+         )
+        )
+      ),
+      {}
+    ),
+    {
+      if(ri!hideFilters,
+        {},
+        #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+          label: &quot;Case History Information&quot;,
+          isCollapsible: true,
+          firstColumnContents: {
+            #&quot;SYSTEM_SYSRULES_pickerFieldUsers&quot;(
+              label: &quot;Initiator Name&quot;,
+              labelPosition: &quot;ADJACENT&quot;,
+              maxSelections: 1,
+              value: local!userFilter,
+              saveInto: {local!userFilter,a!save(local!gridSelection.pagingInfo.startIndex, 1)}
+            ),
+            #&quot;SYSTEM_SYSRULES_textField&quot;(
+              label: &quot;Action Type&quot;,
+              labelPosition: &quot;ADJACENT&quot;,
+              value: local!actionTypeFilter,
+              saveInto: {local!actionTypeFilter,a!save(local!gridSelection.pagingInfo.startIndex, 1)}
+            ),
+            #&quot;SYSTEM_SYSRULES_ButtonLayout&quot;(
+              secondaryButtons: #&quot;SYSTEM_SYSRULES_ButtonWidget&quot;(
+                label: &quot;Clear Filters&quot;,
+                skipValidation: true,
+                saveInto: {
+                  a!save(local!userFilter, null),
+                  a!save(local!actionTypeFilter, null),
+                  a!save(local!startFilter, null),
+                  a!save(local!endFilter, null)
+                }
+              )
+            )       
+          },
+          secondColumnContents: {
+            #&quot;SYSTEM_SYSRULES_dateTimeField&quot;(
+              label: &quot;Start Time&quot;,
+              labelPosition: &quot;ADJACENT&quot;,
+              value: local!startFilter,
+              saveInto: {local!startFilter, a!save(local!gridSelection.pagingInfo.startIndex, 1)}
+            ),
+            #&quot;SYSTEM_SYSRULES_dateTimeField&quot;(
+              label: &quot;End Time&quot;,
+              labelPosition: &quot;ADJACENT&quot;,
+              validations: if(or(isnull(local!startFilter), isnull(local!endFilter)), &quot;&quot;, if(local!endFilter &lt;= local!startFilter, &quot;End date cannot be equal to or before the start date.&quot;, &quot;&quot;)),
+              value: local!endFilter,
+              saveInto: {local!endFilter, a!save(local!gridSelection.pagingInfo.startIndex, 1)}
+            ),
+          }
+        )
+      ),
+      #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+        label: if(ri!hideFilters, &quot;Case History Information&quot;, &quot;&quot;),
+        firstColumnContents: {
+          #&quot;SYSTEM_SYSRULES_gridField&quot;(
+            instructions: if(isnull(ri!recordId), 
+              &quot;Audit History information for an individual record can be viewed on the Audit History view, accessible from the main record Summary view.&quot;, 
+              if(ri!isSelectable,
+                &quot;Note: the details of the selected audit history trail will be visible in the News post.&quot;,
+                &quot;&quot;
+              )
+            ),
+            totalCount: local!datasubset.totalCount,
+            columns: {
+              #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+                label: &quot;Timestamp&quot;,
+                field: &quot;eventTimestamp&quot;,
+                data: apply(
+                  #&quot;_a-0000da89-b5e9-8000-9ba2-011c48011c48_3920&quot;,
+                  index(local!datasubset.data, &quot;eventTimestamp&quot;, {})
+                )
+              ),
+              #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+                label: &quot;Initiator Name&quot;,
+                field: &quot;initiatorName&quot;,
+                data: apply(#&quot;_a-0000daa1-9d78-8000-6ee0-010000010000_1099&quot;, index(local!datasubset.data, &quot;initiatorName&quot;, {})),
+                links: #&quot;SYSTEM_SYSRULES_applyComponents&quot;(
+                  function: #&quot;_a-0000daa1-9d78-8000-6ee0-010000010000_1098&quot;(userName: _), 
+                  array: index(local!datasubset.data, &quot;initiatorName&quot;, {})
+                  )
+              ),
+              #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+                label: &quot;Action Type&quot;,
+                field: &quot;actionType&quot;,
+                data: index(local!datasubset.data, &quot;actionType&quot;, {})
+              ),
+              if(and(isnull(ri!recordId), not(isnull(ri!recordType)), not(isnull(ri!idField)), not(isnull(ri!recordNameField))),
+                #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+                  label: &quot;Record Name&quot;,
+                  field: &quot;recordName&quot;,
+                  data: apply(#&quot;_a-0000daa1-9d78-8000-6ee0-010000010000_1389&quot;(
+                    rId: _,
+                    recordType: ri!recordType,
+                    idField: ri!idField,
+                    recordNameField: ri!recordNameField,
+                    recorddatasubset: local!recorddatasubset
+                  ), 
+                  index(local!datasubset.data, &quot;recordId&quot;, {})),
+                  links: #&quot;SYSTEM_SYSRULES_applyComponents&quot;(
+                    function: #&quot;SYSTEM_SYSRULES_recordLink&quot;(
+                      recordType: ri!recordType,
+                      identifier: _
+                    ),
+                    array: index(local!datasubset.data, &quot;recordId&quot;, {})
+                    )
+                ), {}
+              ),               
+              #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+                label: &quot;Action Description&quot;,
+                field: &quot;actionDescription&quot;,
+                data: index(local!datasubset.data, &quot;actionDescription&quot;, {})
+              ),
+              #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+                label: &quot;Notes&quot;,
+                field: &quot;notes&quot;,
+                data: index(local!datasubset.data, &quot;notes&quot;, {})
+              )
+         
+            },
+            identifiers: index(local!datasubset.data, &quot;id&quot;, {}),
+            
+            value: local!gridSelection,
+              saveInto: {
+                local!gridSelection,
+                if(
+                  count(local!gridSelection.selected)&gt;1,
+                  /* Does not update the value if the user is attempting to select more than one id */
+                  {},
+                  /* Stores the selected id only */
+                  a!save(ri!selectedId, index(index(save!value, &quot;selected&quot;, null), 1, null))
+                )
+              },
+            selection: ri!isSelectable,
+            validations: if(count(local!gridSelection.selected)&gt;1, &quot;You may only select one audit trail.&quot;, null)
+          )
+        },
+        isCollapsible: ri!hideFilters
+      )
+    }
+  )
+)
+</definition>
+        <namedTypedValue>
+            <name>recordType</name>
+            <type>
+                <name>Variant</name>
+                <namespace>http://www.appian.com/ae/types/2009</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>recordId</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>isSelectable</name>
+            <type>
+                <name>boolean</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>selectedId</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>idField</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>recordNameField</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>hideFilters</name>
+            <type>
+                <name>boolean</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+</contentHaul>

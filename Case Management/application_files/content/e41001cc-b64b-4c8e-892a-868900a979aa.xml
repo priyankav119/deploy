@@ -3,7 +3,7 @@
     <rule>
         <name>CASE_APP_SR_uiReportDashboard</name>
         <uuid>e41001cc-b64b-4c8e-892a-868900a979aa</uuid>
-        <description></description>
+        <description>Report Dashboard for CSR cases.</description>
         <parentUuid>_a-0000da89-b5e9-8000-9ba2-011c48011c48_3881</parentUuid>
         <visibility>
             <advertise>false</advertise>
@@ -32,6 +32,7 @@
   )
 )</definition>
         <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -43,9 +44,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

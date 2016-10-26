@@ -17,10 +17,10 @@
         <definition>load(
   local!pagingInfo: #&quot;SYSTEM_SYSRULES_pagingInfo&quot;(
     startIndex: 1,
-    batchSize: -1,
+    batchSize: 8,
     sort: #&quot;SYSTEM_SYSRULES_sortInfo&quot;(
-      field: &quot;Industry&quot;,
-      ascending: true
+      field: &quot;id&quot;,
+      ascending: false
     )
   ),
   with(
@@ -34,22 +34,19 @@
         pagingInfo: local!pagingInfo
       )
     ),
-    #&quot;SYSTEM_SYSRULES_pieChartField&quot;(
-      label: &quot;Customers by Industry&quot;,
-      series: {
-        apply(
-          #&quot;SYSTEM_SYSRULES_chartSeries&quot;(label: _, data: _),
-          merge(
-            index(local!datasubset.data, &quot;Industry&quot;, {}),
-            index(local!datasubset.data, &quot;id&quot;, {})
-          )
-        )
-      }
+    #&quot;SYSTEM_SYSRULES_columnChartField&quot;(
+      label:&quot;Top Industries by Customer Count&quot;,
+      categories: index(local!datasubset.data, &quot;Industry&quot;, {}),
+      series: #&quot;SYSTEM_SYSRULES_chartSeries&quot;(
+        label: &quot;# of Customers&quot;,
+        data: index(local!datasubset.data, &quot;id&quot;, {})
+      )
     )
   )
 )
 </definition>
         <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -61,9 +58,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>malcolm.ross@appian.com</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

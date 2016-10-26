@@ -53,6 +53,46 @@
             <a:sortOrderIndex>0</a:sortOrderIndex>
             <a:facetOrderIndex>0</a:facetOrderIndex>
         </a:fieldCfg>
+        <a:fieldCfg name="By Priority">
+            <a:description></a:description>
+            <a:sourceRef>serviceReqData.priority</a:sourceRef>
+            <a:isSortable>false</a:isSortable>
+            <a:isSearchable>false</a:isSearchable>
+            <a:isFacet>true</a:isFacet>
+            <a:facetType>CUSTOM_BUCKETS_CLOSED</a:facetType>
+            <a:isExclusiveFacet>true</a:isExclusiveFacet>
+            <a:facetLabelExpr>=&quot;By Priority&quot;</a:facetLabelExpr>
+            <a:facetOption>
+                <a:labelExpr>&quot;1 - Critical&quot;</a:labelExpr>
+                <a:facetOperator>IN</a:facetOperator>
+                <a:lowerLimitExpr></a:lowerLimitExpr>
+                <a:upperLimitExpr></a:upperLimitExpr>
+                <a:values>&quot;1 - Critical&quot;</a:values>
+            </a:facetOption>
+            <a:facetOption>
+                <a:labelExpr>&quot;2 - High&quot;</a:labelExpr>
+                <a:facetOperator>IN</a:facetOperator>
+                <a:lowerLimitExpr></a:lowerLimitExpr>
+                <a:upperLimitExpr></a:upperLimitExpr>
+                <a:values>&quot;2 - High&quot;</a:values>
+            </a:facetOption>
+            <a:facetOption>
+                <a:labelExpr>&quot;3 - Medium&quot;</a:labelExpr>
+                <a:facetOperator>IN</a:facetOperator>
+                <a:lowerLimitExpr></a:lowerLimitExpr>
+                <a:upperLimitExpr></a:upperLimitExpr>
+                <a:values>&quot;3 - Medium&quot;</a:values>
+            </a:facetOption>
+            <a:facetOption>
+                <a:labelExpr>&quot;4 - Low&quot;</a:labelExpr>
+                <a:facetOperator>IN</a:facetOperator>
+                <a:lowerLimitExpr></a:lowerLimitExpr>
+                <a:upperLimitExpr></a:upperLimitExpr>
+                <a:values>&quot;4 - Low&quot;</a:values>
+            </a:facetOption>
+            <a:sortOrderIndex>1</a:sortOrderIndex>
+            <a:facetOrderIndex>1</a:facetOrderIndex>
+        </a:fieldCfg>
         <a:detailViewCfg>
             <a:nameExpr>=&quot;Summary&quot;</a:nameExpr>
             <a:uiExpr>#&quot;d6288059-cb9d-47d5-9755-cc1f2c0884a4&quot;(  rf!currentMilestone,rf!serviceReqData, rf!uploadedDocs, rf!pp.id
@@ -63,10 +103,11 @@
         </a:detailViewCfg>
         <a:detailViewCfg>
             <a:nameExpr>&quot;Case History&quot;</a:nameExpr>
-            <a:uiExpr>=#&quot;fe81fcd1-3d51-4f39-88c7-4ad34c060ca1&quot;(#&quot;_a-0000da5f-caaa-8000-9ba2-011c48011c48_2773&quot;,rf!pp.id)</a:uiExpr>
+            <a:uiExpr>#&quot;_a-0000db86-d3ef-8000-0315-010000010000_3491&quot;(#&quot;_a-0000da5f-caaa-8000-9ba2-011c48011c48_2950&quot;, rp!id)</a:uiExpr>
             <a:visibilityExpr>=true()</a:visibilityExpr>
             <a:urlStub>_zJFWFw</a:urlStub>
             <a:headerExpr></a:headerExpr>
+            <a:relatedActionCfg>a1ac857a-42d4-4656-ab98-08328ac91697</a:relatedActionCfg>
         </a:detailViewCfg>
         <a:defaultFilter>
             <a:field>isCancel</a:field>
@@ -77,10 +118,20 @@
             <field>serviceReqData.requestDateTime</field>
             <ascending>false</ascending>
         </a:defaultSortInfo>
+        <a:relatedActionCfg>
+            <a:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="a:ProcessModel" a:uuid="0010dab3-000f-8000-6ee0-010000010000"/>
+            <a:contextExpr>={
+  recordType: #&quot;SYSTEM_SYSRULES_toJson&quot;(#&quot;_a-0000da5f-caaa-8000-9ba2-011c48011c48_2950&quot;),
+  recordId: rp!id
+}</a:contextExpr>
+            <a:visibilityExpr>=true()</a:visibilityExpr>
+            <a:refId>a1ac857a-42d4-4656-ab98-08328ac91697</a:refId>
+        </a:relatedActionCfg>
         <a:isSystem>false</a:isSystem>
         <a:dataSrcExpr></a:dataSrcExpr>
         <a:facetsListExpr></a:facetsListExpr>
         <a:defaultFiltersExpr></a:defaultFiltersExpr>
+        <a:layoutType>FEED</a:layoutType>
         <a:security>32767</a:security>
     </recordType>
     <roleMap>

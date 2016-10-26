@@ -3,7 +3,7 @@
     <rule>
         <name>CASE_APP_SR_getUserWorkload</name>
         <uuid>_a-0000da5f-caaa-8000-9ba2-011c48011c48_2769</uuid>
-        <description></description>
+        <description>Retrieves the task workload for the specified user.</description>
         <parentUuid>_a-0000da5f-caaa-8000-9ba2-011c48011c48_2617</parentUuid>
         <visibility>
             <advertise>false</advertise>
@@ -28,9 +28,9 @@
                 <name>User</name>
                 <namespace>http://www.appian.com/ae/types/2009</namespace>
             </type>
-            <value/>
         </namedTypedValue>
         <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -42,9 +42,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

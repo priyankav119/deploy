@@ -3,7 +3,7 @@
     <rule>
         <name>CASE_APP_SR_uiSectionDetailedSrCasesReport</name>
         <uuid>2368f26b-1083-4645-926a-bcc43ae16dc0</uuid>
-        <description></description>
+        <description>Shows a section with filterable grid showing details for each CSR case.</description>
         <parentUuid>_a-0000da89-b5e9-8000-9ba2-011c48011c48_3881</parentUuid>
         <visibility>
             <advertise>false</advertise>
@@ -121,6 +121,7 @@
             <value/>
         </namedTypedValue>
         <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -132,9 +133,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

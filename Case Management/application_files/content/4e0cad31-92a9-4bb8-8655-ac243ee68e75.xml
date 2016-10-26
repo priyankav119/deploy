@@ -3,7 +3,7 @@
     <rule>
         <name>CASE_APP_SR_uiFormCloseCase</name>
         <uuid>4e0cad31-92a9-4bb8-8655-ac243ee68e75</uuid>
-        <description></description>
+        <description>Form used in the related action to close a CSR case.</description>
         <parentUuid>_a-0000da5f-caaa-8000-9ba2-011c48011c48_2618</parentUuid>
         <visibility>
             <advertise>false</advertise>
@@ -39,15 +39,15 @@ load(
         active:local!currentMilestone
       ),
       #&quot;051657d6-8b7d-4398-b529-edffef50deae&quot;(ri!serviceReq,local!currentMilestone),
-      #&quot;9505777e-cfb8-4b3d-890d-1da3b1a65220&quot;(ri!serviceReq.caseHistory,4),
+      #&quot;3125583a-3639-4d2f-afd3-c600a5e07ca6&quot;(recordType: #&quot;_a-0000da5f-caaa-8000-9ba2-011c48011c48_2950&quot;, recordId: ri!serviceReq.id, hideFilters: true),
       #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
         label:&quot;Case Closure Notes&quot;,
         firstColumnContents:{
           #&quot;SYSTEM_SYSRULES_paragraphField&quot;(
             label:&quot;Comments&quot;,
             instructions:&quot;Please indicate your reasons for closing the case.&quot;,
-            value:ri!caseHistory.notes,
-            saveInto:ri!caseHistory.notes
+            value: ri!closeComments,
+            saveInto:ri!closeComments
           )
         }
       )
@@ -58,13 +58,8 @@ load(
           label: &quot;Case Closed&quot;,
           style: &quot;PRIMARY&quot;,
           saveInto: {
-            a!save(target:ri!caseHistory.timestamp, value:now()),
-            a!save(target:ri!caseHistory.user, value:#&quot;_a-0000d9b9-6309-8000-9ba2-011c48011c48_1983&quot;(loggedInUser())),
-            a!save(target:ri!caseHistory.userTitle, value:&quot;Case Worker&quot;),
-            a!save(target:ri!caseHistory.action, value:&quot;Closing Case&quot;),
-            a!save(target:ri!caseHistory.parentCaseType, value:#&quot;_a-0000da5f-caaa-8000-9ba2-011c48011c48_2773&quot;),
-            a!save(target:ri!caseHistory.parentCaseId, value:ri!serviceReq.id),
-            a!save(target:ri!serviceReq.status, value:#&quot;_a-0000da5f-caaa-8000-9ba2-011c48011c48_2630&quot;[6])
+            a!save(target:ri!serviceReq.status, value:#&quot;_a-0000da5f-caaa-8000-9ba2-011c48011c48_2630&quot;[6]),
+            a!save(target: ri!closeComments, value: &quot;Closing Comments: &quot; &amp; ri!closeComments)
           }
         )
       }
@@ -75,18 +70,20 @@ load(
         <namedTypedValue>
             <name>serviceReq</name>
             <type>
-                <name>Variant</name>
-                <namespace>http://www.appian.com/ae/types/2009</namespace>
+                <name>CASE_APP_ServiceRequest</name>
+                <namespace>urn:com:appian:types:CASE_APP</namespace>
             </type>
         </namedTypedValue>
         <namedTypedValue>
-            <name>caseHistory</name>
+            <name>closeComments</name>
             <type>
-                <name>Variant</name>
-                <namespace>http://www.appian.com/ae/types/2009</namespace>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
             </type>
+            <value/>
         </namedTypedValue>
         <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -98,9 +95,7 @@ load(
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

@@ -19,20 +19,35 @@
   isCollapsible: true(),&#xD;
   firstColumnContents:{&#xD;
     #&quot;SYSTEM_SYSRULES_fileUploadField&quot;(&#xD;
-      label:&quot;Upload Document&quot;,&#xD;
-      required:ri!isRequired,&#xD;
-      target:ri!targetFolder,&#xD;
-      documentName: ri!records[ri!index].docName,&#xD;
-      documentDescription: ri!records[ri!index].docDescription,&#xD;
-      value:ri!uploadedDocs[ri!index],&#xD;
+      label: &quot;Upload Document&quot;,&#xD;
+      required: ri!isRequired,&#xD;
+      target: ri!targetFolder,&#xD;
+      documentName: if(#&quot;_a-0000d9b9-6309-8000-9ba2-011c48011c48_1982&quot;(ri!records),&#xD;
+        &quot;&quot;,&#xD;
+        ri!records[ri!index].docName&#xD;
+      ),&#xD;
+      documentDescription: if(#&quot;_a-0000d9b9-6309-8000-9ba2-011c48011c48_1982&quot;(ri!records),&#xD;
+        &quot;&quot;,&#xD;
+        ri!records[ri!index].docDescription&#xD;
+      ),&#xD;
+      value: if(#&quot;_a-0000d9b9-6309-8000-9ba2-011c48011c48_1982&quot;(ri!uploadedDocs),&#xD;
+        todocument(null),&#xD;
+        ri!uploadedDocs[ri!index]&#xD;
+      ),&#xD;
       saveInto: {&#xD;
-        ri!records[ri!index].currentDocId,&#xD;
+        if(#&quot;_a-0000d9b9-6309-8000-9ba2-011c48011c48_1982&quot;(ri!records),&#xD;
+          a!save(ri!records, {'type!{urn:com:appian:types:CASE_APP}CASE_APP_CaseDocument'(currentDocId: save!value)}),&#xD;
+          ri!records[ri!index].currentDocId&#xD;
+        ),&#xD;
         a!save(target:ri!records[ri!index].parentCaseType,value:ri!parentCaseType),&#xD;
         a!save(target:ri!records[ri!index].parentCaseId,value:ri!parentCaseId),&#xD;
         a!save(target:ri!records[ri!index].author,value:fn!loggedInUser()),&#xD;
         a!save(target:ri!records[ri!index].dateCreated,value:now()),&#xD;
         a!save(target:ri!records[ri!index].isActive,value:true),&#xD;
-        ri!uploadedDocs[ri!index]&#xD;
+        if(#&quot;_a-0000d9b9-6309-8000-9ba2-011c48011c48_1982&quot;(ri!uploadedDocs),&#xD;
+          ri!uploadedDocs,&#xD;
+          ri!uploadedDocs[ri!index]&#xD;
+        )&#xD;
       }&#xD;
     ),&#xD;
     if(&#xD;
@@ -96,8 +111,8 @@
         <namedTypedValue>
             <name>records</name>
             <type>
-                <name>Variant</name>
-                <namespace>http://www.appian.com/ae/types/2009</namespace>
+                <name>CASE_APP_CaseDocument?list</name>
+                <namespace>urn:com:appian:types:CASE_APP</namespace>
             </type>
         </namedTypedValue>
         <namedTypedValue>
@@ -152,6 +167,7 @@
             </type>
         </namedTypedValue>
         <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -163,9 +179,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

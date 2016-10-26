@@ -14,35 +14,45 @@
             <system>false</system>
             <unlogged>false</unlogged>
         </visibility>
-        <definition>#&quot;SYSTEM_SYSRULES_formLayout&quot; (&#xD;
-  label: &quot;Create New Customer&quot;,&#xD;
-  firstColumnContents: #&quot;d3b95f27-f45a-4d97-812f-ef8de3681197&quot;(customerData:ri!customerData,logo:ri!logo,isCreate:true,isShippingBillingSame:ri!isShippingBillingSame),&#xD;
-    buttons: #&quot;SYSTEM_SYSRULES_ButtonLayout&quot;(&#xD;
-          primaryButtons: {&#xD;
-            #&quot;SYSTEM_SYSRULES_ButtonWidgetSubmit&quot;(&#xD;
-                label: &quot;Submit&quot;,&#xD;
-                style: &quot;PRIMARY&quot;,&#xD;
-                value: &quot;submit&quot;,&#xD;
-                saveInto: {&#xD;
-                            ri!button,&#xD;
-                            &#xD;
-                            a!save(ri!customerData.InactiveFlag, false),&#xD;
-                            a!save(ri!customerData.CustomerSince, todate(now()))&#xD;
-                          }&#xD;
-&#xD;
-            )&#xD;
-            },&#xD;
-            secondaryButtons: {&#xD;
-              #&quot;SYSTEM_SYSRULES_ButtonWidgetSubmit&quot;(&#xD;
-                label: &quot;Cancel&quot;,&#xD;
-                skipValidation: true,&#xD;
-                value: true,&#xD;
-                saveInto: ri!button&#xD;
-              )&#xD;
-            }&#xD;
-      ) &#xD;
-  )&#xD;
-</definition>
+        <definition>#&quot;SYSTEM_SYSRULES_formLayout&quot;(
+  label: &quot;Create New Customer&quot;,
+  firstColumnContents: #&quot;d3b95f27-f45a-4d97-812f-ef8de3681197&quot;(
+    customerData: ri!customerData,
+    logo: ri!logo,
+    isCreate: true,
+    isShippingBillingSame: ri!isShippingBillingSame
+  ),
+  buttons: #&quot;SYSTEM_SYSRULES_ButtonLayout&quot;(
+    primaryButtons: {
+      #&quot;SYSTEM_SYSRULES_ButtonWidgetSubmit&quot;(
+        label: &quot;Submit&quot;,
+        style: &quot;PRIMARY&quot;,
+        value: &quot;submit&quot;,
+        saveInto: {
+          ri!button,
+          a!save(
+            ri!customerData.InactiveFlag,
+            false
+          ),
+          a!save(
+            ri!customerData.CustomerSince,
+            todate(
+              now()
+            )
+          )
+        }
+      )
+    },
+    secondaryButtons: {
+      #&quot;SYSTEM_SYSRULES_ButtonWidgetSubmit&quot;(
+        label: &quot;Cancel&quot;,
+        value: true,
+        saveInto: ri!button,
+        skipValidation: true
+      )
+    }
+  )
+)</definition>
         <namedTypedValue>
             <name>customerData</name>
             <type>
@@ -73,6 +83,7 @@
             </type>
         </namedTypedValue>
         <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">

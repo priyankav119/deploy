@@ -52,8 +52,8 @@
       ),&#xD;
       #&quot;SYSTEM_SYSRULES_dropdownField&quot;(&#xD;
         label: &quot;Industry&quot;,&#xD;
-        choiceLabels:#&quot;_a-0000d9a9-eb56-8000-9e06-010000010000_759&quot;,&#xD;
         placeholderLabel: &quot;Please select an industry.&quot;,&#xD;
+        choiceLabels:#&quot;_a-0000d9a9-eb56-8000-9e06-010000010000_759&quot;,&#xD;
         choiceValues: #&quot;_a-0000d9a9-eb56-8000-9e06-010000010000_759&quot;,&#xD;
 	      value: ri!customerData.Industry,&#xD;
         saveInto: ri!customerData.Industry&#xD;
@@ -121,9 +121,10 @@
         label: &quot;Office Phone&quot;,&#xD;
         value: ri!customerData.OfficePhone,&#xD;
         saveInto: a!save(&#xD;
-          target:ri!customerData.HomePhone,&#xD;
+          target:ri!customerData.OfficePhone,&#xD;
           value:cleanwith(save!value, &quot;1234567890()+- &quot;)&#xD;
-        )&#xD;
+        ),&#xD;
+        required: true&#xD;
       ),&#xD;
       #&quot;SYSTEM_SYSRULES_textField&quot;(&#xD;
         label: &quot;Home Phone&quot;,&#xD;
@@ -137,7 +138,7 @@
         label: &quot;Mobile Phone&quot;,&#xD;
         value: ri!customerData.MobilePhone,&#xD;
         saveInto: a!save(&#xD;
-          target:ri!customerData.HomePhone,&#xD;
+          target:ri!customerData.MobilePhone,&#xD;
           value:cleanwith(save!value, &quot;1234567890()+- &quot;)&#xD;
         )&#xD;
       )&#xD;
@@ -208,6 +209,7 @@
             </type>
         </namedTypedValue>
         <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">

@@ -44,7 +44,7 @@ load(
         active:local!milestoneStep
       ),
       #&quot;051657d6-8b7d-4398-b529-edffef50deae&quot;(ri!serviceReq,local!milestoneStep),
-      #&quot;9505777e-cfb8-4b3d-890d-1da3b1a65220&quot;(ri!serviceReq.caseHistory,3),
+      #&quot;3125583a-3639-4d2f-afd3-c600a5e07ca6&quot;(recordType: #&quot;_a-0000da5f-caaa-8000-9ba2-011c48011c48_2950&quot;, recordId: ri!serviceReq.id, hideFilters: true),
       #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
         label:&quot;Add Comment/File to Case&quot;,
         firstColumnContents:{
@@ -70,7 +70,16 @@ load(
       primaryButtons: {
         #&quot;SYSTEM_SYSRULES_ButtonWidgetSubmit&quot;(
           label: &quot;Submit&quot;,
-          style: &quot;PRIMARY&quot;
+          style: &quot;PRIMARY&quot;,
+          saveInto: {
+            a!save(
+              target: ri!comments,
+              value: if(#&quot;_a-0000d9b9-6309-8000-9ba2-011c48011c48_1982&quot;(ri!uploadedDocs),
+                &quot;Added Comments: &quot; &amp; ri!comments,
+                &quot;Added &quot;&amp; count(ri!uploadedDocs) &amp; &quot; files. Added Comments: &quot; &amp; ri!comments
+              )
+            )
+          }
         )
       }
     ),
@@ -80,8 +89,8 @@ load(
         <namedTypedValue>
             <name>serviceReq</name>
             <type>
-                <name>Variant</name>
-                <namespace>http://www.appian.com/ae/types/2009</namespace>
+                <name>CASE_APP_ServiceRequest</name>
+                <namespace>urn:com:appian:types:CASE_APP</namespace>
             </type>
         </namedTypedValue>
         <namedTypedValue>
@@ -109,11 +118,12 @@ load(
         <namedTypedValue>
             <name>caseDocs</name>
             <type>
-                <name>Variant</name>
-                <namespace>http://www.appian.com/ae/types/2009</namespace>
+                <name>CASE_APP_CaseDocument?list</name>
+                <namespace>urn:com:appian:types:CASE_APP</namespace>
             </type>
         </namedTypedValue>
         <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -125,9 +135,7 @@ load(
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

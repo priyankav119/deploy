@@ -3,7 +3,7 @@
     <rule>
         <name>formatAddressForWebService</name>
         <uuid>_a-0000d4de-5bab-8000-ac7a-680000680000_1765</uuid>
-        <description></description>
+        <description>Replaces spaces with plus signs.</description>
         <parentUuid>_a-0000da89-b5e9-8000-9ba2-011c48011c48_4301</parentUuid>
         <visibility>
             <advertise>false</advertise>
@@ -24,6 +24,7 @@
             <value/>
         </namedTypedValue>
         <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">

@@ -3,9 +3,10 @@
     <dataStore>
         <uuid>_a-0000da5f-b0b8-8000-9ba2-011c48011c48_12642</uuid>
         <name>CASE_APP_Core_DS</name>
-        <description></description>
-        <dataSourceKey>java:/jdbc/Appian</dataSourceKey>
+        <description>Data store for all the main CASE_APP Entities</description>
+        <dataSourceKey>jdbc/AppianSecondary</dataSourceKey>
         <adaptingExplicitSqlNames>false</adaptingExplicitSqlNames>
+        <autoUpdateSchema>false</autoUpdateSchema>
         <entities>
             <entity>
                 <uuid>0fd91800-d3d0-47eb-8355-2e65cf3c3d42</uuid>

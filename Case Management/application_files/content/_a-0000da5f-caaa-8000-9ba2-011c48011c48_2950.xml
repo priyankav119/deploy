@@ -3,7 +3,7 @@
     <constant>
         <name>CASE_APP_SR_RECORD_TYPE</name>
         <uuid>_a-0000da5f-caaa-8000-9ba2-011c48011c48_2950</uuid>
-        <description></description>
+        <description>Pointer to the CSR Record Type</description>
         <parentUuid>_a-0000da5f-caaa-8000-9ba2-011c48011c48_2616</parentUuid>
         <visibility>
             <advertise>false</advertise>
@@ -20,16 +20,8 @@
                 <namespace>http://www.appian.com/ae/types/2009</namespace>
             </type>
             <value a:id="-1" a:uuid="9938078a-b8f8-485c-a942-9c96192db48f" name="">
-                <a:pluralName/>
-                <a:description/>
-                <a:urlStub/>
-                <a:listViewTemplateExpr/>
                 <a:isSystem>false</a:isSystem>
-                <a:dataSrcExpr/>
-                <a:facetsListExpr/>
-                <a:defaultFiltersExpr/>
                 <a:security>16383</a:security>
-                <a:opaqueId/>
             </value>
         </typedValue>
     </constant>
@@ -43,9 +35,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

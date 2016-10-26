@@ -3,7 +3,7 @@
     <rule>
         <name>CASE_APP_uiGridLatestServiceReqsForCustomer</name>
         <uuid>280a7d74-2109-4ef0-90c1-6bd1dddf0cf7</uuid>
-        <description></description>
+        <description>Shows a grid containing details for the latest service requests for a customer.</description>
         <parentUuid>_a-0000d9c4-bcac-8000-9ba2-011c48011c48_5839</parentUuid>
         <visibility>
             <advertise>false</advertise>
@@ -86,6 +86,7 @@
             </type>
         </namedTypedValue>
         <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -97,9 +98,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

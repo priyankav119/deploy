@@ -3,7 +3,7 @@
     <rule>
         <name>CASE_APP_uiGridTopSalesReps</name>
         <uuid>af1f9e57-2d3e-4dd0-9cce-fbed12aa3a98</uuid>
-        <description></description>
+        <description>Displays a grid with details on top sales representatives by total sales $</description>
         <parentUuid>_a-0000d9c4-bcac-8000-9ba2-011c48011c48_5995</parentUuid>
         <visibility>
             <advertise>false</advertise>
@@ -66,6 +66,7 @@
 )
 </definition>
         <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -77,9 +78,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

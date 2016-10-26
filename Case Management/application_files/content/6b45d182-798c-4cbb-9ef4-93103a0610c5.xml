@@ -3,7 +3,7 @@
     <rule>
         <name>CASE_APP_uiUpdateCustomerDetails</name>
         <uuid>6b45d182-798c-4cbb-9ef4-93103a0610c5</uuid>
-        <description></description>
+        <description>Form section that allows updating the Customer Fields.</description>
         <parentUuid>_a-0000da5f-caaa-8000-9ba2-011c48011c48_2618</parentUuid>
         <visibility>
             <advertise>false</advertise>
@@ -53,6 +53,7 @@
             </type>
         </namedTypedValue>
         <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -64,9 +65,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

@@ -21,65 +21,9 @@ Customers;Users;Products;Orders;Investigations;Service Requests</description>
                 <namespace>http://www.appian.com/ae/types/2009</namespace>
             </type>
             <value>
-                <el a:id="-1" a:uuid="7db9a56b-b303-46e1-81c9-c11dfffab8d8" name="">
-                    <a:pluralName/>
-                    <a:description/>
-                    <a:urlStub/>
-                    <a:listViewTemplateExpr/>
-                    <a:isSystem>false</a:isSystem>
-                    <a:dataSrcExpr/>
-                    <a:facetsListExpr/>
-                    <a:defaultFiltersExpr/>
-                    <a:security>16383</a:security>
-                    <a:opaqueId/>
-                </el>
                 <el a:id="-1" a:uuid="SYSTEM_RECORD_TYPE_USER" name="">
-                    <a:pluralName/>
-                    <a:description/>
-                    <a:urlStub/>
-                    <a:listViewTemplateExpr/>
                     <a:isSystem>false</a:isSystem>
-                    <a:dataSrcExpr/>
-                    <a:facetsListExpr/>
-                    <a:defaultFiltersExpr/>
                     <a:security>16383</a:security>
-                    <a:opaqueId/>
-                </el>
-                <el a:id="-1" a:uuid="d1ea2edd-4da3-4f0f-a2db-236913478100" name="">
-                    <a:pluralName/>
-                    <a:description/>
-                    <a:urlStub/>
-                    <a:listViewTemplateExpr/>
-                    <a:isSystem>false</a:isSystem>
-                    <a:dataSrcExpr/>
-                    <a:facetsListExpr/>
-                    <a:defaultFiltersExpr/>
-                    <a:security>16383</a:security>
-                    <a:opaqueId/>
-                </el>
-                <el a:id="-1" a:uuid="b3b9659c-890b-45b1-89e9-97158d2482dd" name="">
-                    <a:pluralName/>
-                    <a:description/>
-                    <a:urlStub/>
-                    <a:listViewTemplateExpr/>
-                    <a:isSystem>false</a:isSystem>
-                    <a:dataSrcExpr/>
-                    <a:facetsListExpr/>
-                    <a:defaultFiltersExpr/>
-                    <a:security>16383</a:security>
-                    <a:opaqueId/>
-                </el>
-                <el a:id="-1" a:uuid="9938078a-b8f8-485c-a942-9c96192db48f" name="">
-                    <a:pluralName/>
-                    <a:description/>
-                    <a:urlStub/>
-                    <a:listViewTemplateExpr/>
-                    <a:isSystem>false</a:isSystem>
-                    <a:dataSrcExpr/>
-                    <a:facetsListExpr/>
-                    <a:defaultFiltersExpr/>
-                    <a:security>16383</a:security>
-                    <a:opaqueId/>
                 </el>
             </value>
         </typedValue>
@@ -94,9 +38,7 @@ Customers;Users;Products;Orders;Investigations;Service Requests</description>
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>malcolm.ross@appian.com</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

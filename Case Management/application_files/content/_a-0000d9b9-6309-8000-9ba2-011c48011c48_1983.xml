@@ -25,9 +25,9 @@ if(isusernametaken(ri!user),
                 <name>User</name>
                 <namespace>http://www.appian.com/ae/types/2009</namespace>
             </type>
-            <value/>
         </namedTypedValue>
         <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -39,9 +39,7 @@ if(isusernametaken(ri!user),
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>jorge.sanchez</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

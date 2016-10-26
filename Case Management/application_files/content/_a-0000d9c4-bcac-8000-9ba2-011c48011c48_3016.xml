@@ -3,7 +3,7 @@
     <document>
         <name>Status-image-missing-icon</name>
         <uuid>_a-0000d9c4-bcac-8000-9ba2-011c48011c48_3016</uuid>
-        <description></description>
+        <description>Image missing icon</description>
         <parentUuid>_a-0000d9c4-bcac-8000-9ba2-011c48011c48_3839</parentUuid>
         <visibility>
             <advertise>false</advertise>
@@ -26,9 +26,7 @@
             <groups/>
         </role>
         <role allowForAll="false" inherit="true" name="administrators">
-            <users>
-                <userUuid>malcolm.ross@appian.com</userUuid>
-            </users>
+            <users/>
             <groups/>
         </role>
         <role allowForAll="false" inherit="false" name="denyReaders">

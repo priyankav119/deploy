@@ -45,6 +45,7 @@ local!compareParam:if(length(ri!symbols)&gt;1,&quot;&amp;c=&quot;&amp;#&quot;_a-
             <value/>
         </namedTypedValue>
         <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">

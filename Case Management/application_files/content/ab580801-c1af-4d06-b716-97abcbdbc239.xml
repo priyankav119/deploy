@@ -14,13 +14,23 @@
             <system>false</system>
             <unlogged>false</unlogged>
         </visibility>
-        <definition>{&#xD;
-  #&quot;SYSTEM_SYSRULES_applyComponents&quot;(&#xD;
-   function: #&quot;58e47546-ac24-4c8c-afe4-108162a5724a&quot;(label: &quot;Upload Files&quot;, files: ri!files, target: ri!target, index: _, disabled: ri!disabled),&#xD;
-    array: 1 + fn!enumerate(1 + length(ri!files))&#xD;
-  ) &#xD;
-}&#xD;
-  </definition>
+        <definition>{
+  #&quot;SYSTEM_SYSRULES_applyComponents&quot;(
+    function: #&quot;58e47546-ac24-4c8c-afe4-108162a5724a&quot;(
+      label: &quot;Upload Files&quot;,
+      files: ri!files,
+      target: ri!target,
+      index: _,
+      disabled: ri!disabled,
+      required: ri!required
+    ),
+    array: 1 + fn!enumerate(
+      1 + length(
+        ri!files
+      )
+    )
+  )
+}</definition>
         <namedTypedValue>
             <name>files</name>
             <type>
@@ -42,7 +52,15 @@
                 <namespace>http://www.w3.org/2001/XMLSchema</namespace>
             </type>
         </namedTypedValue>
+        <namedTypedValue>
+            <name>required</name>
+            <type>
+                <name>boolean</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
         <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
     </rule>
     <roleMap public="true">
         <role allowForAll="false" inherit="true" name="readers">
@@ -56,7 +74,6 @@
         <role allowForAll="false" inherit="true" name="administrators">
             <users>
                 <userUuid>Administrator</userUuid>
-                <userUuid>jorge.sanchez</userUuid>
             </users>
             <groups/>
         </role>

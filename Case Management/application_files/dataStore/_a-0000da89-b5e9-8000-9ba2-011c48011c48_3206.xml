@@ -3,9 +3,10 @@
     <dataStore>
         <uuid>_a-0000da89-b5e9-8000-9ba2-011c48011c48_3206</uuid>
         <name>CASE_APP_CoreViews</name>
-        <description></description>
-        <dataSourceKey>java:/jdbc/Appian</dataSourceKey>
+        <description>Pointer to the OrderDetails view.</description>
+        <dataSourceKey>jdbc/AppianSecondary</dataSourceKey>
         <adaptingExplicitSqlNames>false</adaptingExplicitSqlNames>
+        <autoUpdateSchema>false</autoUpdateSchema>
         <entities>
             <entity>
                 <uuid>942d8dee-ab9a-4f14-83e6-4ca29e51959f</uuid>
