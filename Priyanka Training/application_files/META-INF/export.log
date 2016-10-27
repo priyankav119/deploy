@@ -1,56 +1,31 @@
 Success (1):
-processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 "Demo_User 1.0"
+content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 "DEMO_DEPARTMENT"
 
-Referenced precedents that were not exported (4):
-datatype 4280 {urn:com:appian:types}Demo_User
-dataStore 30575 _a-0000dd0b-90ea-8000-9ccd-01ef9001ef90_29191
-user priyanka.verma priyanka.verma
-processModelFolder 53 _g-0000dd0b-8769-8000-9ccd-014d98014d98_54
+Referenced precedents that were not exported (1):
+content 24247 _a-0000dd0b-90ea-8000-9ccd-01ef9001ef90_29193
 
 Trace:
-2016-10-27 11:06:17.23 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Begin transport.
-2016-10-27 11:06:17.23 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Retrieving object data.
-2016-10-27 11:06:17.261 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Setting uuids of object references.
-2016-10-27 11:06:17.261 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: ProcessModelHaul.folderId
-2016-10-27 11:06:17.262 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: ProcessModelHaul.modelDashboardPageId
-2016-10-27 11:06:17.262 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: ProcessModelHaul.processDashboardPageId
-2016-10-27 11:06:17.262 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: ProcessModel.emailAttachmentFolderId
-2016-10-27 11:06:17.262 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: InternalForm.docId
-2016-10-27 11:06:17.263 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: InternalForm.docId
-2016-10-27 11:06:17.263 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: ActivityClassParameter[name=pmID,it=23,v=<null>]
-2016-10-27 11:06:17.263 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: ActivityClassParameter[name=inMap,it=111,v={}]
-2016-10-27 11:06:17.263 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: ActivityClassParameter[name=procInheritsPriority,it=1,v=1]
-2016-10-27 11:06:17.263 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: ActivityClassParameter[name=pmUUID,it=3,v=]
-2016-10-27 11:06:17.263 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: ActivityClassParameter[name=isAsynchronous,it=26,v=1]
-2016-10-27 11:06:17.263 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: ActivityClassParameter[name=isTransparent,it=26,v=1]
-2016-10-27 11:06:17.263 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: ActivityClassParameter[name=inheritSecurity,it=26,v=0]
-2016-10-27 11:06:17.263 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: InternalForm.docId
-2016-10-27 11:06:17.264 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: InternalForm.docId
-2016-10-27 11:06:17.264 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: com.appiancorp.suiteapi.process.Assignment$Assignee@1a1f3e06
-2016-10-27 11:06:17.264 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: InternalForm.docId
-2016-10-27 11:06:17.265 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: InternalForm.docId
-2016-10-27 11:06:17.265 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: ActivityClassParameter[name=DataStoreEntity,it=81,v=4a0fdebd-f0d7-41f9-9320-0c6149c374ac@30575]
-2016-10-27 11:06:17.266 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: ActivityClassParameter[name=StoredValues,it=197,v=<null>]
-2016-10-27 11:06:17.266 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: ActivityClassParameter[name=defaultNode,it=1,v=6]
-2016-10-27 11:06:17.266 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: ActivityClassParameter[name=rules,it=111,v={ActivityClassParameter[name=rule,it=11,v={ActivityClassParameter[name=expression,it=26,v=<null>],ActivityClassParameter[name=node,it=1,v=1],ActivityClassParameter[name=label,it=3,v=]}]}]
-2016-10-27 11:06:17.266 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: ActivityClassParameter[name=fired,it=1,v=0]
-2016-10-27 11:06:17.266 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: ActivityClassParameter[name=arrivedNodes,it=101,v=<null>]
-2016-10-27 11:06:17.267 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: ProcessVariable[name=button,it=3,v=]
-2016-10-27 11:06:17.267 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: ProcessVariable[name=user,it=4280,v=<null>]
-2016-10-27 11:06:17.267 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: com.appiancorp.suiteapi.process.ProcessRoleMap@76c6476[
-  Role[name=ADMIN_OWNER,usernames=[priyanka.verma]]
-  Role[name=EDITOR]
-  Role[name=EXPLICIT_NONMEMBER]
-  Role[name=VIEWER]
-  Role[name=MANAGER]
-  Role[name=INITIATOR]
+2016-10-27 12:36:11.786 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Begin transport.
+2016-10-27 12:36:11.786 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Retrieving object data.
+2016-10-27 12:36:11.791 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Setting uuids of object references.
+2016-10-27 12:36:11.791 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Processing reference: [Content:id=31683,versionId=-1,name=DEMO_DEPARTMENT,description=,type=32,subtype=0,uuid=_a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290,parent=24247,parentName=Priyanka Rules & Contants,parentType=2,log=31694,logName=DEMO_DEPARTMENT,state=255,visibility=35,security=15,creator=priyanka.verma,createdTimestamp=2016-10-27 12:35:38.0,updatedTimestamp=2016-10-27 12:35:38.0,size=0,lockedBy=,changesRequireApproval=false,attributes={system=0, hidden=0, ruletype=0, multiple=1, value=[Ljava.lang.String;@49f09da1, returnType=3},partition=2,partitionName=D:/Apps/Appian/_admin/accdocs2]
+2016-10-27 12:36:11.791 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Processing reference: Constant.forum
+2016-10-27 12:36:11.791 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Processing reference: Constant.parent
+2016-10-27 12:36:11.793 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Processing reference: com.appiancorp.suiteapi.content.ContentRoleMap@d7f0c43[
+  ContentRole[name=readers,inherit=true,allowForAll=false]
+  ContentRole[name=authors,inherit=true,allowForAll=false]
+  ContentRole[name=administrators,inherit=true,allowForAll=false]
+  ContentRole[name=denyReaders,inherit=false,allowForAll=false]
+  ContentRole[name=denyAuthors,inherit=false,allowForAll=false]
+  ContentRole[name=denyAdministrators,inherit=false,allowForAll=false]
+  securityVector=15:SEC_PUBLIC=true,SEC_CREATOR_ADMIN=false,SEC_INH_ADMIN=true,SEC_INH_EDITOR=true,SEC_INH_VIEWER=true,SEC_ALL_ADMIN=false,SEC_ALL_EDITOR=false,SEC_ALL_VIEWER=false
 ]
-2016-10-27 11:06:17.267 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: Role[name=ADMIN_OWNER,usernames=[priyanka.verma]]
-2016-10-27 11:06:17.268 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: Role[name=EDITOR]
-2016-10-27 11:06:17.268 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: Role[name=EXPLICIT_NONMEMBER]
-2016-10-27 11:06:17.268 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: Role[name=VIEWER]
-2016-10-27 11:06:17.268 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: Role[name=MANAGER]
-2016-10-27 11:06:17.268 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Processing reference: Role[name=INITIATOR]
-2016-10-27 11:06:17.268 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Exporting binary resources.
-2016-10-27 11:06:17.268 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Serializing object to XML.
-2016-10-27 11:06:17.273 DEBUG processModel 3673 0005ddce-b395-8000-9ccd-014d98014d98 Object transported.
+2016-10-27 12:36:11.793 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Processing reference: ContentRole[name=readers,inherit=true,allowForAll=false]
+2016-10-27 12:36:11.793 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Processing reference: ContentRole[name=authors,inherit=true,allowForAll=false]
+2016-10-27 12:36:11.793 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Processing reference: ContentRole[name=administrators,inherit=true,allowForAll=false]
+2016-10-27 12:36:11.793 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Processing reference: ContentRole[name=denyReaders,inherit=false,allowForAll=false]
+2016-10-27 12:36:11.793 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Processing reference: ContentRole[name=denyAuthors,inherit=false,allowForAll=false]
+2016-10-27 12:36:11.793 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Processing reference: ContentRole[name=denyAdministrators,inherit=false,allowForAll=false]
+2016-10-27 12:36:11.793 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Exporting binary resources.
+2016-10-27 12:36:11.793 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Serializing object to XML.
+2016-10-27 12:36:11.794 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Object transported.
