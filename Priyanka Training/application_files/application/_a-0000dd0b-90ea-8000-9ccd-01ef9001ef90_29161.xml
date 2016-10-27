@@ -81,6 +81,7 @@
                         <uuid>0006ddce-8380-8000-9ccd-014d98014d98</uuid>
                     <uuid>0006ddce-8676-8000-9ccd-014d98014d98</uuid>
                     <uuid>0002ddce-877b-8000-9ccd-014d98014d98</uuid>
+                    <uuid>0005ddce-8f5a-8000-9ccd-014d98014d98</uuid>
                     </uuids>
                 </item>
                 <item>
@@ -258,4 +259,4 @@
             </role>
         </contentRoleMap>
     </roleMap>
-</applicationHaul><!--updated on 2016-10-27T14:00:35.024-->
+</applicationHaul><!--updated on 2016-10-27T15:07:22.348-->
