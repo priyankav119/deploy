@@ -1,76 +1,28 @@
-Success (2):
-datatype 4280 {urn:com:appian:types}Demo_User "{urn:com:appian:types}Demo_User"
-content 31611 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37204 "InputForm"
+Success (1):
+dataStore 31616 _a-0000dd0b-90ea-8000-9ccd-01ef9001ef90_29191 "Demo_DS_Employee"
 
-Referenced precedents that were not exported (1):
-content 24247 _a-0000dd0b-90ea-8000-9ccd-01ef9001ef90_29193
+Referenced precedents that were not exported (5):
+datatype 4082 {urn:com:appian:types}DEMO_Employee
+datatype 3858 {urn:com:appian:types:DDA}DDA_Emoployee
+datatype 4090 {urn:com:appian:types}Demo_URl
+datatype 4206 {urn:com:appian:types}Document
+datatype 4280 {urn:com:appian:types}Demo_User
 
 Trace:
-2016-10-27 08:18:54.987 DEBUG datatype 4280 {urn:com:appian:types}Demo_User Begin transport.
-2016-10-27 08:18:54.987 DEBUG datatype 4280 {urn:com:appian:types}Demo_User Retrieving object data.
-2016-10-27 08:18:55.001 DEBUG datatype 4280 {urn:com:appian:types}Demo_User Setting uuids of object references.
-2016-10-27 08:18:55.002 DEBUG datatype 4280 {urn:com:appian:types}Demo_User Exporting binary resources.
-2016-10-27 08:18:55.002 DEBUG datatype 4280 {urn:com:appian:types}Demo_User Serializing object to XML.
-2016-10-27 08:18:55.002 DEBUG datatype 4280 {urn:com:appian:types}Demo_User Object transported.
-2016-10-27 08:18:55.003 DEBUG content 31611 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37204 Begin transport.
-2016-10-27 08:18:55.003 DEBUG content 31611 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37204 Retrieving object data.
-2016-10-27 08:18:55.011 DEBUG content 31611 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37204 Setting uuids of object references.
-2016-10-27 08:18:55.011 DEBUG content 31611 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37204 Processing reference: [Content:id=31603,versionId=-1,name=InputForm,description=Test,type=32,subtype=1,uuid=_a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37204,parent=24247,parentName=Priyanka Rules & Contants,parentType=2,log=31611,logName=InputForm,state=255,visibility=35,security=15,creator=priyanka.verma,createdTimestamp=2016-10-27 08:11:06.0,updatedTimestamp=2016-10-27 08:11:06.0,size=0,lockedBy=,changesRequireApproval=false,attributes={dep_rules=[Ljava.lang.Long;@5a525616, system=0, preferredEditor=interface, hidden=0, offlineEnabled=false, ruletype=1, dep_functions=[Ljava.lang.String;@70610c65, definition==#"SYSTEM_SYSRULES_formLayout"(
-  label: "Input Form",
-  instructions: "Fill the complete form",
-  firstColumnContents: {
-    #"SYSTEM_SYSRULES_textField"(
-      label: "Name",
-      labelPosition: "ABOVE",
-      value : ri!user.Name,
-      saveInto: ri!user.Name,
-      refreshAfter: "UNFOCUS",
-      validations: {}
-    )
-  },
-  secondColumnContents: {
-    /* Add components here for a two-column form */
-  },
-  buttons: #"SYSTEM_SYSRULES_ButtonLayout"(
-    primaryButtons: {
-      #"SYSTEM_SYSRULES_ButtonWidgetSubmit"(
-        label: "Submit",
-        style: "PRIMARY",
-        value : "Cancel",
-        saveInto: ri!Button
-      )
-    },
-    secondaryButtons: {
-      #"SYSTEM_SYSRULES_ButtonWidgetSubmit"(
-        label: "Cancel",
-        style: "NORMAL",
-        value: "Cancel",
-        saveInto: ri!Button,
-        skipValidation: true
-      )
-    }
-  ),
-  validations: {}
-), dep_types=[Ljava.lang.String;@1a094325, parameters=[Lcom.appiancorp.suiteapi.process.TypedVariable;@170cebe3, dep_variables=[[Ljava.lang.String;@5f26edf2},partition=1,partitionName=D:/Apps/Appian/_admin/accdocs1]
-2016-10-27 08:18:55.012 DEBUG content 31611 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37204 Processing reference: FreeformRule.forum
-2016-10-27 08:18:55.012 DEBUG content 31611 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37204 Processing reference: TypedVariable[name=Button,it=3,v=]
-2016-10-27 08:18:55.012 DEBUG content 31611 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37204 Processing reference: TypedVariable[name=user,it=4280,v=<null>]
-2016-10-27 08:18:55.012 DEBUG content 31611 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37204 Processing reference: FreeformRule.parent
-2016-10-27 08:18:55.014 DEBUG content 31611 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37204 Processing reference: com.appiancorp.suiteapi.content.ContentRoleMap@75503fc9[
-  ContentRole[name=readers,inherit=true,allowForAll=false]
-  ContentRole[name=authors,inherit=true,allowForAll=false]
-  ContentRole[name=administrators,inherit=true,allowForAll=false]
-  ContentRole[name=denyReaders,inherit=false,allowForAll=false]
-  ContentRole[name=denyAuthors,inherit=false,allowForAll=false]
-  ContentRole[name=denyAdministrators,inherit=false,allowForAll=false]
-  securityVector=15:SEC_PUBLIC=true,SEC_CREATOR_ADMIN=false,SEC_INH_ADMIN=true,SEC_INH_EDITOR=true,SEC_INH_VIEWER=true,SEC_ALL_ADMIN=false,SEC_ALL_EDITOR=false,SEC_ALL_VIEWER=false
-]
-2016-10-27 08:18:55.014 DEBUG content 31611 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37204 Processing reference: ContentRole[name=readers,inherit=true,allowForAll=false]
-2016-10-27 08:18:55.014 DEBUG content 31611 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37204 Processing reference: ContentRole[name=authors,inherit=true,allowForAll=false]
-2016-10-27 08:18:55.014 DEBUG content 31611 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37204 Processing reference: ContentRole[name=administrators,inherit=true,allowForAll=false]
-2016-10-27 08:18:55.014 DEBUG content 31611 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37204 Processing reference: ContentRole[name=denyReaders,inherit=false,allowForAll=false]
-2016-10-27 08:18:55.014 DEBUG content 31611 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37204 Processing reference: ContentRole[name=denyAuthors,inherit=false,allowForAll=false]
-2016-10-27 08:18:55.014 DEBUG content 31611 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37204 Processing reference: ContentRole[name=denyAdministrators,inherit=false,allowForAll=false]
-2016-10-27 08:18:55.014 DEBUG content 31611 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37204 Exporting binary resources.
-2016-10-27 08:18:55.014 DEBUG content 31611 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37204 Serializing object to XML.
-2016-10-27 08:18:55.018 DEBUG content 31611 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37204 Object transported.
+2016-10-27 08:29:49.393 DEBUG dataStore 31616 _a-0000dd0b-90ea-8000-9ccd-01ef9001ef90_29191 Begin transport.
+2016-10-27 08:29:49.393 DEBUG dataStore 31616 _a-0000dd0b-90ea-8000-9ccd-01ef9001ef90_29191 Retrieving object data.
+2016-10-27 08:29:49.395 DEBUG dataStore 31616 _a-0000dd0b-90ea-8000-9ccd-01ef9001ef90_29191 Setting uuids of object references.
+2016-10-27 08:29:49.395 DEBUG dataStore 31616 _a-0000dd0b-90ea-8000-9ccd-01ef9001ef90_29191 Processing reference: datatypeRef[id=4082]
+2016-10-27 08:29:49.395 DEBUG dataStore 31616 _a-0000dd0b-90ea-8000-9ccd-01ef9001ef90_29191 Processing reference: datatypeRef[id=3858]
+2016-10-27 08:29:49.395 DEBUG dataStore 31616 _a-0000dd0b-90ea-8000-9ccd-01ef9001ef90_29191 Processing reference: datatypeRef[id=4090]
+2016-10-27 08:29:49.395 DEBUG dataStore 31616 _a-0000dd0b-90ea-8000-9ccd-01ef9001ef90_29191 Processing reference: datatypeRef[id=4206]
+2016-10-27 08:29:49.395 DEBUG dataStore 31616 _a-0000dd0b-90ea-8000-9ccd-01ef9001ef90_29191 Processing reference: datatypeRef[id=4280]
+2016-10-27 08:29:49.395 DEBUG dataStore 31616 _a-0000dd0b-90ea-8000-9ccd-01ef9001ef90_29191 Processing reference: ContentRole[name=administrators,inherit=false,allowForAll=false]
+2016-10-27 08:29:49.395 DEBUG dataStore 31616 _a-0000dd0b-90ea-8000-9ccd-01ef9001ef90_29191 Processing reference: ContentRole[name=authors,inherit=false,allowForAll=false]
+2016-10-27 08:29:49.395 DEBUG dataStore 31616 _a-0000dd0b-90ea-8000-9ccd-01ef9001ef90_29191 Processing reference: ContentRole[name=denyAdministrators,inherit=false,allowForAll=false]
+2016-10-27 08:29:49.395 DEBUG dataStore 31616 _a-0000dd0b-90ea-8000-9ccd-01ef9001ef90_29191 Processing reference: ContentRole[name=denyAuthors,inherit=false,allowForAll=false]
+2016-10-27 08:29:49.395 DEBUG dataStore 31616 _a-0000dd0b-90ea-8000-9ccd-01ef9001ef90_29191 Processing reference: ContentRole[name=denyReaders,inherit=false,allowForAll=false]
+2016-10-27 08:29:49.395 DEBUG dataStore 31616 _a-0000dd0b-90ea-8000-9ccd-01ef9001ef90_29191 Processing reference: ContentRole[name=readers,inherit=false,allowForAll=false]
+2016-10-27 08:29:49.395 DEBUG dataStore 31616 _a-0000dd0b-90ea-8000-9ccd-01ef9001ef90_29191 Exporting binary resources.
+2016-10-27 08:29:49.395 DEBUG dataStore 31616 _a-0000dd0b-90ea-8000-9ccd-01ef9001ef90_29191 Serializing object to XML.
+2016-10-27 08:29:49.396 DEBUG dataStore 31616 _a-0000dd0b-90ea-8000-9ccd-01ef9001ef90_29191 Object transported.

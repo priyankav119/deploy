@@ -23,6 +23,16 @@
                 <name>Demo_URI</name>
                 <type>{urn:com:appian:types}Demo_URl</type>
             </entity>
+            <entity>
+                <uuid>272bfbd7-ba00-4860-9b1b-f9cc7e17d74c</uuid>
+                <name>DS_Documnet</name>
+                <type>{urn:com:appian:types}Document</type>
+            </entity>
+            <entity>
+                <uuid>4a0fdebd-f0d7-41f9-9320-0c6149c374ac</uuid>
+                <name>Demo_User</name>
+                <type>{urn:com:appian:types}Demo_User</type>
+            </entity>
         </entities>
     </dataStore>
     <isPublished>true</isPublished>
