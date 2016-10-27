@@ -27,6 +27,7 @@
                         <uuid>{urn:com:appian:types:DDA}DDA_Employee</uuid>
                         <uuid>{urn:com:appian:types}Demo_URl</uuid>
                         <uuid>{urn:com:appian:types}test_cdt</uuid>
+                    <uuid>{urn:com:appian:types}Demo_User</uuid>
                     </uuids>
                 </item>
                 <item>
@@ -62,6 +63,7 @@
                         <uuid>_a-0000dd0b-90ea-8000-9ccd-01ef9001ef90_29259</uuid>
                         <uuid>_a-0000dd0b-90ea-8000-9ccd-01ef9001ef90_29333</uuid>
                         <uuid>_a-0000ddcd-3247-8000-9ccd-01ef9001ef90_36156</uuid>
+                    <uuid>_a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37204</uuid>
                     </uuids>
                 </item>
                 <item>
@@ -256,4 +258,4 @@
             </role>
         </contentRoleMap>
     </roleMap>
-</applicationHaul><!--updated on 2016-10-27T13:47:05.208-->
+</applicationHaul><!--updated on 2016-10-27T13:50:04.195-->
