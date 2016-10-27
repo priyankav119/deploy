@@ -23,6 +23,7 @@
                 <el>IT</el>
                 <el>Management</el>
                 <el>HR</el>
+                <el>Admin</el>
             </value>
         </typedValue>
     </constant>
