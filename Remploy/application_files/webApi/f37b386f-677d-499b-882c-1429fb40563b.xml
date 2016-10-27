@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<webApiHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <webApi name="Web API 1" a:uuid="f37b386f-677d-499b-882c-1429fb40563b">
+        <a:description>Test</a:description>
+        <a:expression></a:expression>
+        <a:urlAlias>Terminate</a:urlAlias>
+        <a:httpMethod>GET</a:httpMethod>
+        <a:system>false</a:system>
+    </webApi>
+    <roleMap/>
+</webApiHaul>
