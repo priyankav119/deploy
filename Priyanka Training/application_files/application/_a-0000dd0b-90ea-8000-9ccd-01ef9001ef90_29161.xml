@@ -28,6 +28,7 @@
                         <uuid>{urn:com:appian:types}Demo_URl</uuid>
                         <uuid>{urn:com:appian:types}test_cdt</uuid>
                     <uuid>{urn:com:appian:types}Demo_User</uuid>
+                    <uuid>{urn:com:appian:types}Test_Demo_DT</uuid>
                     </uuids>
                 </item>
                 <item>
@@ -263,4 +264,4 @@
             </role>
         </contentRoleMap>
     </roleMap>
-</applicationHaul><!--updated on 2016-10-28T11:25:50.259-->
+</applicationHaul><!--updated on 2016-10-28T12:06:39.229-->
