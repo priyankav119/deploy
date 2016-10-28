@@ -4,12 +4,18 @@
         <uuid>_a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37330</uuid>
         <name>Web_DataStore</name>
         <description></description>
-        <dataSourceKey>jdbc/AppianSecondary</dataSourceKey>
+        <dataSourceKey>jdbc/ExcelMSSqlDS</dataSourceKey>
         <adaptingExplicitSqlNames>false</adaptingExplicitSqlNames>
         <autoUpdateSchema>false</autoUpdateSchema>
-        <entities/>
+        <entities>
+            <entity>
+                <uuid>eedf1c55-98b8-42e3-bed7-4f83ca751822</uuid>
+                <name>test_cdt</name>
+                <type>{urn:com:appian:types}test_cdt</type>
+            </entity>
+        </entities>
     </dataStore>
-    <isPublished>false</isPublished>
+    <isPublished>true</isPublished>
     <roleMap>
         <role allowForAll="false" inherit="false" name="administrators">
             <users/>
