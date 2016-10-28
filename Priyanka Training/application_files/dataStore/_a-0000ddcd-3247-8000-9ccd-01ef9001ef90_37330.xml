@@ -13,6 +13,16 @@
                 <name>test_cdt</name>
                 <type>{urn:com:appian:types}test_cdt</type>
             </entity>
+            <entity>
+                <uuid>9a9f5e3c-043e-4331-b060-1c7c4e6c9818</uuid>
+                <name>Test_Demo_DT</name>
+                <type>{urn:com:appian:types}Test_Demo_DT</type>
+            </entity>
+            <entity>
+                <uuid>37c26a2f-0403-4a7d-8bcc-c0bb7317f8c3</uuid>
+                <name>Document</name>
+                <type>{urn:com:appian:types}Document</type>
+            </entity>
         </entities>
     </dataStore>
     <isPublished>true</isPublished>
