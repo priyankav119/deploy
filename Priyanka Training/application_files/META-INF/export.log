@@ -1,31 +1,16 @@
 Success (1):
-content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 "DEMO_DEPARTMENT"
-
-Referenced precedents that were not exported (1):
-content 24247 _a-0000dd0b-90ea-8000-9ccd-01ef9001ef90_29193
+dataStore 31721 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37330 "Web_DataStore"
 
 Trace:
-2016-10-27 12:36:11.786 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Begin transport.
-2016-10-27 12:36:11.786 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Retrieving object data.
-2016-10-27 12:36:11.791 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Setting uuids of object references.
-2016-10-27 12:36:11.791 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Processing reference: [Content:id=31683,versionId=-1,name=DEMO_DEPARTMENT,description=,type=32,subtype=0,uuid=_a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290,parent=24247,parentName=Priyanka Rules & Contants,parentType=2,log=31694,logName=DEMO_DEPARTMENT,state=255,visibility=35,security=15,creator=priyanka.verma,createdTimestamp=2016-10-27 12:35:38.0,updatedTimestamp=2016-10-27 12:35:38.0,size=0,lockedBy=,changesRequireApproval=false,attributes={system=0, hidden=0, ruletype=0, multiple=1, value=[Ljava.lang.String;@49f09da1, returnType=3},partition=2,partitionName=D:/Apps/Appian/_admin/accdocs2]
-2016-10-27 12:36:11.791 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Processing reference: Constant.forum
-2016-10-27 12:36:11.791 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Processing reference: Constant.parent
-2016-10-27 12:36:11.793 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Processing reference: com.appiancorp.suiteapi.content.ContentRoleMap@d7f0c43[
-  ContentRole[name=readers,inherit=true,allowForAll=false]
-  ContentRole[name=authors,inherit=true,allowForAll=false]
-  ContentRole[name=administrators,inherit=true,allowForAll=false]
-  ContentRole[name=denyReaders,inherit=false,allowForAll=false]
-  ContentRole[name=denyAuthors,inherit=false,allowForAll=false]
-  ContentRole[name=denyAdministrators,inherit=false,allowForAll=false]
-  securityVector=15:SEC_PUBLIC=true,SEC_CREATOR_ADMIN=false,SEC_INH_ADMIN=true,SEC_INH_EDITOR=true,SEC_INH_VIEWER=true,SEC_ALL_ADMIN=false,SEC_ALL_EDITOR=false,SEC_ALL_VIEWER=false
-]
-2016-10-27 12:36:11.793 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Processing reference: ContentRole[name=readers,inherit=true,allowForAll=false]
-2016-10-27 12:36:11.793 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Processing reference: ContentRole[name=authors,inherit=true,allowForAll=false]
-2016-10-27 12:36:11.793 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Processing reference: ContentRole[name=administrators,inherit=true,allowForAll=false]
-2016-10-27 12:36:11.793 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Processing reference: ContentRole[name=denyReaders,inherit=false,allowForAll=false]
-2016-10-27 12:36:11.793 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Processing reference: ContentRole[name=denyAuthors,inherit=false,allowForAll=false]
-2016-10-27 12:36:11.793 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Processing reference: ContentRole[name=denyAdministrators,inherit=false,allowForAll=false]
-2016-10-27 12:36:11.793 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Exporting binary resources.
-2016-10-27 12:36:11.793 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Serializing object to XML.
-2016-10-27 12:36:11.794 DEBUG content 31694 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37290 Object transported.
+2016-10-28 05:47:42.705 DEBUG dataStore 31721 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37330 Begin transport.
+2016-10-28 05:47:42.705 DEBUG dataStore 31721 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37330 Retrieving object data.
+2016-10-28 05:47:42.707 DEBUG dataStore 31721 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37330 Setting uuids of object references.
+2016-10-28 05:47:42.707 DEBUG dataStore 31721 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37330 Processing reference: ContentRole[name=administrators,inherit=false,allowForAll=false]
+2016-10-28 05:47:42.707 DEBUG dataStore 31721 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37330 Processing reference: ContentRole[name=authors,inherit=false,allowForAll=false]
+2016-10-28 05:47:42.707 DEBUG dataStore 31721 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37330 Processing reference: ContentRole[name=denyAdministrators,inherit=false,allowForAll=false]
+2016-10-28 05:47:42.707 DEBUG dataStore 31721 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37330 Processing reference: ContentRole[name=denyAuthors,inherit=false,allowForAll=false]
+2016-10-28 05:47:42.707 DEBUG dataStore 31721 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37330 Processing reference: ContentRole[name=denyReaders,inherit=false,allowForAll=false]
+2016-10-28 05:47:42.707 DEBUG dataStore 31721 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37330 Processing reference: ContentRole[name=readers,inherit=false,allowForAll=false]
+2016-10-28 05:47:42.707 DEBUG dataStore 31721 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37330 Exporting binary resources.
+2016-10-28 05:47:42.707 DEBUG dataStore 31721 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37330 Serializing object to XML.
+2016-10-28 05:47:42.708 DEBUG dataStore 31721 _a-0000ddcd-3247-8000-9ccd-01ef9001ef90_37330 Object transported.
