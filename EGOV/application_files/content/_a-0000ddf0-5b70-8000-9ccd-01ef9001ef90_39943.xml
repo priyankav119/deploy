@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>SI_PLO_RecordDashboard</name>
+        <uuid>_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_39943</uuid>
+        <description>Contains rule for dashboard of plot _a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_39943</description>
+        <parentUuid>_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_39939</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>fn!load(
+ local!a: - 1.673756667108149,
+  local!b: 29.216409650061166,
+  local!c,
+  local!d,
+  local!Key: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40114&quot;(
+    &quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_39943&quot;
+  ),
+  local!Plot:if(#&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(ri!Id),{}, #&quot;_a-0000ddf3-9e70-8000-9ccd-01ef9001ef90_40527&quot;(ri!Id)),
+  local!data:#&quot;_a-0000ddf3-c4ce-8000-9ccd-01ef9001ef90_40663&quot;(PlotId:ri!Id),
+ 
+  #&quot;SYSTEM_SYSRULES_formLayout&quot;(
+    label: &quot;&quot;/*rule!EGov_SI_GetLabelByUserLocaleAndKey(&quot;plotName&quot;,local!Key)*/,
+    instructions: &quot;&quot;,
+    firstColumnContents: {
+      #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+        label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(&quot;basicDetails&quot;,local!Key),
+        isCollapsible: true,
+        firstColumnContents: {
+          #&quot;SYSTEM_SYSRULES_textField&quot;(
+            label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(&quot;plotName&quot;,local!Key),
+            labelPosition: &quot;ADJACENT&quot;,
+            value: index(local!Plot,&quot;Name&quot;,&quot;&quot;),
+            readOnly: true
+          ),
+          #&quot;SYSTEM_SYSRULES_textField&quot;(
+            label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(&quot;area&quot;,local!Key),
+            labelPosition: &quot;ADJACENT&quot;,
+            value: index(local!Plot,&quot;Area&quot;,&quot;&quot;),
+            readOnly: true
+          )
+        },
+        secondColumnContents: {
+          #&quot;SYSTEM_SYSRULES_textField&quot;(
+            label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(&quot;plotSize&quot;,local!Key),
+            labelPosition:&quot;ADJACENT&quot;,
+            value: index(local!Plot,&quot;Size&quot;,&quot;&quot;),
+            readOnly: true
+          ),
+          #&quot;SYSTEM_SYSRULES_textField&quot;(
+            label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(&quot;plotPrice&quot;,local!Key),
+            labelPosition: &quot;ADJACENT&quot;,
+            value: index(local!Plot,&quot;Price&quot;,&quot;&quot;),
+            readOnly: true
+          )
+        }
+      ),
+      #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+        label: &quot;&quot;,
+        firstColumnContents: {
+          #&quot;SYSTEM_SYSRULES_textField&quot;(
+            label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(&quot;description&quot;,local!Key),
+            labelPosition: &quot;ADJACENT&quot;,
+            value: index(local!Plot,&quot;Description&quot;,&quot;&quot;),
+            readOnly: true
+          )
+        }
+      ),
+      #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+        label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(&quot;latLong&quot;,local!Key),
+        isCollapsible: true,
+        firstColumnContents: {
+          #&quot;SYSTEM_SYSRULES_textField&quot;(readOnly:true),
+           
+           #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_39910&quot;(
+            Latitude:#&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(&quot;latitude&quot;,local!Key),
+            Longitude:#&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(&quot;longitude&quot;,local!Key)
+          )
+        },
+        secondColumnContents:{ #&quot;50b17cd2-685e-4740-b6c5-f8e00f42cabc&quot;(
+              Latitude: local!a,
+              Longitude: local!b,
+              MapType: local!c,
+              Zoom: local!d
+            )
+          
+       /*  a!imageField(
+      images:{
+        a!webImage(
+          source:&quot;https://maps.googleapis.com/maps/api/staticmap?center=-1.673780394295807,29.21635142269367&amp;zoom=15&amp;size=600x300&amp;maptype=roadmap
+&amp;markers=-1.6845196,29.2297006&amp;markers=-1.6826187,29.2288093
+&amp;markers=-1.6828607,29.2235219
+&amp;key=AIzaSyCICxpP04ffLV583PWyWPXW4tz2LWwax98&quot; )
+      }
+    )*/
+        }
+      ),
+    #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+      label:#&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(&quot;properties&quot;,local!Key),
+      isCollapsible: true,
+        firstColumnContents: {
+          #&quot;_a-0000ddf3-c4ce-8000-9ccd-01ef9001ef90_40740&quot;(
+            Plot:local!data,
+            PropertyName:#&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(&quot;propertyName&quot;,local!Key),
+            PropertyArea:#&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(&quot;propertyArea&quot;,local!Key),
+            NoOfFloors:#&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(&quot;noOfFloors&quot;,local!Key),
+            BuildingDate:#&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(&quot;builtDate&quot;,local!Key),
+            PropertyId:#&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(&quot;propertyId&quot;,local!Key),
+            PropertyCode:#&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(&quot;propertyCode&quot;,local!Key)
+            )
+        }
+    ),
+      #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+        label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(&quot;otherDetails&quot;,local!Key),
+        isCollapsible: true,
+        firstColumnContents: {
+          #&quot;SYSTEM_SYSRULES_imageField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(&quot;electricity&quot;,local!Key),
+              labelPosition: &quot;ADJACENT&quot;,
+              readOnly: true,
+              size: &quot;ICON&quot;,
+              images: #&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41027&quot;(
+                Decision: index(local!data,&quot;IsElectricity&quot;,{})
+              )
+            ),
+          #&quot;SYSTEM_SYSRULES_imageField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(&quot;water&quot;,local!Key),
+              labelPosition: &quot;ADJACENT&quot;,
+              readOnly: true,
+              size: &quot;ICON&quot;,
+              images: #&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41027&quot;(
+                Decision: index(local!data,&quot;IsWater&quot;,{})
+              )
+            ),
+          #&quot;SYSTEM_SYSRULES_imageField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(&quot;generator&quot;,local!Key),
+              labelPosition: &quot;ADJACENT&quot;,
+              readOnly: true,
+              size: &quot;ICON&quot;,
+              images: #&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41027&quot;(
+                Decision: index(local!data,&quot;IsGenerator&quot;,{})
+              )
+            )
+        },
+        secondColumnContents: {
+         #&quot;SYSTEM_SYSRULES_imageField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(&quot;sewage&quot;,local!Key),
+              labelPosition: &quot;ADJACENT&quot;,
+              readOnly: true,
+              size: &quot;ICON&quot;,
+              images: #&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41027&quot;(
+                Decision: index(local!data,&quot;IsSewageSystem&quot;,{})
+              )
+            )
+         ,
+           #&quot;SYSTEM_SYSRULES_imageField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(&quot;leased&quot;,local!Key),
+              labelPosition: &quot;ADJACENT&quot;,
+              readOnly: true,
+              size: &quot;ICON&quot;,
+              images: #&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41027&quot;(
+                Decision: index(local!data,&quot;IsLeased&quot;,{})
+              )
+            )
+         
+        }
+      )/*,
+        a!sectionLayout(
+          label: &quot;Note&quot;,
+          isCollapsible: true,
+          firstColumnContents: {
+            a!paragraphField(
+              label: &quot;&quot;,
+              value:&quot;This plot has a good electricity connection but doesn't have a water connection yet.&quot;,
+              readOnly:true
+            )}),*/
+      
+    }
+  )
+)</definition>
+        <namedTypedValue>
+            <name>Id</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+</contentHaul>

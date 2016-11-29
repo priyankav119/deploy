@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>EGov_GenerateUniqueBuildingId</name>
+        <uuid>_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39636</uuid>
+        <description>Holds the value for the generation of the unique building id</description>
+        <parentUuid>_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39628</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>load(
+  local!AddressDetails: #&quot;_a-0000ddf3-c4ce-8000-9ccd-01ef9001ef90_40790&quot;(
+    1/*local!AddressId*/
+    
+  ),
+  local!ProvinceDiff: #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39634&quot;(
+    total: #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39638&quot;[4],
+    data: index(
+      local!AddressDetails,
+      &quot;ProvinceId&quot;,
+      {}
+    )
+  ),
+  local!CityDiff: #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39634&quot;(
+    total: #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39638&quot;[4],
+    data: index(
+      local!AddressDetails,
+      &quot;CityId&quot;,
+      {}
+    )
+  ),
+  local!CommuneDiff: #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39634&quot;(
+    total: #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39638&quot;[4],
+    data: index(
+      local!AddressDetails,
+      &quot;CommuneId&quot;,
+      {}
+    )
+  ),
+  local!QuaterDiff: #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39634&quot;(
+    total: #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39638&quot;[4],
+    data: index(
+      local!AddressDetails,
+      &quot;QuaterId&quot;,
+      {}
+    )
+  ),
+  local!BuildingDiff:#&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39634&quot;(
+    total:#&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39638&quot;[4],
+    data:ri!BuildingId
+  ),
+  with(
+    concat(
+      #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39630&quot;(
+        local!ProvinceDiff
+      ),
+      index(
+        local!AddressDetails,
+        &quot;ProvinceId&quot;,
+        {}
+      ),
+      #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39630&quot;(
+        local!CityDiff
+      ),
+      index(
+        local!AddressDetails,
+        &quot;CityId&quot;,
+        {}
+      ),
+      #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39630&quot;(
+        local!CommuneDiff
+      ),
+      index(
+        local!AddressDetails,
+        &quot;CommuneId&quot;,
+        {}
+      ),
+      #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39630&quot;(
+        local!QuaterDiff
+      ),
+      index(
+        local!AddressDetails,
+        &quot;QuaterId&quot;,
+        {}
+      ),
+      #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39630&quot;(
+        local!BuildingDiff
+      ),
+      ri!BuildingId
+    )
+  )
+)</definition>
+        <namedTypedValue>
+            <name>BuildingId</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>AddressId</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+</contentHaul>

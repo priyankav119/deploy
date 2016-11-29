@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <queryRule>
+        <name>EGov_SI_GetAddressDetailsByAddressView</name>
+        <uuid>_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41011</uuid>
+        <description>Fetch Address Details from Address View</description>
+        <folderUuid>_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39627</folderUuid>
+        <dataStoreEntityCompositeUuid>6edbf8cc-10cc-43c4-900f-1b77f82f1ec8@_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39762</dataStoreEntityCompositeUuid>
+        <params/>
+        <filters/>
+        <orderings/>
+    </queryRule>
+    <roleMap public="false">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+</contentHaul>

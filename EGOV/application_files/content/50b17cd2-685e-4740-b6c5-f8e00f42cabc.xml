@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>EGov_GetLocationByLatLong</name>
+        <uuid>50b17cd2-685e-4740-b6c5-f8e00f42cabc</uuid>
+        <description>Contains rule for getting location of lat and long</description>
+        <parentUuid>_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39632</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>with(
+    {
+      if(or(ri!MapType=#&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39647&quot;[1],#&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(ri!MapType)),
+      #&quot;SYSTEM_SYSRULES_linkField&quot;(
+        
+        links:{#&quot;SYSTEM_SYSRULES_dynamicLink&quot;(
+          label:&quot;Switch to Street View&quot;,
+          value:#&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39647&quot;[2],
+          saveInto:{ri!MapType}
+        )}
+      ),
+      if(or(ri!MapType=#&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39647&quot;[2],#&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(ri!MapType)),
+      #&quot;SYSTEM_SYSRULES_linkField&quot;(
+        links:{#&quot;SYSTEM_SYSRULES_dynamicLink&quot;(
+          label:&quot;Switch to Satellite View&quot;,
+          value:#&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39647&quot;[1],
+          saveInto:{ri!MapType}
+        )}
+      ),{})),
+    
+    if(or(#&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(ri!Latitude),#&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(ri!Longitude)),
+    #&quot;SYSTEM_SYSRULES_imageField&quot;(
+        
+        images: {
+          #&quot;SYSTEM_SYSRULES_webImage&quot;(
+            source: &quot;http://maps.googleapis.com/maps/api/staticmap?markers=&quot;&amp; substitute(
+          /*cons!EGOV_GOMA_LOCATION_MAP*/&quot;Goma, North-Kivu, DRC&quot;,
+              &quot; &quot;,
+              &quot;%20&quot;
+            ) &amp; &quot;&amp;zoom=&quot; &amp; ri!Zoom &amp; &quot;&amp;size=&quot; &amp; #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39646&quot;[1] &amp; &quot;x&quot; &amp; #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39646&quot;[1] &amp; &quot;&amp;scale=&quot; &amp; #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39649&quot; &amp; &quot;&amp;maptype=&quot; &amp; ri!MapType
+          )
+        },
+        size: &quot;LARGE&quot;
+      ),
+      if(
+      like(
+        ri!MapType,
+        concat(
+          &quot;*&quot;,
+          #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39647&quot;[1],
+          &quot;*&quot;
+        )
+      ),
+     
+      #&quot;SYSTEM_SYSRULES_imageField&quot;(
+        
+        images: {
+          #&quot;SYSTEM_SYSRULES_webImage&quot;(
+            source: &quot;http://maps.googleapis.com/maps/api/staticmap?markers=&quot; &amp; substitute(
+              ri!Latitude &amp; &quot;,&quot; &amp; ri!Longitude,
+              &quot; &quot;,
+              &quot;%20&quot;
+            ) &amp; &quot;&amp;zoom=&quot; &amp; ri!Zoom &amp; &quot;&amp;size=&quot; &amp; #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39646&quot;[1] &amp; &quot;x&quot; &amp; #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39646&quot;[1] &amp; &quot;&amp;scale=&quot; &amp; #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39649&quot; &amp; &quot;&amp;maptype=&quot; &amp; #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39647&quot;[1]
+          )
+        },
+        size: &quot;LARGE&quot;
+      ),
+      
+      if(
+        like(
+          ri!MapType,
+          concat(
+            &quot;*&quot;,
+            #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39647&quot;[2],
+            &quot;*&quot;
+          )
+        ),
+        #&quot;SYSTEM_SYSRULES_imageField&quot;(
+          
+          images: {
+            #&quot;SYSTEM_SYSRULES_webImage&quot;(
+              source: &quot;http://maps.googleapis.com/maps/api/staticmap?markers=&quot; &amp; substitute(
+                ri!Latitude &amp; &quot;,&quot; &amp; ri!Longitude,
+                &quot; &quot;,
+                &quot;%20&quot;
+              ) &amp; &quot;&amp;zoom=&quot; &amp; ri!Zoom &amp; &quot;&amp;size=&quot; &amp; #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39646&quot;[1] &amp; &quot;x&quot; &amp; #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39646&quot;[1] &amp; &quot;&amp;scale=&quot; &amp; #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39649&quot; &amp; &quot;&amp;maptype=&quot; &amp; ri!MapType
+            )
+          },
+          size: &quot;LARGE&quot;
+        ),
+        #&quot;SYSTEM_SYSRULES_imageField&quot;(
+          
+          images: {
+            #&quot;SYSTEM_SYSRULES_webImage&quot;(
+              source: &quot;http://maps.googleapis.com/maps/api/staticmap?markers=&quot; &amp; substitute(
+                ri!Latitude &amp; &quot;,&quot; &amp; ri!Longitude,
+                &quot; &quot;,
+                &quot;%20&quot;
+              ) &amp; &quot;&amp;zoom=&quot; &amp; ri!Zoom &amp; &quot;&amp;size=&quot; &amp; #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39646&quot;[1] &amp; &quot;x&quot; &amp; #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39646&quot;[1] &amp; &quot;&amp;scale=&quot; &amp; #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39649&quot; &amp; &quot;&amp;maptype=&quot; &amp; #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39647&quot;[1]
+            )
+          },
+          size: &quot;LARGE&quot;
+        )
+      )
+    ))
+})
+  
+</definition>
+        <namedTypedValue>
+            <name>Latitude</name>
+            <type>
+                <name>double</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>Longitude</name>
+            <type>
+                <name>double</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>MapType</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>Zoom</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users>
+                <userUuid>SurbhiAgrawal</userUuid>
+            </users>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig?list</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <el>
+                <a:name/>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="xsd:double"/>
+                    <a:nameRef>Latitude</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="xsd:double"/>
+                    <a:nameRef>Longitude</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string"/>
+                    <a:nameRef>MapType</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="xsd:int"/>
+                    <a:nameRef>Zoom</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:assertions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+            </el>
+        </value>
+    </typedValue>
+</contentHaul>

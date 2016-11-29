@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <queryRule>
+        <name>EGov_SI_GetAllRangDetails</name>
+        <uuid>_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41049</uuid>
+        <description>Fetch all the values for the rang details</description>
+        <folderUuid>_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39627</folderUuid>
+        <dataStoreEntityCompositeUuid>a48159d0-fc71-48d9-b76d-4e14962653f3@_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39718</dataStoreEntityCompositeUuid>
+        <params/>
+        <filters/>
+        <orderings/>
+    </queryRule>
+    <roleMap public="false">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+</contentHaul>

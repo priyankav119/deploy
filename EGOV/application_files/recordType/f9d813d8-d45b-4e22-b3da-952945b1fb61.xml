@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<recordTypeHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <recordType name="Plot" a:uuid="f9d813d8-d45b-4e22-b3da-952945b1fb61">
+        <a:pluralName>Plots</a:pluralName>
+        <a:description>Contains record of all Plots</a:description>
+        <a:urlStub>_SXxfw</a:urlStub>
+        <a:source xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="a:DataStoreEntity" a:uuid="e5f63bef-f396-42f5-a346-fe0173f1b1e7@_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39718"/>
+        <a:listViewTemplateExpr>#&quot;SYSTEM_SYSRULES_recordGridLayoutColumns&quot;(
+  columns: {
+    #&quot;SYSTEM_SYSRULES_gridLayoutColumn&quot;(
+      label: &quot;Name&quot;,
+      component: #&quot;SYSTEM_SYSRULES_recordGrid_linkField&quot;(
+        links: #&quot;SYSTEM_SYSRULES_recordLink&quot;(   
+          label: rf!Name,
+          recordType: rp!type,
+          identifier: rp!id
+        )
+      )
+    ),
+    #&quot;SYSTEM_SYSRULES_gridLayoutColumn&quot;(
+      label: &quot;Size&quot;,
+      component: #&quot;SYSTEM_SYSRULES_recordGrid_textField&quot;(
+        displayValue: rf!Size
+      )
+    ),
+    #&quot;SYSTEM_SYSRULES_gridLayoutColumn&quot;(
+      label: &quot;No. Of Properties&quot;,
+      width: &quot;DISTRIBUTE&quot;,
+      component: #&quot;SYSTEM_SYSRULES_recordGrid_integerField&quot;(
+        displayvalue: count(
+          #&quot;_a-0000ddf3-c4ce-8000-9ccd-01ef9001ef90_40663&quot;(PlotId:rf!Id)
+        )
+      )
+    ),
+    #&quot;SYSTEM_SYSRULES_gridLayoutColumn&quot;(
+      label: &quot;Location&quot;,
+      width: &quot;DISTRIBUTE&quot;,
+      component: #&quot;SYSTEM_SYSRULES_recordGrid_textField&quot;(
+        displayvalue: 
+          if(#&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(rf!AddressId),{}, &quot;Province: &quot;&amp;
+  index(
+    #&quot;_a-0000ddf3-c4ce-8000-9ccd-01ef9001ef90_40790&quot;(
+      rf!AddressId
+    ),
+    &quot;ProvinceName&quot;,
+    &quot;&quot;
+  )&amp;&quot; , &quot;&amp;&quot;City: &quot;&amp;
+  index(
+    #&quot;_a-0000ddf3-c4ce-8000-9ccd-01ef9001ef90_40790&quot;(
+      rf!AddressId
+    ),
+    &quot;CityName&quot;,
+    &quot;&quot;
+  )&amp;&quot; , &quot;&amp;&quot;Commune: &quot;&amp;
+  index(
+    #&quot;_a-0000ddf3-c4ce-8000-9ccd-01ef9001ef90_40790&quot;(
+      rf!AddressId
+    ),
+    &quot;CommuneName&quot;,
+    &quot;&quot;
+  )
+          ))
+    )  
+  },
+  pageSize: 50,
+  defaultSort: #&quot;SYSTEM_SYSRULES_sortInfo&quot;(
+    field: &quot;Id&quot;,
+    ascending: fn!true()
+  )
+)</a:listViewTemplateExpr>
+        <a:detailViewCfg>
+            <a:nameExpr>=&quot;Summary&quot;</a:nameExpr>
+            <a:uiExpr>#&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_39943&quot;(rf!Id)</a:uiExpr>
+            <a:visibilityExpr>=true()</a:visibilityExpr>
+            <a:urlStub>summary</a:urlStub>
+            <a:headerExpr></a:headerExpr>
+        </a:detailViewCfg>
+        <a:detailViewCfg>
+            <a:nameExpr>&quot;Audit History&quot;</a:nameExpr>
+            <a:uiExpr>#&quot;3125583a-3639-4d2f-afd3-c600a5e07ca6&quot;(&#xD;
+recordType: #&quot;_a-0000ddf3-c4ce-8000-9ccd-01ef9001ef90_40606&quot;,&#xD;
+recordId: rf!Id&#xD;
+)</a:uiExpr>
+            <a:visibilityExpr>=true()</a:visibilityExpr>
+            <a:urlStub>_EIczHw</a:urlStub>
+            <a:headerExpr></a:headerExpr>
+        </a:detailViewCfg>
+        <a:isSystem>false</a:isSystem>
+        <a:dataSrcExpr></a:dataSrcExpr>
+        <a:facetsListExpr></a:facetsListExpr>
+        <a:titleExpr>rf!Name</a:titleExpr>
+        <a:defaultFiltersExpr></a:defaultFiltersExpr>
+        <a:layoutType>GRID</a:layoutType>
+        <a:security>16383</a:security>
+    </recordType>
+    <roleMap>
+        <role name="record_type_viewer">
+            <users/>
+            <groups>
+                <groupUuid>_e-0001ddf3-9c97-8000-9ccd-011e94011e94_279</groupUuid>
+                <groupUuid>_e-0001ddf3-9c97-8000-9ccd-011e94011e94_278</groupUuid>
+            </groups>
+        </role>
+        <role name="record_type_editor">
+            <users/>
+            <groups>
+                <groupUuid>_e-0001ddf3-9c97-8000-9ccd-011e94011e94_277</groupUuid>
+            </groups>
+        </role>
+    </roleMap>
+</recordTypeHaul>

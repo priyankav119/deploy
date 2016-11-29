@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>EGov_SI_PRP_PropertyFormInterface</name>
+        <uuid>_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41039</uuid>
+        <description>Contains the value for the property interface</description>
+        <parentUuid>_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_39907</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>load(
+  local!KeyDetails: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40114&quot;(
+    &quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_39909&quot;
+  ),
+  local!Key: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40114&quot;(
+    &quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41009&quot;
+  ),
+  local!DetailsKey: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40114&quot;(
+    &quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41039&quot;
+  ),
+  local!NatureDetails: #&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41041&quot;(),
+  local!MaterialDetails: #&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41045&quot;(),
+  local!RangDetails: #&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41049&quot;(),
+  local!ProvinceDetails: #&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41082&quot;(),
+  local!CityDetails: #&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41086&quot;(),
+  local!CommuneDetails: #&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41089&quot;(),
+  local!QuaterDetails: #&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41092&quot;(),
+  with(
+    #&quot;SYSTEM_SYSRULES_formLayout&quot;(
+      label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+        &quot;createNewProperty&quot;,
+        local!DetailsKey
+      ),
+      firstColumnContents: {
+        #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+          label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+            &quot;basicDetails&quot;,
+            local!KeyDetails
+          ),
+          isCollapsible: true,
+          firstColumnContents: {
+            #&quot;SYSTEM_SYSRULES_dateField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;year&quot;,
+                local!KeyDetails
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              value: index(
+                ri!BuildingDetails,
+                &quot;BuildingDate&quot;,
+                {}
+              ),
+              saveInto: ri!BuildingDetails.BuildingDate
+            ),
+            #&quot;SYSTEM_SYSRULES_integerField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;noOfFloors&quot;,
+                local!KeyDetails
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              value: index(
+                ri!BuildingDetails,
+                &quot;NoOfFloors&quot;,
+                {}
+              ),
+              saveInto: ri!BuildingDetails.NoOfFloors
+            ),
+            #&quot;SYSTEM_SYSRULES_floatingPointField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;area&quot;,
+                local!KeyDetails
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              value: index(
+                ri!BuildingDetails,
+                &quot;Area&quot;,
+                {}
+              ),
+              saveInto: ri!BuildingDetails.Area
+            ),
+            #&quot;SYSTEM_SYSRULES_floatingPointField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;centroidLatitude&quot;,
+                local!DetailsKey
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              value: index(
+                ri!BuildingDetails,
+                &quot;CentroidLatitude&quot;,
+                {}
+              ),
+              saveInto: ri!BuildingDetails.CentroidLatitude
+            ),
+            
+          },
+          secondColumnContents: {
+            #&quot;SYSTEM_SYSRULES_dropdownField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;natureType&quot;,
+                local!KeyDetails
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              placeholderLabel: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;dropdownPlaceHolder&quot;,
+                local!Key
+              ),
+              choiceLabels: index(
+                local!NatureDetails,
+                &quot;NatureName&quot;,
+                {}
+              ),
+              choiceValues: index(
+                local!NatureDetails,
+                &quot;Id&quot;,
+                {}
+              ),
+              value: index(
+                ri!BuildingDetails,
+                &quot;NatureId&quot;,
+                {}
+              ),
+              saveInto: ri!BuildingDetails.NatureId
+            ),
+            #&quot;SYSTEM_SYSRULES_dropdownField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;materialType&quot;,
+                local!KeyDetails
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              placeholderLabel: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;dropdownPlaceHolder&quot;,
+                local!Key
+              ),
+              choiceLabels: index(
+                local!MaterialDetails,
+                &quot;MaterialName&quot;,
+                {}
+              ),
+              choiceValues: index(
+                local!MaterialDetails,
+                &quot;Id&quot;,
+                {}
+              ),
+              value: index(
+                ri!BuildingDetails,
+                &quot;MaterialId&quot;,
+                {}
+              ),
+              saveInto: ri!BuildingDetails.MaterialId
+            ),
+            #&quot;SYSTEM_SYSRULES_dropdownField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;rang&quot;,
+                local!KeyDetails
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              placeholderLabel: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;dropdownPlaceHolder&quot;,
+                local!Key
+              ),
+              choiceLabels: index(
+                local!RangDetails,
+                &quot;Name&quot;,
+                {}
+              ),
+              choiceValues: index(
+                local!RangDetails,
+                &quot;Id&quot;,
+                {}
+              ),
+              value: index(
+                ri!BuildingDetails,
+                &quot;RangId&quot;,
+                {}
+              ),
+              saveInto: ri!BuildingDetails.RangId
+            ),
+            #&quot;SYSTEM_SYSRULES_floatingPointField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;centroidLongitude&quot;,
+                local!DetailsKey
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              value: index(
+                ri!BuildingDetails,
+                &quot;CentroidLongitude&quot;,
+                {}
+              ),
+              saveInto: ri!BuildingDetails.CentroidLongitude
+            ),
+            
+          }
+        ),
+        #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+          label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+            &quot;addressDetails&quot;,
+            local!KeyDetails
+          ),
+          isCollapsible: true,
+          firstColumnContents: {
+            #&quot;SYSTEM_SYSRULES_dropdownField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;quarter&quot;,
+                local!KeyDetails
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              placeholderLabel: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;dropdownPlaceHolder&quot;,
+                local!Key
+              ),
+              choiceLabels: index(
+                local!QuaterDetails,
+                &quot;QuaterName&quot;,
+                {}
+              ),
+              choiceValues: index(
+                local!QuaterDetails,
+                &quot;Id&quot;,
+                {}
+              ),
+              value: index(
+                ri!AddressDetails,
+                &quot;QuarterId&quot;,
+                {}
+              ),
+              saveInto: ri!AddressDetails.QuarterId
+            ),
+            #&quot;SYSTEM_SYSRULES_dropdownField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;commune&quot;,
+                local!KeyDetails
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              placeholderLabel: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;dropdownPlaceHolder&quot;,
+                local!Key
+              ),
+              choiceLabels: index(
+                local!CommuneDetails,
+                &quot;CommuneName&quot;,
+                {}
+              ),
+              choiceValues: index(
+                local!CommuneDetails,
+                &quot;Id&quot;,
+                {}
+              ),
+              value: index(
+                ri!AddressDetails,
+                &quot;CommuneId&quot;,
+                {}
+              ),
+              saveInto: ri!AddressDetails.CommuneId
+            )
+          },
+          secondColumnContents: {
+            #&quot;SYSTEM_SYSRULES_dropdownField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;city&quot;,
+                local!KeyDetails
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              placeholderLabel: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;dropdownPlaceHolder&quot;,
+                local!Key
+              ),
+              choiceLabels: index(
+                local!CityDetails,
+                &quot;CityName&quot;,
+                {}
+              ),
+              choiceValues: index(
+                local!CityDetails,
+                &quot;Id&quot;,
+                {}
+              ),
+              value: index(
+                ri!AddressDetails,
+                &quot;CityId&quot;,
+                {}
+              ),
+              saveInto: ri!AddressDetails.CityId
+            ),
+            #&quot;SYSTEM_SYSRULES_dropdownField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;provience&quot;,
+                local!KeyDetails
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              placeholderLabel: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;dropdownPlaceHolder&quot;,
+                local!Key
+              ),
+              choiceLabels: index(
+                local!ProvinceDetails,
+                &quot;ProvinceName&quot;,
+                {}
+              ),
+              choiceValues: index(
+                local!ProvinceDetails,
+                &quot;Id&quot;,
+                {}
+              ),
+              value: index(
+                ri!AddressDetails,
+                &quot;ProvienceId&quot;,
+                {}
+              ),
+              saveInto: ri!AddressDetails.ProvienceId
+            )
+          }
+        ),
+        #&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41063&quot;(
+          LocationDetails: ri!LocationDetails,
+          Key: local!Key
+        ),
+        #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+          label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+            &quot;otherDetails&quot;,
+            local!KeyDetails
+          ),
+          isCollapsible: true,
+          firstColumnContents: {
+            #&quot;SYSTEM_SYSRULES_radioButtonField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;hasElectricity&quot;,
+                local!DetailsKey
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              choiceLabels: {
+                &quot;Yes&quot;,
+                &quot;No&quot;
+              },
+              choiceValues: {
+                true,
+                false
+              },
+              choiceLayout: &quot;COMPACT&quot;,
+              value: index(
+                ri!BuildingDetails,
+                &quot;IsElectricity&quot;,
+                {}
+              ),
+              saveInto: ri!BuildingDetails.IsElectricity
+            ),
+            #&quot;SYSTEM_SYSRULES_radioButtonField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;hasWater&quot;,
+                local!DetailsKey
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              choiceLabels: {
+                &quot;Yes&quot;,
+                &quot;No&quot;
+              },
+              choiceValues: {
+                true,
+                false
+              },
+              choiceLayout: &quot;COMPACT&quot;,
+              value: index(
+                ri!BuildingDetails,
+                &quot;IsWater&quot;,
+                {}
+              ),
+              saveInto: ri!BuildingDetails.IsWater
+            ),
+            #&quot;SYSTEM_SYSRULES_radioButtonField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;hasGenerator&quot;,
+                local!DetailsKey
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              choiceLabels: {
+                &quot;Yes&quot;,
+                &quot;No&quot;
+              },
+              choiceValues: {
+                true,
+                false
+              },
+              choiceLayout: &quot;COMPACT&quot;,
+              value: index(
+                ri!BuildingDetails,
+                &quot;IsGenerator&quot;,
+                {}
+              ),
+              saveInto: ri!BuildingDetails.IsGenerator
+            )
+          },
+          secondColumnContents: {
+            #&quot;SYSTEM_SYSRULES_radioButtonField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;hasSewage&quot;,
+                local!DetailsKey
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              choiceLabels: {
+                &quot;Yes&quot;,
+                &quot;No&quot;
+              },
+              choiceValues: {
+                true,
+                false
+              },
+              choiceLayout: &quot;COMPACT&quot;,
+              value: index(
+                ri!BuildingDetails,
+                &quot;IsSewageSystem&quot;,
+                {}
+              ),
+              saveInto: ri!BuildingDetails.IsSewageSystem
+            ),
+            #&quot;SYSTEM_SYSRULES_radioButtonField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;leased&quot;,
+                local!KeyDetails
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              choiceLabels: {
+                &quot;Yes&quot;,
+                &quot;No&quot;
+              },
+              choiceValues: {
+                true,
+                false
+              },
+              choiceLayout: &quot;COMPACT&quot;,
+              value: index(
+                ri!BuildingDetails,
+                &quot;IsLeased&quot;,
+                {}
+              ),
+              saveInto: ri!BuildingDetails.IsLeased
+            )
+          }
+        )
+      },
+      secondColumnContents: {
+        /* Add components here for a two-column form */
+        
+      },
+      buttons: #&quot;SYSTEM_SYSRULES_ButtonLayout&quot;(
+        primaryButtons: {
+          #&quot;SYSTEM_SYSRULES_ButtonWidgetSubmit&quot;(
+            label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+              &quot;submit&quot;,
+              local!Key
+            ),
+            style: &quot;PRIMARY&quot;,
+            value: #&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41047&quot;[1],
+            saveInto: ri!BtnAction
+          )
+        },
+        secondaryButtons: {
+          #&quot;SYSTEM_SYSRULES_ButtonWidgetSubmit&quot;(
+            label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+              &quot;cancel&quot;,
+              local!Key
+            ),
+            style: &quot;DESTRUCTIVE&quot;,
+            value: #&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41047&quot;[2],
+            skipValidation: true,
+            saveInto: ri!BtnAction
+          )
+        }
+      ),
+      validations: {}
+    )
+  )
+)</definition>
+        <namedTypedValue>
+            <name>BuildingDetails</name>
+            <type>
+                <name>EGov_SI_PRP_Property</name>
+                <namespace>urn:com:appian:types:EGov</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>AddressDetails</name>
+            <type>
+                <name>EGov_SI_Address</name>
+                <namespace>urn:com:appian:types:EGov</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>LocationDetails</name>
+            <type>
+                <name>EGov_SI_LOC_Location?list</name>
+                <namespace>urn:com:appian:types:EGov</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>BtnAction</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig?list</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <el>
+                <a:name/>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:n1="urn:com:appian:types:EGov" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="n1:EGov_SI_PRP_Property"/>
+                    <a:nameRef>BuildingDetails</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:n1="urn:com:appian:types:EGov" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="n1:EGov_SI_Address"/>
+                    <a:nameRef>AddressDetails</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:nameRef>LocationDetails</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string"/>
+                    <a:nameRef>BtnAction</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:assertions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+            </el>
+        </value>
+    </typedValue>
+</contentHaul>

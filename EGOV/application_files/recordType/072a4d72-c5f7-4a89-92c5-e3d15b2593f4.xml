@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<recordTypeHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <recordType name="Building" a:uuid="072a4d72-c5f7-4a89-92c5-e3d15b2593f4">
+        <a:pluralName>Buildings</a:pluralName>
+        <a:description>List of all buildings</a:description>
+        <a:urlStub>mrK5CQ</a:urlStub>
+        <a:source xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="a:DataStoreEntity" a:uuid="534ab977-bf3f-46e7-b2b4-a8a3c39c8bc1@_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39762"/>
+        <a:listViewTemplateExpr>#&quot;SYSTEM_SYSRULES_recordGridLayoutColumns&quot;(
+  columns: {
+    #&quot;SYSTEM_SYSRULES_gridLayoutColumn&quot;(
+      label: &quot;Name&quot;,
+      align: &quot;CENTER&quot;,
+      component: #&quot;SYSTEM_SYSRULES_recordGrid_linkField&quot;(
+        links: #&quot;SYSTEM_SYSRULES_recordLink&quot;(
+          label: #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39764&quot;(
+            BuildingId: rf!PropertyId,
+            AddressId: 1
+          ),
+          recordType: rp!type,
+          identifier: rp!id
+        ))
+    ),
+    #&quot;SYSTEM_SYSRULES_gridLayoutColumn&quot;(
+      label: &quot;Area(in sq m)&quot;,
+      align: &quot;CENTER&quot;,
+      component: #&quot;SYSTEM_SYSRULES_recordGrid_floatingPointField&quot;(
+        displayValue: if(
+          #&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(
+            rf!Area
+          ),
+          {},
+          rf!Area
+        ),
+        align: &quot;CENTER&quot;
+      )
+    ),
+    #&quot;SYSTEM_SYSRULES_gridLayoutColumn&quot;(
+      label: &quot;No. Of Floors&quot;,
+      align: &quot;CENTER&quot;,
+      component: #&quot;SYSTEM_SYSRULES_recordGrid_integerField&quot;(
+        displayValue: rf!NoOfFloors,
+        align: &quot;CENTER&quot;
+      )
+    ),
+    #&quot;SYSTEM_SYSRULES_gridLayoutColumn&quot;(
+      label: &quot;Building Date&quot;,
+      width: &quot;DISTRIBUTE&quot;,
+      align: &quot;CENTER&quot;,
+      component: #&quot;SYSTEM_SYSRULES_recordGrid_dateField&quot;(
+        displayvalue: if(
+          #&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(
+            rf!BuildingDate
+          ),
+          {},
+          rf!BuildingDate
+        ),
+        align: &quot;CENTER&quot;
+      )
+    ),
+    #&quot;SYSTEM_SYSRULES_gridLayoutColumn&quot;(
+      label: &quot;Nature Type&quot;,
+      width: &quot;DISTRIBUTE&quot;,
+      align: &quot;CENTER&quot;,
+      component: #&quot;SYSTEM_SYSRULES_recordGrid_textField&quot;(
+        displayvalue: if(&#xD;
+          #&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(&#xD;
+            rf!Nature&#xD;
+          ),&#xD;
+          {},&#xD;
+          rf!Nature&#xD;
+        ),
+        align: &quot;CENTER&quot;
+      )
+    ),
+    #&quot;SYSTEM_SYSRULES_gridLayoutColumn&quot;(
+      label: &quot;Material Type&quot;,
+      width: &quot;DISTRIBUTE&quot;,
+      align: &quot;CENTER&quot;,
+      component: #&quot;SYSTEM_SYSRULES_recordGrid_textField&quot;(
+        displayvalue: if(
+          #&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(
+            rf!MaterialName
+          ),
+          {},
+          rf!MaterialName
+        ),
+        align: &quot;CENTER&quot;
+      )
+    ),
+    #&quot;SYSTEM_SYSRULES_gridLayoutColumn&quot;(
+      label: &quot;Centroid Latitude&quot;,
+      width: &quot;DISTRIBUTE&quot;,
+      align: &quot;CENTER&quot;,
+      component: #&quot;SYSTEM_SYSRULES_recordGrid_floatingPointField&quot;(
+        displayvalue: if(
+          #&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(
+            rf!CentroidLatitude
+          ),
+          {},
+          rf!CentroidLatitude
+        ),
+        align: &quot;CENTER&quot;
+      )
+    ),
+    #&quot;SYSTEM_SYSRULES_gridLayoutColumn&quot;(
+      label: &quot;Centroid Longitude&quot;,
+      width: &quot;DISTRIBUTE&quot;,
+      align: &quot;CENTER&quot;,
+      component: #&quot;SYSTEM_SYSRULES_recordGrid_floatingPointField&quot;(
+        displayvalue: if(
+          #&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(
+            rf!CentroidLongitude
+          ),
+          {},
+          rf!CentroidLongitude
+        ),
+        align: &quot;CENTER&quot;)
+    )  
+  },
+  pageSize: 25,
+  defaultSort: #&quot;SYSTEM_SYSRULES_sortInfo&quot;(
+    field: &quot;Id&quot;,
+    ascending: fn!true()
+  )
+)</a:listViewTemplateExpr>
+        <a:detailViewCfg>
+            <a:nameExpr>=&quot;Summary&quot;</a:nameExpr>
+            <a:uiExpr>#&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_39909&quot;(BuildingId:rf!PropertyId)</a:uiExpr>
+            <a:visibilityExpr>=true()</a:visibilityExpr>
+            <a:urlStub>summary</a:urlStub>
+            <a:headerExpr></a:headerExpr>
+        </a:detailViewCfg>
+        <a:detailViewCfg>
+            <a:nameExpr>&quot;Audit History&quot;</a:nameExpr>
+            <a:uiExpr>#&quot;3125583a-3639-4d2f-afd3-c600a5e07ca6&quot;(
+  recordType: #&quot;_a-0000ddf3-c4ce-8000-9ccd-01ef9001ef90_40599&quot;,
+  recordId: rf!Id
+)</a:uiExpr>
+            <a:visibilityExpr>=true()</a:visibilityExpr>
+            <a:urlStub>_YOJESw</a:urlStub>
+            <a:headerExpr></a:headerExpr>
+        </a:detailViewCfg>
+        <a:isSystem>false</a:isSystem>
+        <a:dataSrcExpr></a:dataSrcExpr>
+        <a:facetsListExpr></a:facetsListExpr>
+        <a:titleExpr>#&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39764&quot;(
+  BuildingId: rf!PropertyId,
+  AddressId: 1
+)</a:titleExpr>
+        <a:defaultFiltersExpr></a:defaultFiltersExpr>
+        <a:layoutType>GRID</a:layoutType>
+        <a:security>16383</a:security>
+    </recordType>
+    <roleMap>
+        <role name="record_type_viewer">
+            <users/>
+            <groups>
+                <groupUuid>_e-0001ddf3-9c97-8000-9ccd-011e94011e94_279</groupUuid>
+                <groupUuid>_e-0001ddf3-9c97-8000-9ccd-011e94011e94_278</groupUuid>
+            </groups>
+        </role>
+        <role name="record_type_editor">
+            <users/>
+            <groups>
+                <groupUuid>_e-0001ddf3-9c97-8000-9ccd-011e94011e94_277</groupUuid>
+            </groups>
+        </role>
+    </roleMap>
+</recordTypeHaul>

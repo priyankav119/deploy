@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>EGov_SI_BUL_BuildingLatitudeLongitudeEditableGrid</name>
+        <uuid>_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41063</uuid>
+        <description>Contains the value for the building latitude and longitude editable grid</description>
+        <parentUuid>_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_39905</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>load(
+  local!addnewrow,
+  #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+    label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+      &quot;latLong&quot;,
+      ri!Key
+    ),
+    isCollapsible: true,
+    firstColumnContents: {
+      #&quot;SYSTEM_SYSRULES_gridLayout&quot;(
+        label: &quot;&quot;,
+        labelPosition: &quot;ABOVE&quot;,
+        emptyGridMessage: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+          &quot;emptyGridMessageOfLatLong&quot;,
+          ri!Key
+        ),
+        headerCells: {
+          #&quot;SYSTEM_SYSRULES_gridLayoutHeaderCell&quot;(
+            label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+              &quot;latitude&quot;,
+              ri!Key
+            ),
+            align: &quot;CENTER&quot;
+          ),
+          #&quot;SYSTEM_SYSRULES_gridLayoutHeaderCell&quot;(
+            label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+              &quot;longitude&quot;,
+              ri!Key
+            ),
+            align: &quot;CENTER&quot;
+          ),
+          #&quot;SYSTEM_SYSRULES_gridLayoutHeaderCell&quot;(
+            align: &quot;CENTER&quot;
+          )
+        },
+        columnConfigs: {
+          #&quot;SYSTEM_SYSRULES_gridLayoutColumnConfig&quot;(
+            width: &quot;DISTRIBUTE&quot;,
+            weight: 2
+          ),
+          #&quot;SYSTEM_SYSRULES_gridLayoutColumnConfig&quot;(
+            width: &quot;DISTRIBUTE&quot;,
+            weight: 2
+          ),
+          #&quot;SYSTEM_SYSRULES_gridLayoutColumnConfig&quot;(
+            width: &quot;ICON&quot;/*,
+            weight: 2*/
+            
+          )
+        },
+        rows: {
+          #&quot;SYSTEM_SYSRULES_applyComponents&quot;(
+            function: #&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41061&quot;(
+              Index: _,
+              LocationDetails: ri!LocationDetails
+            ),
+            array: if(
+              or(
+                isnull(
+                  ri!LocationDetails
+                ),
+                count(
+                  ri!LocationDetails
+                ) &lt; 1
+              ),
+              {},
+              1 + enumerate(
+                count(
+                  ri!LocationDetails
+                )
+              )
+            )
+          )
+        },
+        addRowLink: #&quot;SYSTEM_SYSRULES_dynamicLink&quot;(
+          label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+            &quot;addLatLong&quot;,
+            ri!Key
+          ),
+          value: {
+            local!addnewrow
+          },
+          saveInto: {
+            a!save(
+              ri!LocationDetails,
+              append(
+                ri!LocationDetails,
+                save!value
+              )
+            )
+          }
+        ),
+        validations: {
+          if(
+            #&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(
+              ri!LocationDetails
+            ),
+            {},
+            if(
+              count(
+                wherecontains(
+                  {
+                    ri!LocationDetails[count(
+                      ri!LocationDetails
+                    )]
+                  },
+                  {
+                    ri!LocationDetails
+                  }
+                )
+              ) &gt; 1,
+              &quot;Already Exist&quot;,
+              {}
+            )
+          )
+        }
+      )
+    }
+  )
+)</definition>
+        <namedTypedValue>
+            <name>LocationDetails</name>
+            <type>
+                <name>EGov_SI_LOC_Location?list</name>
+                <namespace>urn:com:appian:types:EGov</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>Key</name>
+            <type>
+                <name>EGov_SI_dv_MultiLingualKey?list</name>
+                <namespace>urn:com:appian:types:EGov</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+</contentHaul>

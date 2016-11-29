@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>EGov_Common_CommentGrid</name>
+        <uuid>_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40029</uuid>
+        <description>Holds the value for the comment grid</description>
+        <parentUuid>_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39628</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>load(
+  local!pagingInfo: #&quot;SYSTEM_SYSRULES_pagingInfo&quot;(
+    startIndex: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_39911&quot;,
+    batchSize: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_39912&quot;[1]
+  ),
+  local!data,
+  with(
+    local!datasubset: todatasubset(
+      local!data,
+      local!pagingInfo
+    ),
+    #&quot;SYSTEM_SYSRULES_gridField&quot;(
+      totalCount: local!datasubset.totalCount,
+      columns: {
+        #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+          label: ri!Description,
+          field: &quot;Comment&quot;,
+          data: {
+            index(
+              local!datasubset.data,
+              &quot;Comment&quot;,
+              {}
+            )
+          },
+          alignment: &quot;LEFT&quot;
+        ),
+        #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+          label: ri!CommentedBy,
+          field: &quot;CreatedBy&quot;,
+          data: {
+            index(
+              local!datasubset.data,
+              &quot;CreatedBy&quot;,
+              {}
+            )
+          },
+          alignment: &quot;CENTER&quot;
+        ),
+        #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+          label: ri!CommentedOn,
+          field: &quot;CreatedOn&quot;,
+          data: {
+            index(
+              local!datasubset.data,
+              &quot;CreatedOn&quot;,
+              {}
+            )
+          },
+          alignment: &quot;CENTER&quot;
+        )
+      },
+      value: local!pagingInfo,
+      saveInto: {
+        local!pagingInfo
+      }
+    )
+  )
+)</definition>
+        <namedTypedValue>
+            <name>Description</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>CommentedBy</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>CommentedOn</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+</contentHaul>

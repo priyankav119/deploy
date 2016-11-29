@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <queryRule>
+        <name>EGov_GetAllCodesByBuildingId</name>
+        <uuid>_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39765</uuid>
+        <description>Fetch the value for the all codes by building Id</description>
+        <folderUuid>_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39627</folderUuid>
+        <dataStoreEntityCompositeUuid>cb8c7d3e-3559-46c0-80b9-fea9524c0922@_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39762</dataStoreEntityCompositeUuid>
+        <params>
+            <param>
+                <description></description>
+                <name>BuildingId</name>
+                <type>{http://www.w3.org/2001/XMLSchema}int</type>
+            </param>
+        </params>
+        <filters>
+            <filter>
+                <field>
+                    <name>BuildingId</name>
+                    <type>{http://www.w3.org/2001/XMLSchema}int</type>
+                </field>
+                <op>=</op>
+                <value>BuildingId</value>
+                <valueType>PARAMETER</valueType>
+            </filter>
+        </filters>
+        <orderings/>
+    </queryRule>
+    <roleMap public="false">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+</contentHaul>

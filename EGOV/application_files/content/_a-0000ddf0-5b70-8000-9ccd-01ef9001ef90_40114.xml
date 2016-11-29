@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <queryRule>
+        <name>EGov_SI_GetMultiLingualKeyDetailsByUUID</name>
+        <uuid>_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40114</uuid>
+        <description>Fetches data by interface uuid</description>
+        <folderUuid>_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39627</folderUuid>
+        <dataStoreEntityCompositeUuid>96c7e237-7084-4205-96db-0a8051229053@_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39718</dataStoreEntityCompositeUuid>
+        <params>
+            <param>
+                <description></description>
+                <name>UUID</name>
+                <type>{http://www.w3.org/2001/XMLSchema}string</type>
+            </param>
+        </params>
+        <filters>
+            <filter>
+                <field>
+                    <name>InterfaceUUID</name>
+                    <type>{http://www.w3.org/2001/XMLSchema}string</type>
+                </field>
+                <op>=</op>
+                <value>UUID</value>
+                <valueType>PARAMETER</valueType>
+            </filter>
+        </filters>
+        <orderings/>
+    </queryRule>
+    <roleMap public="false">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+</contentHaul>

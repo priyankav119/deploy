@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>SI_BUL_RecordInterface</name>
+        <uuid>_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_39909</uuid>
+        <description>Contains the value for the site inspection of building record interface</description>
+        <parentUuid>_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_39907</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>= load(
+  local!BuildingDetails: #&quot;_a-0000ddf3-9e70-8000-9ccd-01ef9001ef90_40530&quot;(
+    PropertyId: ri!BuildingId
+  ),
+  local!c,
+  local!d,
+  local!KeyDetails: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40114&quot;(
+    &quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_39909&quot;
+  ),
+  local!AddressDetails:#&quot;_a-0000ddf3-c4ce-8000-9ccd-01ef9001ef90_40790&quot;(
+      1/*local!AddressId*/
+    ),
+  with(
+    #&quot;SYSTEM_SYSRULES_formLayout&quot;(
+      firstColumnContents: {
+        #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+          label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+            &quot;basicDetails&quot;,
+            local!KeyDetails
+          ),
+          isCollapsible: true,
+          firstColumnContents: {
+            #&quot;SYSTEM_SYSRULES_textField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;buildingCode&quot;,
+                local!KeyDetails
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              readOnly: true,
+              value: #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39764&quot;(
+                BuildingId: ri!BuildingId,
+                AddressId: 1
+              )
+            ),
+            #&quot;SYSTEM_SYSRULES_textField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;buildingSystemCode&quot;,
+                local!KeyDetails
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              readOnly: true,
+              value: #&quot;_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39636&quot;(
+               BuildingId:ri!BuildingId,
+               AddressId:1
+              )
+            ),
+            
+            #&quot;SYSTEM_SYSRULES_textField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;owner&quot;,
+                local!KeyDetails
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              readOnly: true,
+              value: &quot;Recardo Lemvo&quot;
+            ),
+            #&quot;SYSTEM_SYSRULES_textField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;year&quot;,
+                local!KeyDetails
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              readOnly: true,
+              value: year(
+                index(
+                  local!BuildingDetails,
+                  &quot;BuildingDate&quot;,
+                  {}
+                )
+              )
+            ),
+            #&quot;SYSTEM_SYSRULES_textField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;noOfFloors&quot;,
+                local!KeyDetails
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              readOnly: true,
+              value: index(
+                local!BuildingDetails,
+                &quot;NoOfFloors&quot;,
+                {}
+              )
+            ),
+            #&quot;SYSTEM_SYSRULES_textField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;area&quot;,
+                local!KeyDetails
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              readOnly: true,
+              value: index(
+                local!BuildingDetails,
+                &quot;Area&quot;,
+                {}
+              )
+            ),
+            #&quot;SYSTEM_SYSRULES_textField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;natureType&quot;,
+                local!KeyDetails
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              readOnly: true,
+              value: index(
+                local!BuildingDetails,
+                &quot;Nature&quot;,
+                {}
+              )
+            ),
+            #&quot;SYSTEM_SYSRULES_textField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;materialType&quot;,
+                local!KeyDetails
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              readOnly: true,
+              value: index(
+                local!BuildingDetails,
+                &quot;MaterialName&quot;,
+                {}
+              )
+            ),
+            #&quot;SYSTEM_SYSRULES_textField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;rang&quot;,
+                local!KeyDetails
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              readOnly: true,
+              value: &quot;Rang 1&quot;
+            )
+          },
+          secondColumnContents: {
+            #&quot;50b17cd2-685e-4740-b6c5-f8e00f42cabc&quot;(
+              Latitude: index(
+                local!BuildingDetails,
+                &quot;CentroidLatitude&quot;,
+                {}
+              ),
+              Longitude: index(
+                local!BuildingDetails,
+                &quot;CentroidLongitude&quot;,
+                {}
+              ),
+              MapType: local!c,
+              Zoom: local!d
+            )
+          }
+        ),
+        #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_39959&quot;(
+          BuildingId: ri!BuildingId,
+          Latitude: index(
+            local!BuildingDetails,
+            &quot;CentroidLatitude&quot;,
+            {}
+          ),
+          Longitude: index(
+            local!BuildingDetails,
+            &quot;CentroidLongitude&quot;,
+            {}
+          )
+        ),
+        #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+          label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+            &quot;otherDetails&quot;,
+            local!KeyDetails
+          ),
+          isCollapsible: true,
+          
+          firstColumnContents: {
+            #&quot;SYSTEM_SYSRULES_imageField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;electricity&quot;,
+                local!KeyDetails
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              readOnly: true,
+              size: &quot;ICON&quot;,
+              images: #&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41027&quot;(
+                Decision: index(
+                  local!BuildingDetails,
+                  &quot;IsElectricity&quot;,
+                  {}
+                )
+              )
+            ),
+            #&quot;SYSTEM_SYSRULES_imageField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;water&quot;,
+                local!KeyDetails
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              readOnly: true,
+              size: &quot;ICON&quot;,
+              images: #&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41027&quot;(
+                Decision: index(
+                  local!BuildingDetails,
+                  &quot;IsWater&quot;,
+                  {}
+                )
+              )
+            ),
+            #&quot;SYSTEM_SYSRULES_imageField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;generator&quot;,
+                local!KeyDetails
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              readOnly: true,
+              size: &quot;ICON&quot;,
+              images: #&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41027&quot;(
+                Decision: index(
+                  local!BuildingDetails,
+                  &quot;IsGenerator&quot;,
+                  {}
+                )
+              )
+            )
+          },
+          secondColumnContents: {
+            #&quot;SYSTEM_SYSRULES_imageField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;sewage&quot;,
+                local!KeyDetails
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              readOnly: true,
+              size: &quot;ICON&quot;,
+              images: #&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41027&quot;(
+                Decision: index(
+                  local!BuildingDetails,
+                  &quot;IsSewageSystem&quot;,
+                  {}
+                )
+              )
+            ),
+            #&quot;SYSTEM_SYSRULES_imageField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;leased&quot;,
+                local!KeyDetails
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              readOnly: true,
+              size: &quot;ICON&quot;,
+              images: #&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41027&quot;(
+                Decision: index(
+                  local!BuildingDetails,
+                  &quot;IsLeased&quot;,
+                  {}
+                )
+              )
+            )
+          }
+        )/*,
+        a!sectionLayout(
+          label: rule!EGov_SI_GetLabelByUserLocaleAndKey(
+            &quot;comments&quot;,
+            local!KeyDetails
+          ),
+          isCollapsible: true,
+          firstColumnContents: {
+            rule!EGov_Common_CommentGrid(
+              Description: rule!EGov_SI_GetLabelByUserLocaleAndKey(
+                &quot;description&quot;,
+                local!KeyDetails
+              ),
+              CommentedBy: rule!EGov_SI_GetLabelByUserLocaleAndKey(
+                &quot;commentedBy&quot;,
+                local!KeyDetails
+              ),
+              CommentedOn: rule!EGov_SI_GetLabelByUserLocaleAndKey(
+                &quot;commentedOn&quot;,
+                local!KeyDetails
+              )
+            )
+          }
+        )*/
+        
+      },
+      secondColumnContents: {
+        /* Add components here for a two-column form */
+        
+      },
+      validations: {}
+    )
+  )
+)</definition>
+        <namedTypedValue>
+            <name>BuildingId</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+</contentHaul>

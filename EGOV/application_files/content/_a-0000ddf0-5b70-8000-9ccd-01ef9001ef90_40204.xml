@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>SI_IND_AddressRule</name>
+        <uuid>_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40204</uuid>
+        <description>contains the address of the Individual</description>
+        <parentUuid>_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40193</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>#&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+  label: ri!mainLabel,
+  isCollapsible: true,
+  firstColumnContents: {
+    #&quot;SYSTEM_SYSRULES_paragraphField&quot;(
+      label: ri!street,
+      labelPosition: &quot;ADJACENT&quot;,
+      readOnly: true,
+      value: index(ri!addressDetails,&quot;BuildingName&quot;,&quot;&quot;)
+    ),
+    #&quot;SYSTEM_SYSRULES_textField&quot;(
+      label: ri!quater,
+      labelPosition: &quot;ADJACENT&quot;,
+      value: index(ri!addressDetails,&quot;Quater&quot;,&quot;&quot;),
+      readOnly: true
+    ),
+    #&quot;SYSTEM_SYSRULES_textField&quot;(
+      label: ri!commune,
+      labelPosition: &quot;ADJACENT&quot;,
+      readOnly: true,
+      value: index(ri!addressDetails,&quot;Commune&quot;,&quot;&quot;)
+    )
+  },
+  secondColumnContents: {
+    #&quot;SYSTEM_SYSRULES_textField&quot;(
+      label: ri!city,
+      labelPosition: &quot;ADJACENT&quot;,
+      readOnly: true,
+      value: index(ri!addressDetails,&quot;City&quot;,&quot;&quot;)
+    ),
+    #&quot;SYSTEM_SYSRULES_textField&quot;(
+      label: ri!province,
+      labelPosition: &quot;ADJACENT&quot;,
+      readOnly: true,
+      value: index(ri!addressDetails,&quot;Province&quot;,&quot;&quot;)
+    )
+  }
+)</definition>
+        <namedTypedValue>
+            <name>mainLabel</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>street</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>quater</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>commune</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>city</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>province</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>addressDetails</name>
+            <type>
+                <name>EGov_SI_AddressDetailsView</name>
+                <namespace>urn:com:appian:types:EGov</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+</contentHaul>

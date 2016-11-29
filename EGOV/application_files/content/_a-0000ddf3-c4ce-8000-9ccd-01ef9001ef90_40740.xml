@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>EGov_SI_PLO_ShowBuildingsOnPlotRecord</name>
+        <uuid>_a-0000ddf3-c4ce-8000-9ccd-01ef9001ef90_40740</uuid>
+        <description>Contains rule for showing building on plot record</description>
+        <parentUuid>_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_39940</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>load(&#xD;
+  local!pagingInfo: #&quot;SYSTEM_SYSRULES_pagingInfo&quot;(&#xD;
+    startIndex: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_39911&quot;,&#xD;
+    batchSize: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_39912&quot;[1]&#xD;
+  ),&#xD;
+  with(&#xD;
+    local!datasubset: todatasubset(&#xD;
+      ri!Plot,&#xD;
+      local!pagingInfo&#xD;
+    ),&#xD;
+    {&#xD;
+    &#xD;
+    #&quot;SYSTEM_SYSRULES_gridField&quot;(&#xD;
+      totalCount: local!datasubset.totalCount,&#xD;
+      columns: {&#xD;
+        #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(&#xD;
+          label: ri!PropertyId,&#xD;
+          field: &quot;PropertyId&quot;,&#xD;
+          data: {&#xD;
+            index(&#xD;
+              local!datasubset.data,&#xD;
+              &quot;PropertyId&quot;,&#xD;
+              {}&#xD;
+            )&#xD;
+          },&#xD;
+          alignment: &quot;CENTER&quot;&#xD;
+        ),&#xD;
+        #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(&#xD;
+          label:  ri!PropertyCode,&#xD;
+          field: &quot;BuildingCode&quot;,&#xD;
+          data: {&#xD;
+            index(&#xD;
+              local!datasubset.data,&#xD;
+              &quot;BuildingCode&quot;,&#xD;
+              {}&#xD;
+            )&#xD;
+          },&#xD;
+          links: {&#xD;
+            apply(&#xD;
+              #&quot;_a-0000ddf3-c4ce-8000-9ccd-01ef9001ef90_40850&quot;(&#xD;
+                Code: _&#xD;
+              ),&#xD;
+              index(&#xD;
+                local!datasubset.data,&#xD;
+                &quot;PropertyViewId&quot;,&#xD;
+                {}&#xD;
+              )&#xD;
+            )&#xD;
+          },&#xD;
+          alignment: &quot;CENTER&quot;&#xD;
+        ),&#xD;
+        #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(&#xD;
+          label: ri!PropertyName,&#xD;
+          field: &quot;PropertyName&quot;,&#xD;
+          data: {&#xD;
+            index(&#xD;
+              local!datasubset.data,&#xD;
+              &quot;PropertyName&quot;,&#xD;
+              {}&#xD;
+            )&#xD;
+          },&#xD;
+          alignment: &quot;CENTER&quot;&#xD;
+        ),&#xD;
+        #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(&#xD;
+          label: ri!PropertyArea,&#xD;
+          field: &quot;PropertyArea&quot;,&#xD;
+          data: {&#xD;
+            index(&#xD;
+              local!datasubset.data,&#xD;
+              &quot;PropertyArea&quot;,&#xD;
+              {}&#xD;
+            )&#xD;
+          },&#xD;
+          alignment: &quot;CENTER&quot;&#xD;
+        ),&#xD;
+        #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(&#xD;
+          label: ri!NoOfFloors,&#xD;
+          field: &quot;NoOfFloors&quot;,&#xD;
+          data: {&#xD;
+            index(&#xD;
+              local!datasubset.data,&#xD;
+              &quot;NoOfFloors&quot;,&#xD;
+              {}&#xD;
+            )&#xD;
+          },&#xD;
+          alignment: &quot;CENTER&quot;&#xD;
+        ),&#xD;
+        #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(&#xD;
+          label: ri!BuildingDate,&#xD;
+          field: &quot;BuildingDate&quot;,&#xD;
+          data: {&#xD;
+            apply(&#xD;
+              todate(&#xD;
+                _&#xD;
+              ),&#xD;
+              index(&#xD;
+                local!datasubset.data,&#xD;
+                &quot;BuildingDate&quot;,&#xD;
+                {}&#xD;
+              )&#xD;
+            )&#xD;
+          },&#xD;
+          alignment: &quot;CENTER&quot;&#xD;
+        )&#xD;
+      },&#xD;
+      value: local!pagingInfo,&#xD;
+      saveInto: {&#xD;
+        local!pagingInfo&#xD;
+      }&#xD;
+    )&#xD;
+	}&#xD;
+ )&#xD;
+)</definition>
+        <namedTypedValue>
+            <name>Plot</name>
+            <type>
+                <name>EGov_SI_PlotBuildingView?list</name>
+                <namespace>urn:com:appian:types:EGov</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>PropertyName</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>PropertyArea</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>NoOfFloors</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>BuildingDate</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>PropertyId</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>PropertyCode</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+</contentHaul>

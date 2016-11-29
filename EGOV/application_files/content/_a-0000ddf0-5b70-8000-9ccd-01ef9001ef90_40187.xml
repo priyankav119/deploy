@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>EGov_SI_GetLabelByUserLocaleAndKey</name>
+        <uuid>_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187</uuid>
+        <description>Contains rule to get label in multilingual based on user locale</description>
+        <parentUuid>_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39628</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>load(
+  /*local!Key: rule!EGov_SI_GetMultiLingualKeyDetailsByUUID(
+    getconstantorruleuuidbyname(
+      &quot;SI_PLO_RecordDashboard&quot;
+    )
+  ),*/
+ local!KeyValue: wherecontains(
+    ri!Key,
+    index(
+      ri!MultlingualKey,
+      &quot;Key&quot;,
+      {}
+    )
+  ),
+  if(
+    userlocale(
+      loggedInUser()
+    ) = #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40161&quot;[1],
+    index(
+      ri!MultlingualKey[local!KeyValue],
+      &quot;LabelEng&quot;,
+      &quot;&quot;
+    ),
+    index(
+      ri!MultlingualKey[local!KeyValue],
+      &quot;LabelFrench&quot;,
+      &quot;&quot;
+    )
+  )
+)</definition>
+        <namedTypedValue>
+            <name>Key</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>MultlingualKey</name>
+            <type>
+                <name>EGov_SI_dv_MultiLingualKey?list</name>
+                <namespace>urn:com:appian:types:EGov</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+</contentHaul>

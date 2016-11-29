@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>EGov_SI_PLO_GetPropertyDetailsByPlotIdQE</name>
+        <uuid>_a-0000ddf3-c4ce-8000-9ccd-01ef9001ef90_40663</uuid>
+        <description>Fetch data from plot building view by plot id</description>
+        <parentUuid>_a-0000ddf3-c4ce-8000-9ccd-01ef9001ef90_40629</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>load(&#xD;
+  local!pagingInfo: #&quot;SYSTEM_SYSRULES_pagingInfo&quot;(&#xD;
+    startIndex: 1,&#xD;
+    batchSize: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_39912&quot;[3],&#xD;
+    sort: #&quot;SYSTEM_SYSRULES_sortInfo&quot;(&#xD;
+      field: &quot;PlotName&quot;,&#xD;
+      ascending: true&#xD;
+    )&#xD;
+  ),&#xD;
+  with(&#xD;
+     #&quot;SYSTEM_SYSRULES_queryEntity&quot;(&#xD;
+      entity: #&quot;_a-0000ddf3-c4ce-8000-9ccd-01ef9001ef90_40639&quot;,&#xD;
+      query: #&quot;SYSTEM_SYSRULES_query&quot;(&#xD;
+        aggregation: #&quot;SYSTEM_SYSRULES_queryAggregation&quot;(&#xD;
+          aggregationColumns: {&#xD;
+            #&quot;SYSTEM_SYSRULES_queryAggregationColumn&quot;(&#xD;
+              field: &quot;PlotId&quot;,&#xD;
+              isGrouping: true&#xD;
+            ),&#xD;
+            #&quot;SYSTEM_SYSRULES_queryAggregationColumn&quot;(&#xD;
+              field: &quot;PlotName&quot;,&#xD;
+              isGrouping: true&#xD;
+            ),&#xD;
+            #&quot;SYSTEM_SYSRULES_queryAggregationColumn&quot;(&#xD;
+              field: &quot;PropertyId&quot;,&#xD;
+              isGrouping: true&#xD;
+            ),&#xD;
+            #&quot;SYSTEM_SYSRULES_queryAggregationColumn&quot;(&#xD;
+              field: &quot;PropertyViewId&quot;,&#xD;
+              isGrouping: true&#xD;
+            ),&#xD;
+            #&quot;SYSTEM_SYSRULES_queryAggregationColumn&quot;(&#xD;
+              field: &quot;BuildingCode&quot;,&#xD;
+              isGrouping: true&#xD;
+            ),&#xD;
+            #&quot;SYSTEM_SYSRULES_queryAggregationColumn&quot;(&#xD;
+              field: &quot;PropertyName&quot;,&#xD;
+              isGrouping: true&#xD;
+            ),&#xD;
+            #&quot;SYSTEM_SYSRULES_queryAggregationColumn&quot;(&#xD;
+              field: &quot;PropertyArea&quot;,&#xD;
+              isGrouping: true&#xD;
+            ),&#xD;
+            #&quot;SYSTEM_SYSRULES_queryAggregationColumn&quot;(&#xD;
+              field: &quot;NoOfFloors&quot;,&#xD;
+              isGrouping: true&#xD;
+            ),&#xD;
+            #&quot;SYSTEM_SYSRULES_queryAggregationColumn&quot;(&#xD;
+              field: &quot;Latitude&quot;,&#xD;
+              isGrouping: true&#xD;
+            ),&#xD;
+            #&quot;SYSTEM_SYSRULES_queryAggregationColumn&quot;(&#xD;
+              field: &quot;Longitude&quot;,&#xD;
+              isGrouping: true&#xD;
+            ),&#xD;
+            #&quot;SYSTEM_SYSRULES_queryAggregationColumn&quot;(&#xD;
+              field: &quot;BuildingDate&quot;,&#xD;
+              isGrouping: true&#xD;
+            ),&#xD;
+             #&quot;SYSTEM_SYSRULES_queryAggregationColumn&quot;(&#xD;
+              field: &quot;AddressId&quot;,&#xD;
+              isGrouping: true&#xD;
+            ),&#xD;
+            #&quot;SYSTEM_SYSRULES_queryAggregationColumn&quot;(&#xD;
+              field: &quot;IsWater&quot;,&#xD;
+              isGrouping: true&#xD;
+            ),&#xD;
+            #&quot;SYSTEM_SYSRULES_queryAggregationColumn&quot;(&#xD;
+              field: &quot;IsElectricity&quot;,&#xD;
+              isGrouping: true&#xD;
+            ),&#xD;
+            #&quot;SYSTEM_SYSRULES_queryAggregationColumn&quot;(&#xD;
+              field: &quot;IsGenerator&quot;,&#xD;
+              isGrouping: true&#xD;
+            ),&#xD;
+            #&quot;SYSTEM_SYSRULES_queryAggregationColumn&quot;(&#xD;
+              field: &quot;IsLeased&quot;,&#xD;
+              isGrouping: true&#xD;
+            ),&#xD;
+            #&quot;SYSTEM_SYSRULES_queryAggregationColumn&quot;(&#xD;
+              field: &quot;IsSewageSystem&quot;,&#xD;
+              isGrouping: true&#xD;
+            ),&#xD;
+            &#xD;
+          }&#xD;
+        ),&#xD;
+        logicalExpression: if(&#xD;
+        and(&#xD;
+         #&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(&#xD;
+            ri!PlotId&#xD;
+          ),&#xD;
+         #&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(&#xD;
+            ri!PropertyId&#xD;
+          )&#xD;
+        ),&#xD;
+        null,&#xD;
+        #&quot;SYSTEM_SYSRULES_queryLogicalExpression&quot;(&#xD;
+          operator: &quot;AND&quot;,&#xD;
+          filters: {&#xD;
+        if(&#xD;
+          #&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(&#xD;
+            ri!PlotId&#xD;
+          ),&#xD;
+          {},&#xD;
+          #&quot;SYSTEM_SYSRULES_queryFilter&quot;(&#xD;
+            field: &quot;PlotId&quot;,&#xD;
+            operator: &quot;=&quot;,&#xD;
+            value: ri!PlotId&#xD;
+          )&#xD;
+        ),&#xD;
+        if(&#xD;
+          #&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(&#xD;
+            ri!PropertyId&#xD;
+          ),&#xD;
+          {},&#xD;
+          #&quot;SYSTEM_SYSRULES_queryFilter&quot;(&#xD;
+            field: &quot;PropertyId&quot;,&#xD;
+            operator: &quot;=&quot;,&#xD;
+            value: ri!PropertyId&#xD;
+          )&#xD;
+        )&#xD;
+        }&#xD;
+        )&#xD;
+        ),&#xD;
+        pagingInfo: local!pagingInfo&#xD;
+      )&#xD;
+    ).data&#xD;
+    &#xD;
+  )&#xD;
+)</definition>
+        <namedTypedValue>
+            <name>PlotId</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>PropertyId</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+</contentHaul>

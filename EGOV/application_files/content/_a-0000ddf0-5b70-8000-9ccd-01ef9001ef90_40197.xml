@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>SI_IND_RecordDashboard</name>
+        <uuid>_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40197</uuid>
+        <description>Record dashboard of Individual
+</description>
+        <parentUuid>_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40190</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>load(
+  local!InterfaceId: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40114&quot;(
+   &quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40197&quot;
+  ),
+  with(
+    local!data: #&quot;_a-0000ddf3-bb41-8000-9ccd-01ef9001ef90_40572&quot;(
+      ri!Id
+    ),
+    local!contactDetails: #&quot;_a-0000ddf3-bb41-8000-9ccd-01ef9001ef90_40580&quot;(
+      index(
+        local!data,
+        &quot;ContactId&quot;,
+        &quot;&quot;
+      )
+    ),
+    #&quot;SYSTEM_SYSRULES_formLayout&quot;(
+      firstColumnContents: {
+        #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+          label: index(local!data,&quot;FirstName&quot;,&quot;&quot;)&amp;&quot; &quot;&amp;index(local!data,&quot;LastName&quot;,&quot;&quot;),
+          firstColumnContents: {
+            #&quot;SYSTEM_SYSRULES_textField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;firstName&quot;,
+                local!InterfaceId
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              value: index(
+                local!data,
+                &quot;FirstName&quot;,
+                &quot;&quot;
+              ),
+              readOnly: true
+            ),
+            #&quot;SYSTEM_SYSRULES_textField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;lastName&quot;,
+                local!InterfaceId
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              value: index(
+                local!data,
+                &quot;LastName&quot;,
+                &quot;&quot;
+              ),
+              readOnly: true
+            ),
+            #&quot;SYSTEM_SYSRULES_textField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;designation&quot;,
+                local!InterfaceId
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              value: index(
+                local!data,
+                &quot;Designation&quot;,
+                &quot;&quot;
+              ),
+              readOnly: true
+            ),
+            #&quot;SYSTEM_SYSRULES_textField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;department&quot;,
+                local!InterfaceId
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              value: index(
+                local!data,
+                &quot;Department&quot;,
+                &quot;&quot;
+              ),
+              readOnly: true
+            ),
+            #&quot;SYSTEM_SYSRULES_textField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;dob&quot;,
+                local!InterfaceId
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              value: todate(
+                index(
+                  local!data,
+                  &quot;DOB&quot;,
+                  &quot;&quot;
+                )
+              ),
+              readOnly: true
+            )
+          },
+          secondColumnContents: {
+            #&quot;SYSTEM_SYSRULES_imageField&quot;(
+              label: &quot;&quot;,
+              images: #&quot;SYSTEM_SYSRULES_documentImage&quot;(
+                document: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40202&quot;
+              ),
+              size: &quot;SMALL&quot;,
+              labelPosition: &quot;ADJACENT&quot;
+            )
+          }
+        ),
+        #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+          label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+            &quot;contactDet&quot;,
+            local!InterfaceId
+          ),
+          firstColumnContents: {
+            #&quot;SYSTEM_SYSRULES_textField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;personalNumber&quot;,
+                local!InterfaceId
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              value: index(
+                local!contactDetails,
+                &quot;PersonalNumber&quot;,
+                &quot;&quot;
+              ),
+              readOnly: true
+            ),
+            #&quot;SYSTEM_SYSRULES_textField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;officialNumber&quot;,
+                local!InterfaceId
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              value: index(
+                local!contactDetails,
+                &quot;OfficialNumber&quot;,
+                &quot;&quot;
+              ),
+              readOnly: true
+            ),
+            #&quot;SYSTEM_SYSRULES_textField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;faxNumber&quot;,
+                local!InterfaceId
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              value: index(
+                local!contactDetails,
+                &quot;FaxNumber&quot;,
+                &quot;&quot;
+              ),
+              readOnly: true
+            )
+          },
+          secondColumnContents: {
+            #&quot;SYSTEM_SYSRULES_textField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;personalEmail&quot;,
+                local!InterfaceId
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              value: index(
+                local!contactDetails,
+                &quot;PersonalEmail&quot;,
+                &quot;&quot;
+              ),
+              readOnly: true
+            ),
+            #&quot;SYSTEM_SYSRULES_textField&quot;(
+              label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+                &quot;officialEmail&quot;,
+                local!InterfaceId
+              ),
+              labelPosition: &quot;ADJACENT&quot;,
+              value: index(
+                local!contactDetails,
+                &quot;OfficialEmail&quot;,
+                &quot;&quot;
+              ),
+              readOnly: true
+            )
+          }
+        ),
+        #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40204&quot;(
+          mainLabel: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+            &quot;addressDetails&quot;,
+            local!InterfaceId
+          ),
+          street: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+            &quot;street&quot;,
+            local!InterfaceId
+          ),
+          quater: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+            &quot;quarter&quot;,
+            local!InterfaceId
+          ),
+          commune: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+            &quot;commune&quot;,
+            local!InterfaceId
+          ),
+          city: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+            &quot;city&quot;,
+            local!InterfaceId
+          ),
+          province: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+            &quot;province&quot;,
+            local!InterfaceId
+          ),
+          addressDetails : #&quot;_a-0000ddf3-c4ce-8000-9ccd-01ef9001ef90_40790&quot;(
+      local!data.AddressId
+    )
+        )
+      },
+      secondColumnContents: {}
+    )
+  )
+)</definition>
+        <namedTypedValue>
+            <name>Id</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+</contentHaul>

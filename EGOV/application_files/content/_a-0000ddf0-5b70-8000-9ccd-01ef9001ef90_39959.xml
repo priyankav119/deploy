@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>EGov_Common_AddressRule</name>
+        <uuid>_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_39959</uuid>
+        <description>Holds the value for the address rule</description>
+        <parentUuid>_a-0000dde1-361a-8000-9ccd-01ef9001ef90_39628</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>load(
+  local!AddressId: index(
+    #&quot;_a-0000ddf3-c4ce-8000-9ccd-01ef9001ef90_40663&quot;(
+      PropertyId:ri!BuildingId
+    ),
+    &quot;AddressId&quot;,
+    {}
+  ),
+  local!AddressDetails:#&quot;_a-0000ddf3-c4ce-8000-9ccd-01ef9001ef90_40790&quot;(
+     1
+    ), /*if(
+    rule!Utils_CheckIsNull(
+      local!AddressId
+    ),
+    {},
+    rule!EGov_SI_GetAddressDetailsById(
+      local!AddressId
+    )
+  ),*/
+  #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+    label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+      &quot;addressDetails&quot;,
+      local!KeyDetails
+    ),
+    isCollapsible: true,
+    firstColumnContents: {
+      #&quot;SYSTEM_SYSRULES_paragraphField&quot;(
+        label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+          &quot;street&quot;,
+          local!KeyDetails
+        ),
+        labelPosition: &quot;ADJACENT&quot;,
+        readOnly: true,
+        value: &quot;Régie de Voies Aérien&quot;
+      ),
+      #&quot;SYSTEM_SYSRULES_textField&quot;(
+        label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+          &quot;quarter&quot;,
+          local!KeyDetails
+        ),
+        labelPosition: &quot;ADJACENT&quot;,
+        readOnly: true,
+        value:index(local!AddressDetails,&quot;QuaterName&quot;,{})
+      ),
+      #&quot;SYSTEM_SYSRULES_textField&quot;(
+        label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+          &quot;commune&quot;,
+          local!KeyDetails
+        ),
+        labelPosition: &quot;ADJACENT&quot;,
+        readOnly: true,
+        value: index(local!AddressDetails,&quot;CommuneName&quot;,{})
+      ),
+      #&quot;SYSTEM_SYSRULES_textField&quot;(
+        label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+          &quot;city&quot;,
+          local!KeyDetails
+        ),
+        labelPosition: &quot;ADJACENT&quot;,
+        readOnly: true,
+        value: index(local!AddressDetails,&quot;CityName&quot;,{})
+      ),
+      #&quot;SYSTEM_SYSRULES_textField&quot;(
+        label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+          &quot;provience&quot;,
+          local!KeyDetails
+        ),
+        labelPosition: &quot;ADJACENT&quot;,
+        readOnly: true,
+        value: index(local!AddressDetails,&quot;ProvinceName&quot;,{})
+      ),
+      #&quot;SYSTEM_SYSRULES_textField&quot;(
+        label: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+          &quot;centroidCoordinates&quot;,
+          local!KeyDetails
+        ),
+        labelPosition: &quot;ADJACENT&quot;,
+        readOnly: true,
+        value: concat(ri!Latitude,&quot;,&quot;,ri!Longitude)
+      )
+    },
+    secondColumnContents: {
+      #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_39910&quot;(
+        Latitude: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+          &quot;latitude&quot;,
+          local!KeyDetails
+        ),
+        Longitude: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40187&quot;(
+          &quot;longitude&quot;,
+          local!KeyDetails
+        ),
+        LocationId: ri!BuildingId
+      )
+    }
+  )
+)</definition>
+        <namedTypedValue>
+            <name>BuildingId</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>Latitude</name>
+            <type>
+                <name>double</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>Longitude</name>
+            <type>
+                <name>double</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+</contentHaul>

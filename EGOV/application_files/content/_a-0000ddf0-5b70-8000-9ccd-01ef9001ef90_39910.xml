@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>SI_BUL_LatitudeLongitudePagingGrid</name>
+        <uuid>_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_39910</uuid>
+        <description>Contains the value for the building latitude and longitude paging grid</description>
+        <parentUuid>_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_39905</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>load(
+  local!pagingInfo: #&quot;SYSTEM_SYSRULES_pagingInfo&quot;(
+    startIndex: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_39911&quot;,
+    batchSize: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_39912&quot;[1]
+  ),
+  local!LatAndLonDetails: if(#&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(ri!LocationId),{}, #&quot;_a-0000ddf3-bb41-8000-9ccd-01ef9001ef90_40578&quot;(
+    LocationId: ri!LocationId,
+    LocationTypeId: 1
+  )),
+  with(
+    local!datasubset: todatasubset(
+      local!LatAndLonDetails,
+      local!pagingInfo
+    ),
+    #&quot;SYSTEM_SYSRULES_gridField&quot;(
+      totalCount: local!datasubset.totalCount,
+      columns: {
+        #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+          label: ri!Latitude,
+          field: &quot;Latitude&quot;,
+          data: {
+            index(
+              local!datasubset.data,
+              &quot;Latitude&quot;,
+              {}
+            )
+          },
+          alignment: &quot;CENTER&quot;
+        ),
+        #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+          label: ri!Longitude,
+          field: &quot;Longitude&quot;,
+          data: {
+            index(
+              local!datasubset.data,
+              &quot;Longitude&quot;,
+              {}
+            )
+          },
+          alignment: &quot;CENTER&quot;
+        )
+      },
+      value: local!pagingInfo,
+      saveInto: {
+        local!pagingInfo
+      }
+    )
+  )
+)</definition>
+        <namedTypedValue>
+            <name>Latitude</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>Longitude</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>LocationId</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+</contentHaul>

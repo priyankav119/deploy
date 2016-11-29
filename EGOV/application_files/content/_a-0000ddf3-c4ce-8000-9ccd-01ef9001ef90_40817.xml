@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>SI_IND_AddIndividual</name>
+        <uuid>_a-0000ddf3-c4ce-8000-9ccd-01ef9001ef90_40817</uuid>
+        <description>To add Tax Auditor and Verificateur </description>
+        <parentUuid>_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40190</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>load(
+  local!Key: #&quot;_a-0000ddf0-5b70-8000-9ccd-01ef9001ef90_40114&quot;(
+    &quot;_a-0000ddf3-c4ce-8000-9ccd-01ef9001ef90_40817&quot;
+  ),
+  local!Pro,
+  local!Commune,
+  local!City,
+  local!Quater,
+  
+with(
+  local!CityId:
+  if(#&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(ri!Address.ProvienceId),{},
+  #&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41129&quot;(ProvinceId:ri!Address.ProvienceId).Id)  ,
+  local!CityName:
+  if(#&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(ri!Address.ProvienceId),{},
+  #&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41129&quot;(ProvinceId:ri!Address.ProvienceId).CityName),
+  local!CommuneName:
+  if(#&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(ri!Address.CityId),{},
+  #&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41132&quot;(CityId:ri!Address.CityId).CommuneName),
+  local!CommuneId:
+  if(#&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(ri!Address.CityId),{},
+  #&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41132&quot;(CityId:ri!Address.CityId).Id),
+  local!QuaterId:
+  if(#&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(ri!Address.CommuneId),{},
+  #&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41136&quot;(CommuneId:ri!Address.CommuneId).Id),
+  local!QuaterName:
+  if(#&quot;_a-0000d33c-c5a1-8000-7bd7-760000760000_1541&quot;(ri!Address.CommuneId),{},
+  #&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41136&quot;(CommuneId:ri!Address.CommuneId).QuaterName),
+#&quot;SYSTEM_SYSRULES_formLayout&quot;(
+  label: &quot;Create New Individual&quot;,
+  instructions: &quot;Please fill the complete details&quot;,
+  firstColumnContents: {
+    #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+      label: &quot;Basic Details&quot;,
+      isCollapsible:true,
+      firstColumnContents: {
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;First Name&quot;,
+          required:true,
+          labelPosition: &quot;ADJACENT&quot;,
+          value:index(ri!Individual,&quot;FirstName&quot;,{}),
+          saveInto: {
+            ri!Individual.FirstName
+          },
+          refreshAfter: &quot;UNFOCUS&quot;,
+          validations: {}
+        ),
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;Department&quot;,
+          required:true,
+          labelPosition: &quot;ADJACENT&quot;,
+          value:index(ri!Individual,&quot;Department&quot;,{}),
+          saveInto: {
+            ri!Individual.Department
+          },
+          refreshAfter: &quot;UNFOCUS&quot;,
+          validations: {}
+        ),
+         #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;Designation&quot;,
+          required:true,
+          labelPosition: &quot;ADJACENT&quot;,
+          value:index(ri!Individual,&quot;Designation&quot;,{}),
+          saveInto: {
+            ri!Individual.Designation
+          },
+          refreshAfter: &quot;UNFOCUS&quot;,
+          validations: {}
+        )
+      },
+      secondColumnContents: {
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;Last Name&quot;,
+          required:true,
+          labelPosition: &quot;ADJACENT&quot;,
+          value:index(ri!Individual,&quot;LastName&quot;,{}),
+          saveInto: {
+            ri!Individual.LastName
+          },
+          refreshAfter: &quot;UNFOCUS&quot;,
+          validations: {}
+        ),
+         #&quot;SYSTEM_SYSRULES_fileUploadField&quot;(
+          label:&quot;Upload Image&quot;,
+          target:#&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41158&quot;,
+          value:ri!ImageId,
+          saveInto:ri!ImageId,
+          labelPosition:&quot;ADJACENT&quot;
+        )
+       /* a!textField(
+          label: &quot;Designation&quot;,
+          required:true,
+          labelPosition: &quot;ADJACENT&quot;,
+          value:index(ri!Individual,&quot;Designation&quot;,{}),
+          saveInto: {
+            ri!Individual.Designation
+          },
+          refreshAfter: &quot;UNFOCUS&quot;,
+          validations: {}
+        )*/
+      }
+    ),
+    #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+      label: &quot;Contact Details&quot;,
+      isCollapsible:true,
+      firstColumnContents: {
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;Personal Number&quot;,
+          required:true,
+          labelPosition: &quot;ADJACENT&quot;,
+          value:index(ri!ContactDetail,&quot;PersonalNumber&quot;,{}),
+          saveInto: {
+            ri!ContactDetail.PersonalNumber
+          },
+          refreshAfter: &quot;UNFOCUS&quot;,
+          validations: {}
+        ),
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;Personal Email Address&quot;,
+          required:true,
+          labelPosition: &quot;ADJACENT&quot;,
+          value:index(ri!ContactDetail,&quot;PersonalEmail&quot;,{}),
+          saveInto: {
+            ri!ContactDetail.PersonalEmail
+          },
+          refreshAfter: &quot;UNFOCUS&quot;,
+          validations: {}
+        ),
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;Fax Number&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          value:index(ri!ContactDetail,&quot;FaxNumber&quot;,{}),
+          saveInto: {
+            ri!ContactDetail.FaxNumber
+          },
+          refreshAfter: &quot;UNFOCUS&quot;,
+          validations: {}
+        )
+      },
+      secondColumnContents: {
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;Official Number&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          value:index(ri!ContactDetail,&quot;OfficialNumber&quot;,{}),
+          saveInto: {
+            ri!ContactDetail.OfficialNumber
+          },
+          refreshAfter: &quot;UNFOCUS&quot;,
+          validations: {}
+        ),
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;Official Email Address&quot;,
+          required:true,
+          labelPosition: &quot;ADJACENT&quot;,
+          value :index(ri!ContactDetail,&quot;OfficialEmail&quot;,{}),
+          saveInto: {
+            ri!ContactDetail.OfficialEmail
+          },
+          refreshAfter: &quot;UNFOCUS&quot;,
+          validations: {}
+        )
+      }
+    ),
+    #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+      label: &quot;Assign Area&quot;,
+      isCollapsible:true,
+      firstColumnContents: {
+          #&quot;SYSTEM_SYSRULES_dropdownField&quot;(
+          label: &quot;Province&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          required:true,
+          placeholderLabel: &quot;Select Province&quot;,
+          choiceLabels: {
+          index(#&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41082&quot;(),&quot;ProvinceName&quot;,{})
+          },
+          choiceValues: {
+           index(#&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41082&quot;(),&quot;Id&quot;,{})
+          },
+          value: local!Pro,
+          saveInto: {
+            local!Pro,
+            a!save(ri!Address.ProvienceId,save!value)
+            },
+          refreshAfter: &quot;UNFOCUS&quot;,
+          validations: {}
+        ),
+        #&quot;SYSTEM_SYSRULES_dropdownField&quot;(
+          label: &quot;Commune&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          required:true,
+          placeholderLabel: &quot;Select Commune&quot;,
+          choiceLabels: {
+           local!CommuneName
+          },
+          choiceValues: {
+            local!CommuneId
+          },
+          value: local!Commune,
+          saveInto: {
+            local!Commune,
+            a!save(ri!Address.CommuneId,save!value),
+            a!save(ri!Address.QuarterId,null)
+          },
+          refreshAfter: &quot;UNFOCUS&quot;,
+          validations: {}
+        )/*,
+        a!textField(
+          label: &quot;Plot&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          required:true,
+          saveInto: {},
+          placeholder: &quot;Enter Plot Name&quot;,
+          refreshAfter: &quot;UNFOCUS&quot;,
+          validations: {}
+        )*/
+      },
+      secondColumnContents: {
+        #&quot;SYSTEM_SYSRULES_dropdownField&quot;(
+          label: &quot;City&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+        required:true,
+          placeholderLabel: &quot;Select City&quot;,
+          choiceLabels: {
+            local!CityName
+          },
+          choiceValues: {
+            local!CityId
+          },
+          value: local!City,
+           saveInto: {
+             local!City,
+             a!save(ri!Address.CityId,save!value)
+           },
+          refreshAfter: &quot;UNFOCUS&quot;,
+          validations: {}
+        ),
+        #&quot;SYSTEM_SYSRULES_dropdownField&quot;(
+          label: &quot;Quater&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          required:true,
+          placeholderLabel: &quot;Select Quater&quot;,
+          choiceLabels: {
+           local!QuaterName
+          },
+          choiceValues: {
+           local!QuaterId
+          },
+          value:ri!Address.QuarterId,
+          saveInto: {
+            local!Quater,
+            a!save(ri!Address.QuarterId,save!value)
+          },
+          refreshAfter: &quot;UNFOCUS&quot;,
+          validations: {}
+        )/*,
+        a!textField(
+          label: &quot;Building&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          saveInto: {},
+          placeholder: &quot;Enter Building Name&quot;,
+          refreshAfter: &quot;UNFOCUS&quot;,
+          validations: {}
+        )*/
+        
+      }
+    )
+  },
+  secondColumnContents: {},
+  buttons: #&quot;SYSTEM_SYSRULES_ButtonLayout&quot;(
+    primaryButtons: {
+      #&quot;SYSTEM_SYSRULES_ButtonWidgetSubmit&quot;(
+        label: &quot;Submit&quot;,
+        style: &quot;PRIMARY&quot;,
+        value:#&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41047&quot;[1],
+        saveInto:ri!ButtonAction
+      )
+    },
+    secondaryButtons: {
+      #&quot;SYSTEM_SYSRULES_ButtonWidgetSubmit&quot;(
+        label: &quot;Cancel&quot;,
+        style: &quot;NORMAL&quot;,
+        value: #&quot;_a-0000ddf5-09b1-8000-9ccd-01ef9001ef90_41047&quot;[2],
+        saveInto:ri!ButtonAction,
+        skipValidation: true
+      )
+    }
+  ),
+  validations: {}
+))
+)</definition>
+        <namedTypedValue>
+            <name>ButtonAction</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>Address</name>
+            <type>
+                <name>EGov_SI_Address</name>
+                <namespace>urn:com:appian:types:EGov</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>ContactDetail</name>
+            <type>
+                <name>EGov_SI_ContactDetail</name>
+                <namespace>urn:com:appian:types:EGov</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>Individual</name>
+            <type>
+                <name>EGov_SI_Individual</name>
+                <namespace>urn:com:appian:types:EGov</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>ImageId</name>
+            <type>
+                <name>CollaborationDocument</name>
+                <namespace>http://www.appian.com/ae/types/2009</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig?list</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <el>
+                <a:name/>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string"/>
+                    <a:nameRef>ButtonAction</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:n1="urn:com:appian:types:EGov" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="n1:EGov_SI_Address"/>
+                    <a:nameRef>Address</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:n1="urn:com:appian:types:EGov" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="n1:EGov_SI_ContactDetail"/>
+                    <a:nameRef>ContactDetail</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:n1="urn:com:appian:types:EGov" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="n1:EGov_SI_Individual"/>
+                    <a:nameRef>Individual</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="a:CollaborationDocument"/>
+                    <a:nameRef>ImageId</a:nameRef>
+                    <a:id/>
+                </a:ruleInputTestConfigs>
+                <a:assertions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+            </el>
+        </value>
+    </typedValue>
+</contentHaul>
